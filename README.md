@@ -14,9 +14,9 @@
 <br/>
 
 ## 🟨 *****SCREENSHOT*****
-| 홈 |             신입/인턴             |              채팅홈               |              채팅방               |
+| 로그인 |             홈            |              활동               |              마이페이지               |
 |:---:|:-----------------------------------------------------------------------------:|:-----------------------------------------------------------------------------:|:-----------------------------------------------------------------------------:|
-| <img width="200" src="https://github.com/user-attachments/assets/3be9bce3-90c0-4e65-97ef-5f84f81d8b51"/> | <img width="200" src="https://github.com/user-attachments/assets/993fd1d7-8982-4521-a357-ce4130a253ad"/> | <img width="200" src="https://github.com/user-attachments/assets/d5e1ffe7-ea40-4a98-a3ec-309a74dda547"/> | <img width="200" src="https://github.com/user-attachments/assets/7dd370b2-f805-47ad-8f81-9d2be6ff5bac"/> |
+| <img width="200" src=""/> | <img width="200" src=""/> | <img width="200" src=""/> | <img width="200" src=""/> |
 
 <br/>
 
@@ -29,7 +29,7 @@
 
 <br/>
 
-## 🔧 *****TECH STACKS*****
+## 🔧 *****TECH STACKS***** (미정)
 | **Category** | **TechStack** |
 | --- | --- |
 | Language | Kotlin |
@@ -49,7 +49,7 @@
 <br/>
 
 > ## 💻 코드리뷰 룰
-1. 1. 미정
+1. 미정
 
 <br/>
 
