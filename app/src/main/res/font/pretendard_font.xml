@@ -10,16 +10,16 @@
 
     <font
         app:font="@font/pretendard_medium"
-        android:fontStyle="normal"
-        android:fontWeight="500"/>
+        app:fontStyle="normal"
+        app:fontWeight="500"/>
 
     <font
         app:font="@font/pretendard_semi_bold"
-        android:fontStyle="normal"
-        android:fontWeight="500"/>
+        app:fontStyle="normal"
+        app:fontWeight="500"/>
 
     <font
         app:font="@font/pretendard_bold"
-        android:fontStyle="normal"
-        android:fontWeight="700"/>
+        app:fontStyle="normal"
+        app:fontWeight="700"/>
 </font-family>
