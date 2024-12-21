@@ -15,7 +15,6 @@ object ServiceModule {
     @Provides
     @Singleton
     fun provideAuthApi(
-        @ElderCare retrofit: Retrofit
-    ) : AuthService = retrofit.create(AuthService::class.java)
-
+        @ElderCare retrofit: Retrofit,
+    ): AuthService = retrofit.create(AuthService::class.java)
 }

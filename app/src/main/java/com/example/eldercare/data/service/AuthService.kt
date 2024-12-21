@@ -6,7 +6,7 @@ import retrofit2.http.POST
 interface AuthService {
     @POST("$VERSION/$AUTH/$LOGIN")
     suspend fun postLogin(
-        @Body body: String
+        @Body body: String,
     )
 
     companion object {

@@ -15,5 +15,4 @@ class UseCaseModule {
     @Singleton
     fun providesPostSignInUseCase(authRepository: AuthRepository): PostSignInUseCase =
         PostSignInUseCase(authRepository = authRepository)
-
 }

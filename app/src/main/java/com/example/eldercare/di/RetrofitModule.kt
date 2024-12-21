@@ -22,29 +22,29 @@ object RetrofitModule {
     @OptIn(ExperimentalSerializationApi::class)
     @Provides
     @Singleton
-    fun provideJson(): Json = Json {
-        isLenient = true
-        prettyPrint = true
-        explicitNulls = false
-        ignoreUnknownKeys = true
-    }
+    fun provideJson(): Json =
+        Json {
+            isLenient = true
+            prettyPrint = true
+            explicitNulls = false
+            ignoreUnknownKeys = true
+        }
 
     @Provides
     @Singleton
-    fun providesLoggingInterceptor(): HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
-    }
+    fun providesLoggingInterceptor(): HttpLoggingInterceptor =
+        HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
 
     @Provides
     @Singleton
-    fun provideOKHttpClient(
-        httpLoggingInterceptor: HttpLoggingInterceptor,
-    ): OkHttpClient =
+    fun provideOKHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
         OkHttpClient.Builder().apply {
             connectTimeout(10, TimeUnit.SECONDS)
             readTimeout(10, TimeUnit.SECONDS)
             writeTimeout(10, TimeUnit.SECONDS)
-            if(DEBUG) addInterceptor(httpLoggingInterceptor)
+            if (DEBUG) addInterceptor(httpLoggingInterceptor)
         }.build()
 
     @ExperimentalSerializationApi
@@ -52,15 +52,15 @@ object RetrofitModule {
     @Singleton
     @ElderCare
     fun provideElderCareRetrofit(
-        okHttpClient: OkHttpClient, json: Json
+        okHttpClient: OkHttpClient,
+        json: Json,
     ): Retrofit {
         return Retrofit.Builder()
             .baseUrl("")
             .client(okHttpClient)
             .addConverterFactory(
-                json.asConverterFactory((requireNotNull("application/json".toMediaTypeOrNull())))
+                json.asConverterFactory((requireNotNull("application/json".toMediaTypeOrNull()))),
             )
             .build()
     }
-
 }

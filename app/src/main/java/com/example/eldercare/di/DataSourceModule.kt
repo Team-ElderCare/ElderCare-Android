@@ -13,7 +13,5 @@ import javax.inject.Singleton
 abstract class DataSourceModule {
     @Binds
     @Singleton
-    abstract fun bindAuthDataSource(authDataSourceImpl: AuthRemoteDataSourceImpl):
-        AuthRemoteDataSource
-
+    abstract fun bindAuthDataSource(authDataSourceImpl: AuthRemoteDataSourceImpl): AuthRemoteDataSource
 }
