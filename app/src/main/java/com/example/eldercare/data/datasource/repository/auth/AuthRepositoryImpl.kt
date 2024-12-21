@@ -1,4 +1,6 @@
 package com.example.eldercare.data.datasource.repository.auth
 
-class AuthRepositoryImpl {
+import com.example.eldercare.domain.repository.AuthRepository
+
+class AuthRepositoryImpl: AuthRepository {
 }
