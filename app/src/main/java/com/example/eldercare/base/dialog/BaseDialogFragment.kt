@@ -1,4 +1,4 @@
-package com.example.eldercare.util
+package com.example.eldercare.base.dialog
 
 import android.os.Bundle
 import android.view.LayoutInflater
