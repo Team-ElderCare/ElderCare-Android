@@ -49,14 +49,14 @@ object RetrofitModule {
     @Singleton
     fun provideOKHttpClient(
         httpLoggingInterceptor: HttpLoggingInterceptor,
-        accessTokenManager: AccessTokenManager,
+        tokenInterceptor: TokenInterceptor,
     ): OkHttpClient =
         OkHttpClient.Builder().apply {
             connectTimeout(10, TimeUnit.SECONDS)
             readTimeout(10, TimeUnit.SECONDS)
             writeTimeout(10, TimeUnit.SECONDS)
             if (DEBUG) addInterceptor(httpLoggingInterceptor)
-            addInterceptor(accessTokenManager)
+            addInterceptor(tokenInterceptor)
         }.build()
 
     @ExperimentalSerializationApi
