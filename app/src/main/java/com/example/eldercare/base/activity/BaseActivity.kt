@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.example.eldercare.base.viewmodel.BaseViewModel
 
+// 액티비티 생성 시 상속받을 BaseActivity
+// 뷰 바인딩 관련 내용 포함
+
 abstract class BaseActivity<B : ViewBinding, VM : BaseViewModel>(
     private val inflate: (LayoutInflater) -> B,
 ) : AppCompatActivity() {

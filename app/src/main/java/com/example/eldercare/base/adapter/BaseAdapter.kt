@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.viewbinding.ViewBinding
 import com.example.eldercare.base.diffutil.BaseDiffCallback
 
-
+// 리사이클러뷰 사용 시 구현할 BaseAdapter
 abstract class BaseAdapter<T : Any, VB : ViewBinding, VH : BaseViewHolder<T>>(
     diffCallback: BaseDiffCallback<T>,
 ) : ListAdapter<T, VH>(diffCallback) {
