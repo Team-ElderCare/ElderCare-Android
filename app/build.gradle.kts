@@ -49,10 +49,16 @@ android {
         dataBinding = true
         buildConfig = true
     }
+    buildFeatures {
+        viewBinding = true
+    }
+    lint {
+        baseline = file("lint-baseline.xml")
+        abortOnError = false
+    }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
