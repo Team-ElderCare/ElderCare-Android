@@ -1,7 +1,9 @@
 package com.example.eldercare.di
 
 import com.example.eldercare.BuildConfig.DEBUG
+import com.example.eldercare.data.interceptor.TokenInterceptor
 import com.example.eldercare.di.qualifier.ElderCare
+import com.example.eldercare.util.token.TokenManager
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -32,6 +34,12 @@ object RetrofitModule {
 
     @Provides
     @Singleton
+    fun provideTokenInterceptor(tokenManager: TokenManager): TokenInterceptor {
+        return TokenInterceptor(tokenManager)
+    }
+
+    @Provides
+    @Singleton
     fun providesLoggingInterceptor(): HttpLoggingInterceptor =
         HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
@@ -39,12 +47,16 @@ object RetrofitModule {
 
     @Provides
     @Singleton
-    fun provideOKHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
+    fun provideOKHttpClient(
+        httpLoggingInterceptor: HttpLoggingInterceptor,
+        tokenInterceptor: TokenInterceptor
+    ): OkHttpClient =
         OkHttpClient.Builder().apply {
             connectTimeout(10, TimeUnit.SECONDS)
             readTimeout(10, TimeUnit.SECONDS)
             writeTimeout(10, TimeUnit.SECONDS)
             if (DEBUG) addInterceptor(httpLoggingInterceptor)
+            addInterceptor(tokenInterceptor)
         }.build()
 
     @ExperimentalSerializationApi
