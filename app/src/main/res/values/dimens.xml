@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- spacing -->
+    <dimen name="spacing1">4dp</dimen>
+    <dimen name="spacing2">8dp</dimen>
+    <dimen name="spacing3">12dp</dimen>
+    <dimen name="spacing4">16dp</dimen>
+    <dimen name="spacing5">20dp</dimen>
+    <dimen name="spacing6">24dp</dimen>
+    <dimen name="spacing7">28dp</dimen>
+    <dimen name="spacing8">32dp</dimen>
+    <dimen name="spacing9">36dp</dimen>
+    <dimen name="spacing10">40dp</dimen>
+    <dimen name="spacing11">44dp</dimen>
+    <dimen name="spacing12">48dp</dimen>
+    <dimen name="spacing13">52dp</dimen>
+
+    <!-- height-->
+    <dimen name="height_s">28dp</dimen>
+    <dimen name="height_m">32dp</dimen>
+    <dimen name="height_basic">36dp</dimen>
+    <dimen name="height_l">48dp</dimen>
+    <dimen name="height_xl">56dp</dimen>
+
+    <!-- radius-->
+    <dimen name="radius_xs">24dp</dimen>
+    <dimen name="radius_s">4dp</dimen>
+    <dimen name="radius_m">8dp</dimen>
+    <dimen name="radius_l">24dp</dimen>
+    <dimen name="radius_xl">24dp</dimen>
+
+    <!-- padding-->
+    <dimen name="padding_xs">8dp</dimen>
+    <dimen name="padding_s">12dp</dimen>
+    <dimen name="padding_m">16dp</dimen>
+    <dimen name="padding_l">20dp</dimen>
+    <dimen name="padding_xl">4dp</dimen>
+    <dimen name="padding_2xl">32dp</dimen>
+
+    <!-- padding-->
+    <dimen name="margin_xs">4dp</dimen>
+    <dimen name="margin_s">8dp</dimen>
+    <dimen name="margin_m">16dp</dimen>
+    <dimen name="margin_l">24dp</dimen>
+    <dimen name="margin_xl">40dp</dimen>
+    <dimen name="margin_2xl">80dp</dimen>
+</resources>
