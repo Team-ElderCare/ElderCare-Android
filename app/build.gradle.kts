@@ -49,9 +49,6 @@ android {
         dataBinding = true
         buildConfig = true
     }
-    buildFeatures {
-        viewBinding = true
-    }
     lint {
         baseline = file("lint-baseline.xml")
         abortOnError = false
