@@ -13,6 +13,5 @@ import javax.inject.Singleton
 class UseCaseModule {
     @Provides
     @Singleton
-    fun providesPostSignInUseCase(authRepository: AuthRepository): PostSignInUseCase =
-        PostSignInUseCase(authRepository = authRepository)
+    fun providesPostSignInUseCase(authRepository: AuthRepository): PostSignInUseCase = PostSignInUseCase(authRepository = authRepository)
 }

@@ -14,6 +14,10 @@ fun Context.hideKeyboard(view: View) {
     view.clearFocus()
 }
 
-fun Context.stringOf(@StringRes resId: Int) = getString(resId)
+fun Context.stringOf(
+    @StringRes resId: Int,
+) = getString(resId)
 
-fun Context.colorOf(@ColorRes resId: Int) = ContextCompat.getColor(this, resId)
+fun Context.colorOf(
+    @ColorRes resId: Int,
+) = ContextCompat.getColor(this, resId)

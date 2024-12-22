@@ -10,7 +10,9 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
 
 // 추후 파일 위치 변경
-abstract class BaseDialogFragment<T : ViewDataBinding>(@LayoutRes private val layoutResId: Int) :
+abstract class BaseDialogFragment<T : ViewDataBinding>(
+    @LayoutRes private val layoutResId: Int,
+) :
     DialogFragment() {
     private var _binding: T? = null
     val binding
@@ -19,7 +21,7 @@ abstract class BaseDialogFragment<T : ViewDataBinding>(@LayoutRes private val la
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
         return binding.root
