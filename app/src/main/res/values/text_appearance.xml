@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base TextAppearance style -->
+    <style name="TextAppearance.ElderCare" parent="">
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <!-- Heading01 style -->
+    <style name="TextAppearance.Heading01" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">48sp</item>
+        <item name="android:lineSpacingExtra">67sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_bold</item>
+    </style>
+
+    <style name="TextAppearance.Heading02" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">44sp</item>
+        <item name="android:lineSpacingExtra">62sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.Heading03" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">40sp</item>
+        <item name="android:lineSpacingExtra">56sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.Heading04" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">36sp</item>
+        <item name="android:lineSpacingExtra">51sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.Heading05" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">32sp</item>
+        <item name="android:lineSpacingExtra">45sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.Heading06" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">28sp</item>
+        <item name="android:lineSpacingExtra">40sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_semi_bold</item>
+    </style>
+
+    <!-- Title Styles -->
+    <style name="TextAppearance.Title1" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">24sp</item>
+        <item name="android:lineSpacingExtra">35sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_bold</item>
+    </style>
+
+    <style name="TextAppearance.Title2" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">24sp</item>
+        <item name="android:lineSpacingExtra">35sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.Title3" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">22sp</item>
+        <item name="android:lineSpacingExtra">32sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_bold</item>
+    </style>
+
+    <style name="TextAppearance.Title4" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">22sp</item>
+        <item name="android:lineSpacingExtra">32sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.Title5" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">20sp</item>
+        <item name="android:lineSpacingExtra">28sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_bold</item>
+    </style>
+
+    <style name="TextAppearance.Title6" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">20sp</item>
+        <item name="android:lineSpacingExtra">28sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.Title7" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineSpacingExtra">26sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_bold</item>
+    </style>
+
+    <style name="TextAppearance.Title8" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineSpacingExtra">25sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_semi_bold</item>
+    </style>
+
+    <!-- Sub title -->
+    <style name="TextAppearance.SubTitle1" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineSpacingExtra">25sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+    </style>
+
+    <style name="TextAppearance.SubTitle2" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineSpacingExtra">25sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+    </style>
+
+    <style name="TextAppearance.SubTitle3" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">23sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+    </style>
+
+    <style name="TextAppearance.SubTitle4" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">23sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+    </style>
+
+    <style name="TextAppearance.SubTitle5" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">23sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_semi_bold</item>
+    </style>
+
+    <!-- Body Styles -->
+    <style name="TextAppearance.Body1" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">24sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+    </style>
+
+    <style name="TextAppearance.Body2" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingExtra">24sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+    </style>
+
+    <style name="TextAppearance.Body3" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">20sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+    </style>
+
+    <style name="TextAppearance.Body4" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">21sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+    </style>
+
+    <style name="TextAppearance.Body5" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">20sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+    </style>
+
+    <style name="TextAppearance.Body6" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">21sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+    </style>
+
+    <!-- Caption -->
+    <style name="TextAppearance.Caption1" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingExtra">16sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_medium</item>
+    </style>
+
+    <style name="TextAppearance.Caption2" parent="TextAppearance.ElderCare">
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingExtra">16sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:fontFamily">@font/pretendard_regular</item>
+    </style>
+</resources>
