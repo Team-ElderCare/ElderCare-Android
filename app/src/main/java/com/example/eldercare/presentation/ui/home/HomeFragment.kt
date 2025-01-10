@@ -5,7 +5,7 @@ import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentHomeBinding
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
-    FragmentHomeBinding::inflate
+    FragmentHomeBinding::inflate,
 ) {
     override val viewModel: HomeViewModel by lazy {
         ViewModelProvider(this)[HomeViewModel::class.java]

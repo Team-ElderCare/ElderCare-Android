@@ -5,7 +5,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class ToolViewModel @Inject constructor(
-) : BaseViewModel(){
-
-}
+class ToolViewModel
+    @Inject
+    constructor() : BaseViewModel()

@@ -16,7 +16,7 @@ import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
-    ActivityMainBinding::inflate
+    ActivityMainBinding::inflate,
 ) {
     override val viewModel: MainViewModel by lazy {
         ViewModelProvider(this)[MainViewModel::class.java]
@@ -36,47 +36,54 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
         bottomNavigationView.setupWithNavController(navController)
 
         bottomNavigationView.background = createBackgroundDrawable()
-        bottomNavigationView.itemIconTintList = createColorStateList(
-            ContextCompat.getColor(this, R.color.Green800),
-            ContextCompat.getColor(this, R.color.Gray400)
-        )
+        bottomNavigationView.itemIconTintList =
+            createColorStateList(
+                ContextCompat.getColor(this, R.color.Green800),
+                ContextCompat.getColor(this, R.color.Gray400),
+            )
         bottomNavigationView.itemTextColor = bottomNavigationView.itemIconTintList
         bottomNavigationView.itemBackground = createItemBackgroundDrawable()
     }
 
     private fun createItemBackgroundDrawable(): StateListDrawable {
-        val activeIndicatorDrawable = MaterialShapeDrawable().apply {
-            setTint(ContextCompat.getColor(this@MainActivity, R.color.Green50))
-            shapeAppearanceModel = ShapeAppearanceModel.builder()
-                .setAllCornerSizes(120f)
-                .build()
-        }
+        val activeIndicatorDrawable =
+            MaterialShapeDrawable().apply {
+                setTint(ContextCompat.getColor(this@MainActivity, R.color.Green50))
+                shapeAppearanceModel =
+                    ShapeAppearanceModel.builder()
+                        .setAllCornerSizes(120f)
+                        .build()
+            }
 
         return StateListDrawable().apply {
             addState(
                 intArrayOf(android.R.attr.state_checked),
-                InsetDrawable(activeIndicatorDrawable, 8.dpToPx(), 7.dpToPx(), 8.dpToPx(), 7.dpToPx())
+                InsetDrawable(activeIndicatorDrawable, 8.dpToPx(), 7.dpToPx(), 8.dpToPx(), 7.dpToPx()),
             )
         }
     }
 
     private fun createBackgroundDrawable(): MaterialShapeDrawable {
         return MaterialShapeDrawable().apply {
-            shapeAppearanceModel = ShapeAppearanceModel.builder()
-                .setTopLeftCorner(CornerFamily.ROUNDED, 8.dpToPx().toFloat())
-                .setTopRightCorner(CornerFamily.ROUNDED, 8.dpToPx().toFloat())
-                .build()
+            shapeAppearanceModel =
+                ShapeAppearanceModel.builder()
+                    .setTopLeftCorner(CornerFamily.ROUNDED, 8.dpToPx().toFloat())
+                    .setTopRightCorner(CornerFamily.ROUNDED, 8.dpToPx().toFloat())
+                    .build()
             setTint(ContextCompat.getColor(this@MainActivity, R.color.white))
         }
     }
 
-    private fun createColorStateList(checkedColor: Int, uncheckedColor: Int): android.content.res.ColorStateList {
+    private fun createColorStateList(
+        checkedColor: Int,
+        uncheckedColor: Int,
+    ): android.content.res.ColorStateList {
         return android.content.res.ColorStateList(
             arrayOf(
                 intArrayOf(android.R.attr.state_checked),
-                intArrayOf(-android.R.attr.state_checked)
+                intArrayOf(-android.R.attr.state_checked),
             ),
-            intArrayOf(checkedColor, uncheckedColor)
+            intArrayOf(checkedColor, uncheckedColor),
         )
     }
 }
