@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:title="@string/home_title"
+        android:icon="@drawable/ic_home_25dp"
+        android:enabled="true" />
+    <item
+        android:id="@+id/runFragment"
+        android:title="@string/run_title"
+        android:icon="@drawable/ic_run_25dp"
+        android:enabled="true" />
+    <item
+        android:id="@+id/toolFragment"
+        android:title="@string/tool_title"
+        android:icon="@drawable/ic_tool_25dp"
+        android:enabled="true" />
+    <item
+        android:id="@+id/settingsFragment"
+        android:title="@string/settings_title"
+        android:icon="@drawable/ic_settings_25dp"
+        android:enabled="true" />
+</menu>
