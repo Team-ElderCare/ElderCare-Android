@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.eldercare.presentation.ui.home.HomeFragment"
+        android:label="Home" />
+
+    <fragment
+        android:id="@+id/runFragment"
+        android:name="com.example.eldercare.presentation.ui.activity.RunFragment"
+        android:label="Run" />
+
+    <fragment
+        android:id="@+id/toolFragment"
+        android:name="com.example.eldercare.presentation.ui.toolControl.ToolFragment"
+        android:label="Tool" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.eldercare.presentation.ui.setting.SettingsFragment"
+        android:label="Settings" />
+</navigation>
