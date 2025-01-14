@@ -38,6 +38,7 @@
     <color name="Green900">#0C3E28</color>
 
     <!-- Brown -->
+    <color name="Brown50">#FFF5E0</color>
     <color name="Brown100">#FFECC7</color>
     <color name="Brown200">#FFDB94</color>
     <color name="Brown300">#FFCA61</color>

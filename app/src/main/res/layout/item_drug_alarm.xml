@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="@dimen/spacing4"
+    android:background="@drawable/rectangle_white_with_stroke"
+    android:layout_width="match_parent"
+    android:layout_height="140dp">
+
+
+    <TextView
+        android:layout_margin="@dimen/spacing4"
+        android:id="@+id/tv_time"
+        android:textAppearance="@style/TextAppearance.Body6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오전 08:00"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="56dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="@dimen/spacing3"
+        android:text="당뇨약"
+        android:textAppearance="@style/TextAppearance.Title6"
+        app:layout_constraintStart_toStartOf="@+id/tv_time"
+        app:layout_constraintTop_toBottomOf="@id/tv_time" />
+
+    <ImageButton
+        android:layout_marginEnd="@dimen/spacing3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_narrow_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_time" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/materialButton"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오전 8:00"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView6" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_marginStart="@dimen/spacing2"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오후 1:00"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintStart_toEndOf="@+id/materialButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>
