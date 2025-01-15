@@ -1,12 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="vertical"
+    android:padding="@dimen/spacing4"
     android:layout_height="match_parent">
 
-
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="fragment_home"/>
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_app_logo_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/spacing2"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_logo_text"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/view_recent_activity"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        layout="@layout/view_recent_activity"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+        <com.example.eldercare.presentation.ui.custoom.CustomButton
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/btn_register_probationer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing3"
+            android:background="@drawable/rectangle_brown_btn"
+            app:customButtonIcon="@drawable/ic_phone"
+            app:customButtonTextView="보호대상자"
+            app:layout_constraintEnd_toStartOf="@id/btn_register_health_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_recent_activity" />
+
+        <com.example.eldercare.presentation.ui.custoom.CustomButton
+            android:clickable="true"
+            android:focusable="true"
+        app:customButtonIcon="@drawable/ic_health_and_safety"
+        android:background="@drawable/rectangle_green_btn"
+        android:id="@+id/btn_register_health_info"
+        android:layout_margin="@dimen/spacing3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:customButtonTextView="건강정보"
+            app:layout_constraintTop_toBottomOf="@id/view_recent_activity"
+            app:layout_constraintStart_toEndOf="@id/btn_register_probationer"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <include
+        android:id="@+id/view_drug_alarm"
+        android:layout_marginHorizontal="@dimen/spacing4"
+        android:layout_marginTop="@dimen/spacing6"
+        app:layout_constraintTop_toBottomOf="@id/btn_register_health_info"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        layout="@layout/view_drug_alarm"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

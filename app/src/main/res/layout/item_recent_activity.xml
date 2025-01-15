@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/spacing3"
+    android:background="@drawable/rectangle_red_with_stroke"
+    android:padding="@dimen/spacing4"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/btn_time"
+        android:textAppearance="@style/TextAppearance.Body6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="오전 9:30"/>
+
+
+    <TextView
+        android:id="@+id/btn_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="약장"
+        android:textAppearance="@style/TextAppearance.Title6"
+        app:layout_constraintStart_toStartOf="@+id/btn_time"
+        app:layout_constraintTop_toBottomOf="@+id/btn_time" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="감지안됨 -태그"
+        android:textAppearance="@style/TextAppearance.Body5"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_content" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
