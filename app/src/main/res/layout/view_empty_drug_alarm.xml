@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:padding="@dimen/spacing4"
+    android:background="@drawable/rectable_gray_50"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/text_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="오늘은 먹을 약이 없어요!"
+        android:textAppearance="@style/TextAppearance.SubTitle5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="미처 등록하지 못한 약이 있다면"
+        android:layout_marginTop="@dimen/spacing2"
+        android:textAppearance="@style/TextAppearance.Body5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_subtitle" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+
+        android:layout_height="wrap_content"
+        android:text="약을 등록해주세요"
+        android:textAppearance="@style/TextAppearance.Body5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
