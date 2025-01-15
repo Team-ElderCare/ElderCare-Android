@@ -7,6 +7,8 @@ import androidx.fragment.app.viewModels
 import com.example.eldercare.R
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentHomeBinding
+import com.example.eldercare.presentation.ui.home.adapter.DrugAlarmRVAdapter
+import com.example.eldercare.presentation.ui.home.adapter.UserRecentActivityRVAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,6 +17,8 @@ class HomeFragment :
         FragmentHomeBinding::inflate,
     ) {
     override val viewModel: HomeViewModel by viewModels()
+    private val alarmAdapter by lazy { DrugAlarmRVAdapter() }
+    private val recentActivityAdapter by lazy { UserRecentActivityRVAdapter() }
 
     override fun onViewCreated(
         view: View,
