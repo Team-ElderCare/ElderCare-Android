@@ -12,4 +12,74 @@
     <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
         <item name="cornerSize">50%</item>
     </style>
+
+    <!-- Base button style for all buttons -->
+    <style name="Theme.ElderCare.Button.Base" parent="Widget.Material3.Button">
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:textAppearance">@style/TextAppearance.SubTitle1</item>
+    </style>
+
+    <!-- delete/cancel button -->
+    <style name="Theme.ElderCare.Button.Square" parent="Theme.ElderCare.Button.Base">
+        <item name="android:width">118.5dp</item>
+        <item name="android:height">49dp</item>
+        <item name="cornerRadius">@dimen/radius_m</item>
+        <item name="strokeColor">@color/primary</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="android:backgroundTint">@color/selector_square_btn_color</item>
+        <item name="android:textColor">@color/selector_square_btn_text_color</item>
+    </style>
+
+    <!-- Base style for all capsule buttons -->
+    <style name="Theme.ElderCare.Button.Capsule.Base" parent="Theme.ElderCare.Button.Base">
+        <item name="android:width">328dp</item>
+        <item name="android:height">55dp</item>
+        <item name="cornerRadius">@dimen/padding_2xl</item>
+    </style>
+
+    <!-- capsule button -->
+    <style name="Theme.ElderCare.Button.Capsule" parent="Theme.ElderCare.Button.Capsule.Base">
+        <item name="android:backgroundTint">@color/selector_capsule_btn_color</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Secondary2 capsule button -->
+    <style name="Theme.ElderCare.Button.Secondary2.Capsule" parent="Theme.ElderCare.Button.Capsule.Base">
+        <item name="android:backgroundTint">@color/secondary_02</item>
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <!-- Base style for mini capsule buttons -->
+    <style name="Theme.ElderCare.Button.Mini.Capsule.Base" parent="Theme.ElderCare.Button.Capsule.Base">
+        <item name="android:width">158dp</item>
+        <item name="android:height">55dp</item>
+    </style>
+
+    <!-- mini capsule button -->
+    <style name="Theme.ElderCare.Button.Mini.Capsule" parent="Theme.ElderCare.Button.Mini.Capsule.Base">
+        <item name="android:backgroundTint">@color/selector_capsule_btn_color</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- mini transparent capsule button -->
+    <style name="Theme.ElderCare.Button.Mini.Transparent.Capsule" parent="Theme.ElderCare.Button.Mini.Capsule.Base">
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="strokeColor">@color/primary</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- add device button -->
+    <style name="Theme.ElderCare.Button.Add.Device" parent="Theme.ElderCare.Button.Base">
+        <item name="android:width">100dp</item>
+        <item name="android:height">32dp</item>
+        <item name="cornerRadius">@dimen/padding_m</item>
+        <item name="android:backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 </resources>
