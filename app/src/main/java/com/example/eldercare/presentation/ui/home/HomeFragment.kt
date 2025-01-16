@@ -1,5 +1,6 @@
 package com.example.eldercare.presentation.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
@@ -7,6 +8,7 @@ import androidx.fragment.app.viewModels
 import com.example.eldercare.R
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentHomeBinding
+import com.example.eldercare.presentation.ui.alarm.SetAlarmActivity
 import com.example.eldercare.presentation.ui.home.adapter.DrugAlarmRVAdapter
 import com.example.eldercare.presentation.ui.home.adapter.UserRecentActivityRVAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,6 +27,10 @@ class HomeFragment :
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
+        binding.viewDrugAlarm.btnAddAlarm.setOnClickListener {
+            val intent = Intent(context, SetAlarmActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.btnRegisterProbationer.setOnClickListener {
             it.isPressed = !it.isPressed
