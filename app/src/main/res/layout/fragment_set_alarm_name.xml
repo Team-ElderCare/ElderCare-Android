@@ -41,6 +41,7 @@
         app:boxStrokeColor="@color/secondary_02"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:hint="치료하는 질병 기준으로 설정해주세요"
         app:boxStrokeErrorColor="@color/sys_error_01"
         app:layout_constraintTop_toBottomOf="@+id/textView7">
 

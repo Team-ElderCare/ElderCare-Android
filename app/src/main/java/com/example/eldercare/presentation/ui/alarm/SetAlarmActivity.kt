@@ -2,10 +2,9 @@ package com.example.eldercare.presentation.ui.alarm
 
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.example.eldercare.R
+import androidx.navigation.NavController
 import com.example.eldercare.base.activity.BaseActivity
 import com.example.eldercare.databinding.ActivitySetAlarmBinding
-import com.example.eldercare.presentation.ui.alarm.name.SetAlarmNameFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -14,13 +13,9 @@ class SetAlarmActivity :
         ActivitySetAlarmBinding::inflate,
     ) {
     override val viewModel: SetAlarmViewModel by viewModels()
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.fragment_container_view, SetAlarmNameFragment())
-            .commit()
     }
 }
