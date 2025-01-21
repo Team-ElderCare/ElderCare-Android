@@ -49,11 +49,15 @@ class SetAlarmCountFragment :
 
                     picker.show(parentFragmentManager, "tag")
                     picker.addOnPositiveButtonClickListener {
-                        var selectedHour = picker.hour
+                        val selectedHour = picker.hour
                         val selectedMinute = picker.minute
                         val time = "$selectedHour:$selectedMinute"
                         adapter.updateAlarmTime(time, position)
                     }
+                }
+
+                override fun onDeleteClick(position: Int) {
+                    viewModel.reduceCount()
                 }
             }
 

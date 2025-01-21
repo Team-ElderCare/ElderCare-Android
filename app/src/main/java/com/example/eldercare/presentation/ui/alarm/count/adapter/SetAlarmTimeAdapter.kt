@@ -8,7 +8,6 @@ import com.example.eldercare.base.adapter.BaseAdapter
 import com.example.eldercare.base.adapter.BaseViewHolder
 import com.example.eldercare.databinding.ItemAlarmBinding
 import com.example.eldercare.presentation.ui.alarm.count.diff.DrugAlarmTimeDiffCallback
-import timber.log.Timber
 
 data class DrugAlarmTime(
     val id: Int,
@@ -23,6 +22,8 @@ class SetAlarmTimeAdapter :
 
     interface OnClickListener {
         fun onItemClick(position: Int)
+
+        fun onDeleteClick(position: Int)
     }
 
     var listener: OnClickListener? = null
@@ -33,6 +34,7 @@ class SetAlarmTimeAdapter :
     ) {
         drugAlarmData[position].time = time
         notifyItemChanged(position)
+        // todo : 시간 업뎃하기
     }
 
     fun deleteDrugAlarm() {
@@ -60,6 +62,7 @@ class SetAlarmTimeAdapter :
         ) {
         private val time: TextView = binding.txtTime
         private val btnDelete: ImageButton = binding.btnDeleteAlarm
+        private val txtWhen: TextView = binding.txtWhen
         val view = binding.customAlarmView
 
         override fun bind(item: DrugAlarmTime) {
@@ -69,17 +72,12 @@ class SetAlarmTimeAdapter :
                 it.isSelected = !it.isSelected
                 listener?.onItemClick(bindingAdapterPosition)
             }
+
             btnDelete.setOnClickListener {
-                try {
-                    drugAlarmData.removeAt(bindingAdapterPosition)
-                    submitList(drugAlarmData.toList())
-                } catch (
-                    e: IndexOutOfBoundsException,
-                ) {
-                    e.printStackTrace()
-                    Timber.e("제거 bindingAdapterPosition $bindingAdapterPosition")
-                    Timber.e("제거 에러 ${e.message}")
-                }
+                if (drugAlarmData.size == 0) return@setOnClickListener
+                drugAlarmData.removeAt(bindingAdapterPosition)
+                submitList(drugAlarmData.toList())
+                listener?.onDeleteClick(bindingAdapterPosition)
             }
         }
     }
