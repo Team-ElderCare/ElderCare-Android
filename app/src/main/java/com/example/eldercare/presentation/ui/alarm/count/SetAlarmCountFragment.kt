@@ -17,6 +17,7 @@ import com.google.android.material.timepicker.TimeFormat
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 @AndroidEntryPoint
 class SetAlarmCountFragment :
@@ -47,19 +48,20 @@ class SetAlarmCountFragment :
             }
 
             btnReduce.setOnClickListener {
-                viewModel.reduceCount()
                 adapter.deleteDrugAlarm()
+                viewModel.reduceCount()
             }
             btnAdd.setOnClickListener {
+                adapter.addDrugAlarm()
                 viewModel.addCount()
                 // 복용 알림 데이터 추가하기
-                adapter.addDrugAlarm()
             }
         }
 
         adapter.listener =
             object : SetAlarmTimeAdapter.OnClickListener {
                 override fun onItemClick(position: Int) {
+                    Timber.d("타임 피커야 떠라")
                     // 타임 피커 뜨기
                     val picker =
                         MaterialTimePicker
@@ -74,10 +76,16 @@ class SetAlarmCountFragment :
 
                     picker.show(parentFragmentManager, "tag")
                     picker.addOnPositiveButtonClickListener {
-                        val selectedHour = picker.hour
-                        val selectedMinute = picker.minute
-                        val time = "$selectedHour:$selectedMinute"
-                        adapter.updateAlarmTime(time, position)
+                        var selectedMinute = picker.minute.toString()
+                        var selectedHour = picker.hour.toString()
+                        // 만약 시간이 한자리 수라면 ?
+                        if (picker.hour < 10) {
+                            selectedHour = "0${picker.hour}"
+                        }
+                        if (picker.minute < 10) {
+                            selectedMinute = "0${picker.minute}"
+                        }
+                        adapter.updateAlarmTime("$selectedHour:$selectedMinute", position)
                     }
                 }
 
