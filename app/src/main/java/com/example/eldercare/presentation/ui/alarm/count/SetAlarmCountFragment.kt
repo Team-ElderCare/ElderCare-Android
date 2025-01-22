@@ -1,7 +1,7 @@
 package com.example.eldercare.presentation.ui.alarm.count
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentSetAlarmCountBinding
 import com.example.eldercare.presentation.ui.alarm.count.adapter.SetAlarmTimeAdapter
+import com.example.eldercare.presentation.ui.main.MainActivity
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,7 +32,31 @@ class SetAlarmCountFragment :
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
-        binding.recyclerView.adapter = this@SetAlarmCountFragment.adapter
+        with(binding) {
+            recyclerView.adapter = this@SetAlarmCountFragment.adapter
+
+            btnDone.isSelected = adapter.currentList.size >= 1
+            btnDone.setOnClickListener {
+                // todo : 홈 화면으로 이동하기
+                val intent = Intent(context, MainActivity::class.java)
+                startActivity(intent)
+            }
+
+            btnBack.setOnClickListener {
+                navController.popBackStack()
+            }
+
+            btnReduce.setOnClickListener {
+                viewModel.reduceCount()
+                adapter.deleteDrugAlarm()
+            }
+            btnAdd.setOnClickListener {
+                viewModel.addCount()
+                // 복용 알림 데이터 추가하기
+                adapter.addDrugAlarm()
+            }
+        }
+
         adapter.listener =
             object : SetAlarmTimeAdapter.OnClickListener {
                 override fun onItemClick(position: Int) {
@@ -61,12 +86,6 @@ class SetAlarmCountFragment :
                 }
             }
 
-        binding.btnDone.isSelected = adapter.currentList.size >= 1
-
-        binding.btnBack.setOnClickListener {
-            navController.popBackStack()
-        }
-
         // 카운팅
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -79,18 +98,6 @@ class SetAlarmCountFragment :
                     }
                 }
             }
-        }
-
-        binding.btnReduce.setOnClickListener {
-            Log.d("제거", "버튼 클릭")
-            viewModel.reduceCount()
-            adapter.deleteDrugAlarm()
-        }
-        binding.btnAdd.setOnClickListener {
-            Log.d("추가", "버튼 클릭")
-            viewModel.addCount()
-            // 복용 알림 데이터 추가하기
-            adapter.addDrugAlarm()
         }
     }
 }
