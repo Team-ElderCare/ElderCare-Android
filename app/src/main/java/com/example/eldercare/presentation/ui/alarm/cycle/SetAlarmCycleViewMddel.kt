@@ -1,3 +1,5 @@
+@file:Suppress("ktlint:standard:filename")
+
 package com.example.eldercare.presentation.ui.alarm.cycle
 
 import com.example.eldercare.base.viewmodel.BaseViewModel
