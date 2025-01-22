@@ -8,6 +8,7 @@ class DrugAlarmTimeDiffCallback :
     BaseDiffCallback<DrugAlarmTime>(
         itemTheSame = { old, new -> old.hashCode() == new.hashCode() },
         contentsTheSame = { old, new ->
-            old.hashCode() == new.hashCode()
+            old.hashCode() == new.hashCode() &&
+                old.time == new.time
         },
     )

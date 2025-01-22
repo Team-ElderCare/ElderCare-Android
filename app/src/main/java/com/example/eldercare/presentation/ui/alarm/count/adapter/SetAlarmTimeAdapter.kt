@@ -18,7 +18,7 @@ class SetAlarmTimeAdapter :
     BaseAdapter<DrugAlarmTime, ItemAlarmBinding, SetAlarmTimeAdapter.SetAlarmTimeViewHolder>(
         diffCallback = DrugAlarmTimeDiffCallback(),
     ) {
-    private val drugAlarmData: MutableList<DrugAlarmTime> = mutableListOf()
+    private val drugAlarmDataList: MutableList<DrugAlarmTime> = mutableListOf()
 
     interface OnClickListener {
         fun onItemClick(position: Int)
@@ -32,27 +32,31 @@ class SetAlarmTimeAdapter :
         time: String,
         position: Int,
     ) {
-        drugAlarmData[position].time = time
-        notifyItemChanged(position)
-        // todo : 시간 업뎃하기
+        val updatedAlarmData = drugAlarmDataList[position].copy(time = time)
+        val updatedList =
+            drugAlarmDataList
+                .apply {
+                    set(position, updatedAlarmData)
+                }
+        submitList(updatedList)
     }
 
     fun deleteDrugAlarm() {
-        if (drugAlarmData.size == 0) return
-        drugAlarmData.removeAt(drugAlarmData.lastIndex)
+        if (drugAlarmDataList.size == 0) return
+        drugAlarmDataList.removeAt(drugAlarmDataList.lastIndex)
         // 여기서 같은 drugAlarmData 객체를 전달하면 인식 X , 새로운 객체를 전달해야함 !!
-        submitList(drugAlarmData.toList())
+        submitList(drugAlarmDataList.toList())
     }
 
     fun addDrugAlarm() {
-        drugAlarmData.add(
+        drugAlarmDataList.add(
             0,
             DrugAlarmTime(
                 id = 0,
                 time = "08:00",
             ),
         )
-        submitList(drugAlarmData.toList())
+        submitList(drugAlarmDataList.toList())
     }
 
     inner class SetAlarmTimeViewHolder(
@@ -67,16 +71,21 @@ class SetAlarmTimeAdapter :
 
         override fun bind(item: DrugAlarmTime) {
             time.text = item.time
-
+            val hour = item.time.substring(0, 2).toInt()
+            val minutes = item.time.substring(3, 5)
+            if (hour > 12) {
+                time.text = "${hour - 12}:$minutes"
+                txtWhen.text = "오후"
+            }
             view.setOnClickListener {
                 it.isSelected = !it.isSelected
                 listener?.onItemClick(bindingAdapterPosition)
             }
 
             btnDelete.setOnClickListener {
-                if (drugAlarmData.size == 0) return@setOnClickListener
-                drugAlarmData.removeAt(bindingAdapterPosition)
-                submitList(drugAlarmData.toList())
+                if (drugAlarmDataList.size == 0) return@setOnClickListener
+                drugAlarmDataList.removeAt(bindingAdapterPosition)
+                submitList(drugAlarmDataList.toList())
                 listener?.onDeleteClick(bindingAdapterPosition)
             }
         }
