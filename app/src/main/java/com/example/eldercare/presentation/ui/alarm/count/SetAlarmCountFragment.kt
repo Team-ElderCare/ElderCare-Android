@@ -8,6 +8,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.example.eldercare.R
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentSetAlarmCountBinding
 import com.example.eldercare.presentation.ui.alarm.count.adapter.SetAlarmTimeAdapter
@@ -17,7 +18,6 @@ import com.google.android.material.timepicker.TimeFormat
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 @AndroidEntryPoint
 class SetAlarmCountFragment :
@@ -61,11 +61,11 @@ class SetAlarmCountFragment :
         adapter.listener =
             object : SetAlarmTimeAdapter.OnClickListener {
                 override fun onItemClick(position: Int) {
-                    Timber.d("타임 피커야 떠라")
                     // 타임 피커 뜨기
                     val picker =
                         MaterialTimePicker
                             .Builder()
+                            .setTheme(R.style.Theme_ElderCare_TimePickerDialog)
                             .setTimeFormat(TimeFormat.CLOCK_12H)
                             .setHour(8)
                             .setMinute(30)

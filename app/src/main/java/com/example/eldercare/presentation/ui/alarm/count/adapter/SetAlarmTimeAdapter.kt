@@ -110,6 +110,7 @@ class SetAlarmTimeAdapter :
                     try {
                         deleteDrugAlarmItem(bindingAdapterPosition)
                     } catch (e: IndexOutOfBoundsException) {
+                        e.printStackTrace()
                         Timber.d("index out $bindingAdapterPosition :${e.message}")
                     }
                 }
