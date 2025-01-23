@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:src="@drawable/ic_reduce_green"
+        android:src="@drawable/ic_reduce_green_35dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView8"
         app:layout_constraintEnd_toStartOf="@+id/txt_count"
         app:layout_constraintTop_toTopOf="@+id/textView8" />
@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/spacing2"
         android:background="@android:color/transparent"
-        android:src="@drawable/ic_add"
+        android:src="@drawable/ic_add_35dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView8" />

@@ -19,7 +19,7 @@ class HomeFragment :
         FragmentHomeBinding::inflate,
     ) {
     override val viewModel: HomeViewModel by viewModels()
-    private val alarmAdapter by lazy { DrugAlarmRVAdapter() }
+    private val adapter by lazy { DrugAlarmRVAdapter() }
     private val recentActivityAdapter by lazy { UserRecentActivityRVAdapter() }
 
     override fun onViewCreated(
@@ -27,29 +27,34 @@ class HomeFragment :
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
-        binding.viewDrugAlarm.btnAddAlarm.setOnClickListener {
-            val intent = Intent(context, SetAlarmActivity::class.java)
-            startActivity(intent)
-        }
+        with(binding) {
+            binding.viewDrugAlarm.drugAlarmRecyclerview.adapter = adapter
 
-        binding.btnRegisterProbationer.setOnClickListener {
-            it.isPressed = !it.isPressed
-        }
-        binding.btnRegisterHealthInfo.setOnClickListener {
-            it.isPressed = !it.isPressed
-        }
-
-        binding.viewDrugAlarm.tab.btnCalendar.apply {
-            setBackgroundColor(ContextCompat.getColor(context, R.color.primary))
-            setTextColor(ContextCompat.getColor(context, R.color.white))
-        }
-
-        with(binding.viewDrugAlarm.tab) {
-            btnAlarmList.setOnClickListener {
-                updateButtonStyle(isCalendarSelected = false)
+            viewDrugAlarm.btnAddAlarm.setOnClickListener {
+                val intent = Intent(context, SetAlarmActivity::class.java)
+                startActivity(intent)
             }
-            btnCalendar.setOnClickListener {
-                updateButtonStyle(isCalendarSelected = true)
+
+            btnRegisterProbationer.setOnClickListener {
+                it.isPressed = !it.isPressed
+            }
+
+            btnRegisterHealthInfo.setOnClickListener {
+                it.isPressed = !it.isPressed
+            }
+
+            viewDrugAlarm.tab.btnCalendar.apply {
+                setBackgroundColor(ContextCompat.getColor(context, R.color.primary))
+                setTextColor(ContextCompat.getColor(context, R.color.white))
+            }
+
+            viewDrugAlarm.tab.apply {
+                btnAlarmList.setOnClickListener {
+                    updateButtonStyle(isCalendarSelected = false)
+                }
+                btnCalendar.setOnClickListener {
+                    updateButtonStyle(isCalendarSelected = true)
+                }
             }
         }
     }
