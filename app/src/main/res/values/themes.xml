@@ -8,6 +8,42 @@
 
     <style name="Theme.ElderCare" parent="Base.Theme.ElderCare" />
 
+    <style name="Theme.ElderCare.TimePickerDialog" parent="ThemeOverlay.MaterialComponents.TimePicker">
+        <item name="materialClockStyle">@style/AppTheme.Widget.TimePicker.Clock</item>
+        <item name="chipStyle">@style/BaseTheme.Widget.Chip</item>
+        <item name="materialTimePickerTitleStyle">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorPrimary">@color/Gray600</item>
+        <item name="materialButtonOutlinedStyle">@style/AppTheme.Widget.TimePicker.Clock.AmPmButton</item>
+    </style>
+
+    <!--    TimePicker Display style-->
+    <style name="BaseTheme.Widget.Chip" parent="Widget.MaterialComponents.TimePicker.Display">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textColor">@color/selector_text_chip</item>
+        <item name="strokeColor">@color/selector_stroke_chip</item>
+        <item name="chipBackgroundColor">@color/selector_time_picker_button</item>
+    </style>
+
+
+    <!--    Clock style-->
+    <style name="AppTheme.Widget.TimePicker.Clock" parent="Widget.MaterialComponents.TimePicker.Clock">
+        <item name="clockFaceBackgroundColor">@color/Brown50</item>
+        <item name="clockNumberTextColor">@color/selector_text_chip</item>
+        <item name="clockHandColor">@color/Brown500</item>
+    </style>
+
+
+    <!--    AM/PM Button style-->
+    <style name="AppTheme.Widget.TimePicker.Clock.AmPmButton" parent="Widget.MaterialComponents.TimePicker.Button">
+        <item name="backgroundTint">@color/selector_selector_chip</item>
+        <item name="strokeColor">@color/Gray400</item>
+        <item name="android:textColor">@color/Gray700</item>
+    </style>
+
+
+
+
     <!-- Corner size -->
     <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
         <item name="cornerSize">50%</item>

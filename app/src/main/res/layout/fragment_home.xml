@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:fillViewport="true"
-    android:scrollbars="vertical"
+    android:scrollbars="none"
     android:padding="@dimen/spacing4"
     android:layout_height="match_parent">
 
@@ -30,7 +30,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="@dimen/spacing2"
             android:layout_marginTop="10dp"
-            android:src="@drawable/ic_logo_text"
+            android:src="@drawable/ic_logo_text_70x10dp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView2"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toTopOf="parent" />
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing3"
             android:background="@drawable/rectangle_brown_btn"
-            app:customButtonIcon="@drawable/ic_phone"
+            app:customButtonIcon="@drawable/ic_phone_25dp"
             app:customButtonTextView="보호대상자"
             app:layout_constraintEnd_toStartOf="@id/btn_register_health_info"
             app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +62,7 @@
         <com.example.eldercare.presentation.ui.custoom.CustomButton
             android:clickable="true"
             android:focusable="true"
-        app:customButtonIcon="@drawable/ic_health_and_safety"
+        app:customButtonIcon="@drawable/ic_health_and_safety_24x25dp"
         android:background="@drawable/rectangle_green_btn"
         android:id="@+id/btn_register_health_info"
         android:layout_margin="@dimen/spacing3"

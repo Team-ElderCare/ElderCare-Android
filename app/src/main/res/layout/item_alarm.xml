@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="@dimen/spacing3"
+    android:id="@+id/custom_alarm_view"
+    android:layout_margin="@dimen/spacing3"
+    android:background="@drawable/rectangle_alarm_time"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txt_when"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오전"
+        android:textAppearance="@style/TextAppearance.Body2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing2"
+        android:text="08:00"
+        android:textAppearance="@style/TextAppearance.Body2"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_when"
+        app:layout_constraintStart_toEndOf="@id/txt_when"
+        app:layout_constraintTop_toTopOf="@+id/txt_when" />
+
+    <ImageButton
+        android:id="@+id/btn_delete_alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_delete_30dp"
+        android:padding="@dimen/spacing1"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_when"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txt_when" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
