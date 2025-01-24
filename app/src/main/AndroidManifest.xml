@@ -16,6 +16,7 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.ElderCare"
         tools:targetApi="31">
+
         <!-- SplashActivity 설정 -->
         <activity
             android:name=".presentation.ui.splash.SplashActivity"
@@ -31,6 +32,11 @@
             android:name=".presentation.ui.main.MainActivity"
             android:exported="true">
         </activity>
+
+        <!-- SetAlarmActivity 설정 -->
+        <activity
+            android:name=".presentation.ui.alarm.SetAlarmActivity"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

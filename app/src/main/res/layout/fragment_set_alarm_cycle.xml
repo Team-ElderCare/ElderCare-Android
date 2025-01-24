@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing3"
+        android:layout_marginTop="@dimen/spacing13"
+        android:padding="@dimen/spacing3"
+        android:text="복용주기를 입력해주세요."
+        android:textAppearance="@style/TextAppearance.Title1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing6"
+        android:padding="@dimen/spacing2"
+        android:text="복용주기"
+        android:textAppearance="@style/TextAppearance.SubTitle3"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(복수선택가능)"
+        android:textColor="@color/sys_error_01"
+        app:layout_constraintBottom_toBottomOf="@+id/textView7"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+
+    <TextView
+        android:id="@+id/tv_mon"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="@dimen/spacing1"
+        android:layout_marginTop="@dimen/spacing3"
+        android:background="@drawable/btn_week"
+        android:gravity="center"
+        android:text="월"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.SubTitle3"
+        app:layout_constraintEnd_toStartOf="@+id/tv_tues"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/tv_tues"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_margin="@dimen/spacing2"
+        android:layout_marginHorizontal="@dimen/spacing1"
+        android:background="@drawable/btn_week"
+        android:gravity="center"
+        android:text="화"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.SubTitle3"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_mon"
+        app:layout_constraintEnd_toStartOf="@+id/tv_wednes"
+        app:layout_constraintStart_toEndOf="@+id/tv_mon"
+        app:layout_constraintTop_toTopOf="@+id/tv_mon" />
+
+    <TextView
+        app:layout_constraintStart_toEndOf="@id/tv_tues"
+        android:id="@+id/tv_wednes"
+        android:layout_width="45dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="@dimen/spacing1"
+        android:background="@drawable/btn_week"
+        android:gravity="center"
+        android:text="수"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.SubTitle3"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_tues"
+        app:layout_constraintEnd_toStartOf="@+id/tv_thurs"
+        app:layout_constraintTop_toTopOf="@+id/tv_tues"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        app:layout_constraintStart_toEndOf="@id/tv_wednes"
+        android:id="@+id/tv_thurs"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="@dimen/spacing1"
+        android:background="@drawable/btn_week"
+        android:gravity="center"
+        android:text="목"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.SubTitle3"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_wednes"
+        app:layout_constraintEnd_toStartOf="@+id/tv_fri"
+        app:layout_constraintTop_toTopOf="@+id/tv_wednes" />
+
+    <TextView
+        app:layout_constraintStart_toEndOf="@id/tv_thurs"
+        android:id="@+id/tv_fri"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="@dimen/spacing1"
+        android:background="@drawable/btn_week"
+        android:gravity="center"
+        android:text="금"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.SubTitle3"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_thurs"
+        app:layout_constraintEnd_toStartOf="@+id/tv_satur"
+        app:layout_constraintTop_toTopOf="@+id/tv_thurs" />
+
+    <TextView
+        app:layout_constraintStart_toEndOf="@id/tv_fri"
+        android:id="@+id/tv_satur"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="@dimen/spacing1"
+        android:background="@drawable/btn_week"
+        android:gravity="center"
+        android:text="토"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.SubTitle3"
+        app:layout_constraintEnd_toStartOf="@+id/tv_sun"
+        app:layout_constraintTop_toTopOf="@+id/tv_fri" />
+
+    <TextView
+        app:layout_constraintStart_toEndOf="@id/tv_satur"
+        android:id="@+id/tv_sun"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="@dimen/spacing1"
+        android:background="@drawable/btn_week"
+        android:gravity="center"
+        android:text="일"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.SubTitle3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_satur" />
+
+    <Button
+        android:id="@+id/btn_back"
+        style="@style/Theme.ElderCare.Button.Mini.Capsule"
+        android:layout_marginEnd="@dimen/spacing2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="이전으로"
+        android:layout_marginBottom="@dimen/spacing5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_next"
+        app:layout_constraintStart_toStartOf="@+id/tv_mon" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_marginStart="@dimen/spacing2"
+        style="@style/Theme.ElderCare.Button.Mini.Capsule"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="다음으로"
+        android:layout_marginBottom="@dimen/spacing5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_sun"
+        app:layout_constraintStart_toEndOf="@+id/btn_back" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

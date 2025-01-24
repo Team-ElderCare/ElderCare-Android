@@ -1,5 +1,6 @@
 package com.example.eldercare.presentation.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
@@ -7,6 +8,7 @@ import androidx.fragment.app.viewModels
 import com.example.eldercare.R
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentHomeBinding
+import com.example.eldercare.presentation.ui.alarm.SetAlarmActivity
 import com.example.eldercare.presentation.ui.home.adapter.DrugAlarmRVAdapter
 import com.example.eldercare.presentation.ui.home.adapter.UserRecentActivityRVAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,7 +19,7 @@ class HomeFragment :
         FragmentHomeBinding::inflate,
     ) {
     override val viewModel: HomeViewModel by viewModels()
-    private val alarmAdapter by lazy { DrugAlarmRVAdapter() }
+    private val adapter by lazy { DrugAlarmRVAdapter() }
     private val recentActivityAdapter by lazy { UserRecentActivityRVAdapter() }
 
     override fun onViewCreated(
@@ -25,25 +27,34 @@ class HomeFragment :
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
+        with(binding) {
+            binding.viewDrugAlarm.drugAlarmRecyclerview.adapter = adapter
 
-        binding.btnRegisterProbationer.setOnClickListener {
-            it.isPressed = !it.isPressed
-        }
-        binding.btnRegisterHealthInfo.setOnClickListener {
-            it.isPressed = !it.isPressed
-        }
-
-        binding.viewDrugAlarm.tab.btnCalendar.apply {
-            setBackgroundColor(ContextCompat.getColor(context, R.color.primary))
-            setTextColor(ContextCompat.getColor(context, R.color.white))
-        }
-
-        with(binding.viewDrugAlarm.tab) {
-            btnAlarmList.setOnClickListener {
-                updateButtonStyle(isCalendarSelected = false)
+            viewDrugAlarm.btnAddAlarm.setOnClickListener {
+                val intent = Intent(context, SetAlarmActivity::class.java)
+                startActivity(intent)
             }
-            btnCalendar.setOnClickListener {
-                updateButtonStyle(isCalendarSelected = true)
+
+            btnRegisterProbationer.setOnClickListener {
+                it.isPressed = !it.isPressed
+            }
+
+            btnRegisterHealthInfo.setOnClickListener {
+                it.isPressed = !it.isPressed
+            }
+
+            viewDrugAlarm.tab.btnCalendar.apply {
+                setBackgroundColor(ContextCompat.getColor(context, R.color.primary))
+                setTextColor(ContextCompat.getColor(context, R.color.white))
+            }
+
+            viewDrugAlarm.tab.apply {
+                btnAlarmList.setOnClickListener {
+                    updateButtonStyle(isCalendarSelected = false)
+                }
+                btnCalendar.setOnClickListener {
+                    updateButtonStyle(isCalendarSelected = true)
+                }
             }
         }
     }

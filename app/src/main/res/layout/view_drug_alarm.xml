@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_add_alarm" />
 
     <include
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_marginTop="@dimen/spacing5"
         android:padding="@dimen/spacing3"
         app:layout_constraintTop_toBottomOf="@id/tab"
@@ -45,8 +45,8 @@
         layout="@layout/view_empty_drug_alarm"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:visibility="gone"
-        android:id="@+id/recyclerview_alarm"
+        android:visibility="visible"
+        android:id="@+id/drug_alarm_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

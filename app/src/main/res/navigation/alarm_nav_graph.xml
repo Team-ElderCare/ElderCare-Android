@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/alarm_nav_graph"
+    app:startDestination="@id/setAlarmNameFragment">
+
+    <fragment
+        android:id="@+id/setAlarmNameFragment"
+        android:name="com.example.eldercare.presentation.ui.alarm.name.SetAlarmNameFragment"
+        android:label="SetAlarmNameFragment" >
+        <action
+            android:id="@+id/action_setAlarmNameFragment_to_setAlarmCycleFragment2"
+            app:destination="@id/setAlarmCycleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/setAlarmCycleFragment"
+        android:name="com.example.eldercare.presentation.ui.alarm.cycle.SetAlarmCycleFragment"
+        android:label="SetAlarmCycleFragment" >
+        <action
+            android:id="@+id/action_setAlarmCycleFragment_to_setAlarmNameFragment"
+            app:destination="@id/setAlarmNameFragment" />
+        <action
+            android:id="@+id/action_setAlarmCycleFragment_to_setAlarmCountFragment"
+            app:destination="@id/setAlarmCountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/setAlarmCountFragment"
+        android:name="com.example.eldercare.presentation.ui.alarm.count.SetAlarmCountFragment"
+        android:label="SetAlarmCountFragment" >
+        <action
+            android:id="@+id/action_setAlarmCountFragment_to_setAlarmCycleFragment"
+            app:destination="@id/setAlarmCycleFragment" />
+        <action
+            android:id="@+id/action_setAlarmCountFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.eldercare.presentation.ui.home.HomeFragment"
+        android:label="HomeFragment" />
+</navigation>

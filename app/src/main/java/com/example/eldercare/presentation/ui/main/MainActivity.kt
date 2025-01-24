@@ -17,16 +17,16 @@ import com.google.android.material.shape.ShapeAppearanceModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
-    ActivityMainBinding::inflate,
-) {
+class MainActivity :
+    BaseActivity<ActivityMainBinding, MainViewModel>(
+        ActivityMainBinding::inflate,
+    ) {
     override val viewModel: MainViewModel by lazy {
         ViewModelProvider(this)[MainViewModel::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setupNavigation()
     }
 
@@ -52,7 +52,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
             MaterialShapeDrawable().apply {
                 setTint(ContextCompat.getColor(this@MainActivity, R.color.Green50))
                 shapeAppearanceModel =
-                    ShapeAppearanceModel.builder()
+                    ShapeAppearanceModel
+                        .builder()
                         .setAllCornerSizes(120f)
                         .build()
             }
@@ -65,27 +66,26 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(
         }
     }
 
-    private fun createBackgroundDrawable(): MaterialShapeDrawable {
-        return MaterialShapeDrawable().apply {
+    private fun createBackgroundDrawable(): MaterialShapeDrawable =
+        MaterialShapeDrawable().apply {
             shapeAppearanceModel =
-                ShapeAppearanceModel.builder()
+                ShapeAppearanceModel
+                    .builder()
                     .setTopLeftCorner(CornerFamily.ROUNDED, 8.dpToPx().toFloat())
                     .setTopRightCorner(CornerFamily.ROUNDED, 8.dpToPx().toFloat())
                     .build()
             setTint(ContextCompat.getColor(this@MainActivity, R.color.white))
         }
-    }
 
     private fun createColorStateList(
         checkedColor: Int,
         uncheckedColor: Int,
-    ): android.content.res.ColorStateList {
-        return android.content.res.ColorStateList(
+    ): android.content.res.ColorStateList =
+        android.content.res.ColorStateList(
             arrayOf(
                 intArrayOf(android.R.attr.state_checked),
                 intArrayOf(-android.R.attr.state_checked),
             ),
             intArrayOf(checkedColor, uncheckedColor),
         )
-    }
 }

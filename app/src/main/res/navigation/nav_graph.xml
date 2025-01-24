@@ -6,7 +6,11 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.eldercare.presentation.ui.home.HomeFragment"
-        android:label="Home" />
+        android:label="Home" >
+        <action
+            android:id="@+id/action_homeFragment_to_setAlarmNameFragment"
+            app:destination="@id/setAlarmNameFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/runFragment"
@@ -22,4 +26,16 @@
         android:id="@+id/settingsFragment"
         android:name="com.example.eldercare.presentation.ui.setting.SettingsFragment"
         android:label="Settings" />
+    <fragment
+        android:id="@+id/setAlarmNameFragment"
+        android:name="com.example.eldercare.presentation.ui.alarm.name.SetAlarmNameFragment"
+        android:label="SetAlarmNameFragment" >
+        <action
+            android:id="@+id/action_setAlarmNameFragment_to_setAlarmCycleFragment"
+            app:destination="@id/setAlarmCycleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/setAlarmCycleFragment"
+        android:name="com.example.eldercare.presentation.ui.alarm.cycle.SetAlarmCycleFragment"
+        android:label="SetAlarmCycleFragment" />
 </navigation>
