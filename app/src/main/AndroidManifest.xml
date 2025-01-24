@@ -20,6 +20,7 @@
         <!-- SplashActivity 설정 -->
         <activity
             android:name=".presentation.ui.splash.SplashActivity"
+            android:theme="@style/SplashTheme"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
