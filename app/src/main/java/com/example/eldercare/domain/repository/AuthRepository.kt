@@ -1,3 +1,7 @@
 package com.example.eldercare.domain.repository
 
-interface AuthRepository
+import com.example.eldercare.domain.model.UserInfo
+
+interface AuthRepository {
+    suspend fun getUserInfo(): UserInfo
+}

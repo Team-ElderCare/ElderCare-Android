@@ -36,4 +36,8 @@ class AccessTokenManager
             private val Context.tokenDataStore: DataStore<Preferences> by preferencesDataStore(name = "info")
             private val ACCESS_TOKEN_KEY = stringPreferencesKey("access_token")
         }
+
+        fun hasToken(): Boolean = true // 구현 필요
+
+        fun hasGroupId(): Boolean = true // 구현 필요
     }

@@ -102,4 +102,7 @@ dependencies {
     // Network
     implementation(platform(libs.okhttp.bom))
     implementation(libs.bundles.retrofit)
+
+    // splashscreen
+    implementation(libs.core.splashscreen)
 }

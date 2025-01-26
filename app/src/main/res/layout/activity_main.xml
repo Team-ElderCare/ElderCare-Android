@@ -36,5 +36,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/main_menu_bottom" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
