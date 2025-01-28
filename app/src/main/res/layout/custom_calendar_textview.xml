@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/spacing3"
+    android:layout_gravity="center"
+    android:background="@drawable/shape_for_week_calendar"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:padding="@dimen/spacing1"
+        android:layout_width="wrap_content"
+        android:textAppearance="@style/TextAppearance.Title8"
+        android:layout_height="wrap_content"
+        android:text="17"
+        android:textColor="@color/Green600"
+        app:layout_constraintBottom_toTopOf="@id/guide_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_day_of_week"
+        android:padding="@dimen/spacing1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="월"
+        android:textAppearance="@style/TextAppearance.Title8"
+        android:textColor="@color/Green600"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guide_line" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

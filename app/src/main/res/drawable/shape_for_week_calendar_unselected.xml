@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- drawable/chip1.xml -->
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="44dp"
+    android:height="72dp"
+    android:viewportWidth="44"
+    android:viewportHeight="72"
+    >
+    <group>
+        <clip-path
+            android:pathData="M22 0C34.1503 0 44 9.84974 44 22V50C44 62.1503 34.1503 72 22 72C9.84974 72 0 62.1503 0 50V22C0 9.84974 9.84974 0 22 0Z"
+            />
+        <path
+            android:pathData="M0 0V72H44V0"
+            android:fillColor="@color/white"
+            />
+    </group>
+</vector>
