@@ -12,7 +12,6 @@ import com.example.eldercare.presentation.ui.alarm.SetAlarmActivity
 import com.example.eldercare.presentation.ui.home.adapter.DrugAlarmRVAdapter
 import com.example.eldercare.presentation.ui.home.adapter.UserRecentActivityRVAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import com.example.eldercare.presentation.ui.custom.CustomButton
 
 @AndroidEntryPoint
 class HomeFragment :
@@ -36,12 +35,12 @@ class HomeFragment :
                 startActivity(intent)
             }
 
-            btnRegisterProbationer.setOnClickListener {
-                it.isPressed = !it.isPressed
+            btnRegisterProbationer.setOnClickListener { view ->
+                view.isPressed = !view.isPressed
             }
 
-            btnRegisterHealthInfo.setOnClickListener {
-                it.isPressed = !it.isPressed
+            btnRegisterHealthInfo.setOnClickListener { view ->
+                view.isPressed = !view.isPressed
             }
 
             viewDrugAlarm.tab.btnCalendar.apply {
