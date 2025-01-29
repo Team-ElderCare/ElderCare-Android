@@ -8,4 +8,10 @@
         <attr name="customButtonIcon" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="CustomTextField">
+        <attr name="customHint" format="string" />
+        <attr name="customIcon" format="reference" />
+        <attr name="clearButtonEnabled" format="boolean" />
+        <attr name="customUnit" format="string" />
+    </declare-styleable>
 </resources>
