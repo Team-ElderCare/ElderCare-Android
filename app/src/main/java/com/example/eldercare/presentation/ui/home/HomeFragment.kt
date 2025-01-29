@@ -12,6 +12,7 @@ import com.example.eldercare.presentation.ui.alarm.SetAlarmActivity
 import com.example.eldercare.presentation.ui.home.adapter.DrugAlarmRVAdapter
 import com.example.eldercare.presentation.ui.home.adapter.UserRecentActivityRVAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import com.example.eldercare.presentation.ui.custom.CustomButton
 
 @AndroidEntryPoint
 class HomeFragment :
