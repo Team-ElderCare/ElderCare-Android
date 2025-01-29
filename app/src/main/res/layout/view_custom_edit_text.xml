@@ -8,7 +8,7 @@
         android:id="@+id/cl_textField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/custom_textfield_background"
+        android:background="@drawable/shape_for_edit_text"
         android:paddingStart="20dp"
         android:paddingTop="16dp"
         android:paddingEnd="20dp"
