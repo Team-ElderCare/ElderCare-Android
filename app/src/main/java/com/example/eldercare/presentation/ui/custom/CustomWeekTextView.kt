@@ -38,6 +38,10 @@ class CustomWeekTextView
             dateTextView.text = date
         }
 
+        fun setDayOfWeek(dayOfWeek: String) {
+            dayOfWeekTextView.text = dayOfWeek
+        }
+
         private fun getAttrs(
             attrs: AttributeSet?,
             defStyleAttr: Int,
