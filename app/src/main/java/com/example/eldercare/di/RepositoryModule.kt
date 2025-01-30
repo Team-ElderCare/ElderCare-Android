@@ -1,6 +1,6 @@
 package com.example.eldercare.di
 
-import com.example.eldercare.data.datasource.repository.auth.AuthRepositoryImpl
+import com.example.eldercare.data.repository.auth.AuthRepositoryImpl
 import com.example.eldercare.domain.repository.AuthRepository
 import dagger.Binds
 import dagger.Module

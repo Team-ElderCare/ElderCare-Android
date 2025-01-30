@@ -1,4 +1,4 @@
-package com.example.eldercare.data.datasource.repository.auth
+package com.example.eldercare.data.repository.auth
 
 import com.example.eldercare.domain.model.UserInfo
 import com.example.eldercare.domain.repository.AuthRepository
