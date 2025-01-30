@@ -7,7 +7,6 @@ import androidx.fragment.app.viewModels
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentRunBinding
 import java.text.SimpleDateFormat
-import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.temporal.TemporalAdjusters
@@ -17,42 +16,57 @@ import java.util.Date
 class RunFragment : BaseFragment<FragmentRunBinding, RunViewModel>(FragmentRunBinding::inflate) {
     override val viewModel: RunViewModel by viewModels()
 
+    // todo : 오늘 요일 구하기
+    private fun getDayOfWeek(dayOfWeek: Int): String =
+        when (dayOfWeek) {
+            1 -> "월"
+            2 -> "화"
+            3 -> "수"
+            4 -> "목"
+            5 -> "금"
+            6 -> "토"
+            7 -> "일"
+            else -> {
+                throw IllegalArgumentException()
+            }
+        }
+
     private fun selectToday() {
         val num = doDayOfWeek()
         when (num) {
             1 -> {
-                binding.viewWeekCalendar.sunday.isSelected = true
+                binding.viewWeekCalendar.seventhDay.setDayOfWeek("일")
             }
             2 -> {
-                binding.viewWeekCalendar.monday.isSelected = true
+                binding.viewWeekCalendar.seventhDay.setDayOfWeek("월")
             }
             3 -> {
-                binding.viewWeekCalendar.tuesday.isSelected = true
+                binding.viewWeekCalendar.seventhDay.setDayOfWeek("화")
             }
             4 -> {
-                binding.viewWeekCalendar.wednesday.isSelected = true
+                binding.viewWeekCalendar.seventhDay.setDayOfWeek("수")
             }
             5 -> {
-                binding.viewWeekCalendar.thursday.isSelected = true
+                binding.viewWeekCalendar.seventhDay.setDayOfWeek("목")
             }
             6 -> {
-                binding.viewWeekCalendar.friday.isSelected = true
+                binding.viewWeekCalendar.seventhDay.setDayOfWeek("금")
             }
             7 -> {
-                binding.viewWeekCalendar.saturday.isSelected = true
+                binding.viewWeekCalendar.seventhDay.setDayOfWeek("토")
             }
         }
+        binding.viewWeekCalendar.seventhDay.isSelected = true
     }
 
     private fun onSelectDate(item: View) {
-        binding.viewWeekCalendar.sunday.isSelected = false
-        binding.viewWeekCalendar.monday.isSelected = false
-        binding.viewWeekCalendar.tuesday.isSelected = false
-        binding.viewWeekCalendar.wednesday.isSelected = false
-        binding.viewWeekCalendar.thursday.isSelected = false
-        binding.viewWeekCalendar.friday.isSelected = false
-        binding.viewWeekCalendar.saturday.isSelected = false
-
+        binding.viewWeekCalendar.seventhDay.isSelected = false
+        binding.viewWeekCalendar.firstDay.isSelected = false
+        binding.viewWeekCalendar.secondDay.isSelected = false
+        binding.viewWeekCalendar.thirdDay.isSelected = false
+        binding.viewWeekCalendar.fourthDay.isSelected = false
+        binding.viewWeekCalendar.fifthDay.isSelected = false
+        binding.viewWeekCalendar.sixthDay.isSelected = false
         item.isSelected = !item.isSelected
     }
 
@@ -70,16 +84,13 @@ class RunFragment : BaseFragment<FragmentRunBinding, RunViewModel>(FragmentRunBi
         return today
     }
 
-    private fun dateMonday(dayOfWeek: DayOfWeek): String {
-        val today = LocalDate.now()
-        val thisWeekMonday =
-            if (today.dayOfWeek.value >= dayOfWeek.value) {
-                today.with(TemporalAdjusters.previousOrSame(dayOfWeek))
-            } else {
-                today.with(TemporalAdjusters.next(dayOfWeek))
-            }
+    private fun getFormattedDate(date: LocalDate): String {
+        // 여기서 해당 날짜의 요일을 넘겨줘야함
+        val dayOfWeek = date.dayOfWeek
+        val thisWeek =
+            date.with(TemporalAdjusters.previousOrSame(dayOfWeek))
         val formatter = DateTimeFormatter.ofPattern("dd")
-        val formattedDate = thisWeekMonday.format(formatter)
+        val formattedDate = thisWeek.format(formatter)
         return formattedDate
     }
 
@@ -91,26 +102,41 @@ class RunFragment : BaseFragment<FragmentRunBinding, RunViewModel>(FragmentRunBi
         selectToday()
 
         with(binding.viewWeekCalendar) {
+            // 오늘로부터 이전 6일을 표시해주기 !
             tvDate.text = getTodayDate()
-            monday.setDate(dateMonday(DayOfWeek.MONDAY))
-            monday.setOnClickListener { onSelectDate(it) }
-            tuesday.setDate(dateMonday(DayOfWeek.TUESDAY))
-            tuesday.setOnClickListener { onSelectDate(it) }
+            val now = LocalDate.now()
 
-            wednesday.setDate(dateMonday(DayOfWeek.WEDNESDAY))
-            wednesday.setOnClickListener { onSelectDate(it) }
+            seventhDay.setDate(getFormattedDate(now))
+            sixthDay.setDate(getFormattedDate(now.minusDays(1)))
+            sixthDay.setDayOfWeek(getDayOfWeek(now.minusDays(1).dayOfWeek.value))
 
-            thursday.setDate(dateMonday(DayOfWeek.THURSDAY))
-            thursday.setOnClickListener { onSelectDate(it) }
+            fifthDay.setDate(getFormattedDate(now.minusDays(2)))
+            fifthDay.setDayOfWeek(getDayOfWeek(now.minusDays(2).dayOfWeek.value))
 
-            friday.setDate(dateMonday(DayOfWeek.FRIDAY))
-            friday.setOnClickListener { onSelectDate(it) }
+            fourthDay.setDate(getFormattedDate(now.minusDays(3)))
+            fourthDay.setDayOfWeek(getDayOfWeek(now.minusDays(3).dayOfWeek.value))
 
-            saturday.setDate(dateMonday(DayOfWeek.SATURDAY))
-            saturday.setOnClickListener { onSelectDate(it) }
+            thirdDay.setDate(getFormattedDate(now.minusDays(4)))
+            thirdDay.setDayOfWeek(getDayOfWeek(now.minusDays(4).dayOfWeek.value))
 
-            sunday.setDate(dateMonday(DayOfWeek.SUNDAY))
-            sunday.setOnClickListener { onSelectDate(it) }
+            secondDay.setDate(getFormattedDate(now.minusDays(5)))
+            secondDay.setDayOfWeek(getDayOfWeek(now.minusDays(5).dayOfWeek.value))
+
+            firstDay.setDate(getFormattedDate(now.minusDays(6)))
+            firstDay.setDayOfWeek(getDayOfWeek(now.minusDays(6).dayOfWeek.value))
+
+            firstDay.setOnClickListener { onSelectDate(it) }
+            secondDay.setOnClickListener { onSelectDate(it) }
+
+            thirdDay.setOnClickListener { onSelectDate(it) }
+
+            fourthDay.setOnClickListener { onSelectDate(it) }
+
+            fifthDay.setOnClickListener { onSelectDate(it) }
+
+            sixthDay.setOnClickListener { onSelectDate(it) }
+
+            seventhDay.setOnClickListener { onSelectDate(it) }
         }
     }
 }

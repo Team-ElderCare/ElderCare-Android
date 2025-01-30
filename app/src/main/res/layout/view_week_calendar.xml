@@ -19,70 +19,70 @@
         app:layout_constraintTop_toTopOf="parent" />
 
    <com.example.eldercare.presentation.ui.custoom.CustomWeekTextView
-       android:id="@+id/monday"
+       android:id="@+id/first_day"
        android:layout_marginTop="@dimen/spacing3"
        app:layout_constraintTop_toBottomOf="@id/tv_date"
        app:layout_constraintStart_toStartOf="parent"
        android:layout_width="wrap_content"
-       app:layout_constraintEnd_toStartOf="@id/tuesday"
+       app:layout_constraintEnd_toStartOf="@id/second_day"
        android:layout_height="wrap_content"/>
 
 
     <com.example.eldercare.presentation.ui.custoom.CustomWeekTextView
-        android:id="@+id/tuesday"
+        android:id="@+id/second_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:customWeekDayOfWeek="화"
-        app:layout_constraintEnd_toStartOf="@id/wednesday"
-        app:layout_constraintStart_toEndOf="@id/monday"
-        app:layout_constraintTop_toTopOf="@+id/monday" />
+        app:layout_constraintEnd_toStartOf="@id/third_day"
+        app:layout_constraintStart_toEndOf="@id/first_day"
+        app:layout_constraintTop_toTopOf="@+id/first_day" />
 
 
     <com.example.eldercare.presentation.ui.custoom.CustomWeekTextView
-        android:id="@+id/wednesday"
+        android:id="@+id/third_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:customWeekDayOfWeek="수"
-        app:layout_constraintEnd_toStartOf="@id/thursday"
-        app:layout_constraintStart_toEndOf="@id/tuesday"
-        app:layout_constraintTop_toTopOf="@+id/tuesday" />
+        app:layout_constraintEnd_toStartOf="@id/fourth_day"
+        app:layout_constraintStart_toEndOf="@id/second_day"
+        app:layout_constraintTop_toTopOf="@+id/second_day" />
 
     <com.example.eldercare.presentation.ui.custoom.CustomWeekTextView
-        android:id="@+id/thursday"
+        android:id="@+id/fourth_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:customWeekDayOfWeek="목"
-        app:layout_constraintEnd_toStartOf="@id/friday"
-        app:layout_constraintStart_toEndOf="@id/wednesday"
-        app:layout_constraintTop_toTopOf="@+id/wednesday" />
+        app:layout_constraintEnd_toStartOf="@id/fifth_day"
+        app:layout_constraintStart_toEndOf="@id/third_day"
+        app:layout_constraintTop_toTopOf="@+id/third_day" />
 
     <com.example.eldercare.presentation.ui.custoom.CustomWeekTextView
-        android:id="@+id/friday"
+        android:id="@+id/fifth_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:customWeekDayOfWeek="금"
-        app:layout_constraintEnd_toStartOf="@id/saturday"
-        app:layout_constraintStart_toEndOf="@id/thursday"
-        app:layout_constraintTop_toTopOf="@+id/thursday" />
+        app:layout_constraintEnd_toStartOf="@id/sixth_day"
+        app:layout_constraintStart_toEndOf="@id/fourth_day"
+        app:layout_constraintTop_toTopOf="@+id/fourth_day" />
 
     <com.example.eldercare.presentation.ui.custoom.CustomWeekTextView
-        android:id="@+id/saturday"
+        android:id="@+id/sixth_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:customWeekDayOfWeek="토"
-        app:layout_constraintEnd_toStartOf="@id/sunday"
-        app:layout_constraintStart_toEndOf="@id/friday"
-        app:layout_constraintTop_toTopOf="@+id/friday" />
+        app:layout_constraintEnd_toStartOf="@id/seventh_day"
+        app:layout_constraintStart_toEndOf="@id/fifth_day"
+        app:layout_constraintTop_toTopOf="@+id/fifth_day" />
 
 
     <com.example.eldercare.presentation.ui.custoom.CustomWeekTextView
-        android:id="@+id/sunday"
+        android:id="@+id/seventh_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:customWeekDayOfWeek="일"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/saturday"
-        app:layout_constraintTop_toTopOf="@+id/saturday" />
+        app:layout_constraintStart_toEndOf="@id/sixth_day"
+        app:layout_constraintTop_toTopOf="@+id/sixth_day" />
 
 
 

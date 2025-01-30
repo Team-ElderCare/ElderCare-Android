@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="@dimen/spacing3"
+    android:padding="@dimen/spacing2"
     android:layout_gravity="center"
     android:background="@drawable/shape_for_week_calendar"
     android:layout_height="wrap_content">
