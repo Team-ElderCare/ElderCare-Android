@@ -11,7 +11,11 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class UseCaseModule {
+
+    // TODO -> 필요 할 때만 UseCase 사용
     @Provides
     @Singleton
-    fun providesPostSignInUseCase(authRepository: AuthRepository): PostSignInUseCase = PostSignInUseCase(authRepository = authRepository)
+    fun providesPostSignInUseCase(
+        authRepository: AuthRepository
+    ): PostSignInUseCase = PostSignInUseCase(authRepository = authRepository)
 }
