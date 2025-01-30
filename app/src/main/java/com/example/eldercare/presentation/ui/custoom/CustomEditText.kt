@@ -13,7 +13,7 @@ import com.example.eldercare.R
 import com.example.eldercare.databinding.ViewCustomEditTextBinding
 
 
-class CustomTextField
+class CustomEditText
     @JvmOverloads
     constructor(
         context: Context,
