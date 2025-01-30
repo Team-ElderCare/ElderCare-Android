@@ -68,7 +68,7 @@ object NetworkModule {
         json: Json,
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl("https://example.com/")
             .client(okHttpClient)
             .addConverterFactory(
                 json.asConverterFactory((requireNotNull("application/json".toMediaTypeOrNull()))),
