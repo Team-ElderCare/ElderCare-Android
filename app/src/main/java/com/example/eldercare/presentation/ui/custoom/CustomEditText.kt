@@ -12,7 +12,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.eldercare.R
 import com.example.eldercare.databinding.ViewCustomEditTextBinding
 
-
 class CustomEditText
     @JvmOverloads
     constructor(
