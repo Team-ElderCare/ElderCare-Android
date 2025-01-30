@@ -35,12 +35,12 @@ class HomeFragment :
                 startActivity(intent)
             }
 
-            btnRegisterProbationer.setOnClickListener { view ->
-                view.isPressed = !view.isPressed
+            btnRegisterProbationer.setOnClickListener {
+                it.isPressed = !it.isPressed
             }
 
-            btnRegisterHealthInfo.setOnClickListener { view ->
-                view.isPressed = !view.isPressed
+            btnRegisterHealthInfo.setOnClickListener {
+                it.isPressed = !it.isPressed
             }
 
             viewDrugAlarm.tab.btnCalendar.apply {

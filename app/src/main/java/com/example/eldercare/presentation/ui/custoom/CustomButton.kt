@@ -1,4 +1,4 @@
-package com.example.eldercare.presentation.ui.custom
+package com.example.eldercare.presentation.ui.custoom
 
 import android.content.Context
 import android.util.AttributeSet
