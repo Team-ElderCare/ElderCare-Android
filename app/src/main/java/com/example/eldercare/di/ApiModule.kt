@@ -1,6 +1,6 @@
 package com.example.eldercare.di
 
-import com.example.eldercare.data.service.AuthService
+import com.example.eldercare.data.api.AuthApi
 import com.example.eldercare.di.qualifier.ElderCare
 import dagger.Module
 import dagger.Provides
@@ -11,10 +11,10 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object ServiceModule {
+object ApiModule {
     @Provides
     @Singleton
     fun provideAuthApi(
         @ElderCare retrofit: Retrofit,
-    ): AuthService = retrofit.create(AuthService::class.java)
+    ): AuthApi = retrofit.create(AuthApi::class.java)
 }
