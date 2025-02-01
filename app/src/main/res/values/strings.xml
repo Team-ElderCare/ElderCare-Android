@@ -4,4 +4,10 @@
     <string name="run_title">활동</string>
     <string name="tool_title">기기관리</string>
     <string name="settings_title">설정</string>
+
+    <!-- topbar -->
+    <string name="device_manage_title">기기 관리</string>
+
+    <!-- contentDescription-->
+    <string name="back_btn_description">뒤로가기 버튼</string>
 </resources>
