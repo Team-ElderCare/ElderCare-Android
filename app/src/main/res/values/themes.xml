@@ -41,6 +41,13 @@
         <item name="android:textColor">@color/Gray700</item>
     </style>
 
+    <!--  chip style-->
+    <style name="CustomChipChoice" parent="@style/Widget.MaterialComponents.Chip.Filter">
+        <item name="chipBackgroundColor">@color/selector_selector_chip</item>
+        <item name="android:textColor">@color/selector_text_chip</item>
+        <item name="strokeColor">@color/selector_stroke_chip</item>
+        <item name="android:textAppearance">@style/TextAppearance.Body6</item>
+    </style>
 
 
 
@@ -116,6 +123,7 @@
         <item name="cornerRadius">@dimen/padding_m</item>
         <item name="android:backgroundTint">@color/primary</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:textAppearance">@style/TextAppearance.Body3</item>
     </style>
 
     <!--splash theme-->
