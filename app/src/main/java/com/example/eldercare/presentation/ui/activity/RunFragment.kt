@@ -6,7 +6,6 @@ import android.text.Html
 import android.text.InputType
 import android.view.View
 import android.widget.Button
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.constraintlayout.widget.ConstraintSet
@@ -14,163 +13,160 @@ import androidx.fragment.app.viewModels
 import com.example.eldercare.R
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentRunBinding
-import com.example.eldercare.presentation.ui.custom.CustomEditText
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
 @AndroidEntryPoint
 class RunFragment : BaseFragment<FragmentRunBinding, RunViewModel>(FragmentRunBinding::inflate) {
-    // Hilt를 통해 RunViewModel 주입
+
+    // Hilt로 주입되는 RunViewModel
     override val viewModel: RunViewModel by viewModels()
 
-    // 버튼 그룹 입력 타입에서 선택된 관계(예: "부모", "자식" 등)를 저장하는 변수
+    // 선택된 관계 (예: "부모", "자식" 등)
     private var selectedRelationship: String? = null
 
-    // 추가 연락처 입력용 CustomEditText들을 저장할 리스트 (최대 5개)
-    private val additionalContactViews = mutableListOf<CustomEditText>()
+    // 추가 연락처는 primary 외 최대 4개 (총 5개)
+    private val maxAdditionalContacts = 4
+
+    // AdditionalContactAdapter – 연락처 입력 항목만 관리 (AddButton은 XML에 별도로 있음)
+    internal lateinit var additionalContactAdapter: AdditionalContactAdapter
 
     private val photoPickerLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-        if (uri != null) {
-            // 사용자가 선택한 이미지를 ImageView에 설정합니다.
-            binding.ivProfileImage.setImageURI(uri)
-            // 필요한 경우, 선택한 사진의 URI를 ViewModel이나 다른 곳에 저장하거나 추가 처리를 할 수 있습니다.
+        uri?.let {
+            binding.ivProfileImage.setImageURI(it)
         }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // CustomEditText(etPrimaryContact)에 유효성 검사 함수를 설정합니다.
-        // 이 함수는 사용자가 입력한 값(input)을 RunViewModel의 validateInput 함수를 통해 검증합니다.
         binding.etPrimaryContact.setValidator { input ->
-            // 현재 단계의 필드 정보를 ViewModel에서 가져옵니다.
             val currentField = viewModel.getCurrentField()
-            // 입력값이 유효하면 null을 반환하여 에러 메시지를 제거합니다.
-            if (viewModel.validateInput(currentField.id, input)) {
-                null
+            if (currentField.id == "ward_emergency_contacts") {
+                // 전화번호는 11자리 숫자여야 함
+                if (input.length != 11 || !input.all { char -> char.isDigit() }) {
+                    "전화번호는 11자리의 숫자여야 합니다."
+                } else {
+                    // 기본 연락처와 추가 연락처를 모두 합친 리스트에서 중복 체크
+                    val allContacts = getAllContacts() // 예: 기본 연락처 + 추가 연락처 목록 반환
+                    if (allContacts.count { contact : String -> contact == input } > 1) {
+                        "중복된 연락처입니다."
+                    } else {
+                        null
+                    }
+                }
             } else {
-                // 유효하지 않으면 필드에 정의된 에러 메시지를 반환합니다.
-                // 만약 에러 메시지가 없다면 기본 메시지를 사용합니다.
-                currentField.errorMessage ?: "유효하지 않은 입력입니다. 다시 확인해주세요."
+                // ward_emergency_contacts 단계가 아닌 경우
+                if (viewModel.validateInput(currentField.id, input)) {
+                    null
+                } else {
+                    currentField.errorMessage ?: "유효하지 않은 입력입니다. 다시 확인해주세요."
+                }
             }
         }
 
-        // 관계 선택 버튼들의 클릭 리스너를 설정합니다.
+        // 관계 선택 버튼 리스너 설정
         setupRelationshipButtonListeners()
 
-        // "다음으로" 버튼 클릭 시, 현재 단계의 입력값을 검증한 후 다음 단계로 진행합니다.
+        // "다음으로" 버튼 클릭 (단계 진행)
         binding.btnNext.setOnClickListener {
-            // 현재 입력 필드 정보를 가져옵니다.
             val currentField = viewModel.getCurrentField()
-            // 입력 타입에 따라 실제 입력값을 결정합니다.
             val inputValue = when (currentField.inputType) {
                 CustomInputType.TEXT, CustomInputType.MULTILINE_TEXT -> binding.etPrimaryContact.getText()
                 CustomInputType.IMAGE_PICKER -> "Image Selected"
                 CustomInputType.BUTTON_GROUP -> selectedRelationship ?: ""
                 else -> ""
             }
-
-            // ViewModel의 유효성 검사 함수를 통해 입력값을 확인합니다.
             if (viewModel.validateInput(currentField.id, inputValue)) {
-                // 입력값이 유효하면 ViewModel에 저장합니다.
                 viewModel.saveInput(currentField.id, inputValue)
-
-                // 다음 단계로 이동 시도
                 if (viewModel.nextStep()) {
-                    // 다음 단계의 필드 정보를 가져옵니다.
                     val nextField = viewModel.getCurrentField()
-                    // 이전에 입력된 값이 있다면 가져오고, 없다면 빈 문자열로 설정합니다.
                     val nextInputValue = viewModel.getInput(nextField.id) ?: ""
-
-                    // 다음 단계가 텍스트 입력 타입이면 etPrimaryContact에 값을 설정합니다.
-                    if (nextField.inputType == CustomInputType.TEXT || nextField.inputType == CustomInputType.MULTILINE_TEXT) {
+                    if (nextField.inputType == CustomInputType.TEXT ||
+                        nextField.inputType == CustomInputType.MULTILINE_TEXT) {
                         binding.etPrimaryContact.setText(nextInputValue)
                     } else {
-                        // 텍스트 입력 타입이 아니라면 입력 필드를 초기화합니다.
                         binding.etPrimaryContact.clearText()
                     }
                 }
-            } else {
-                // 입력값이 유효하지 않은 경우, 에러 메시지는 CustomEditText의 validator에 의해 표시됩니다.
-                // 필요한 경우 추가적인 UI 피드백을 이곳에서 구현할 수 있습니다.
             }
         }
 
-        // "이전으로" 버튼 클릭 시, 이전 단계로 돌아가고 저장된 입력값을 복원합니다.
+        // "이전으로" 버튼 클릭 (단계 복원)
         binding.btnPrevious.setOnClickListener {
             viewModel.previousStep()
             val previousField = viewModel.getCurrentField()
             val previousInputValue = viewModel.getInput(previousField.id) ?: ""
-
-            if (previousField.inputType == CustomInputType.TEXT || previousField.inputType == CustomInputType.MULTILINE_TEXT) {
+            if (previousField.inputType == CustomInputType.TEXT ||
+                previousField.inputType == CustomInputType.MULTILINE_TEXT) {
                 binding.etPrimaryContact.setText(previousInputValue)
             }
         }
 
-        // "사진 등록" 버튼 클릭 시, 사진 등록 로직을 수행합니다.
+        // "사진 등록" 버튼 클릭
         binding.btnRegisterPhoto.setOnClickListener {
             registerPhoto()
         }
 
-        // [연락처 추가] 버튼 클릭 리스너
+        // AdditionalContactAdapter 초기화
+        additionalContactAdapter = AdditionalContactAdapter(
+            onContactChanged = { phone, position ->
+                val currentList = additionalContactAdapter.currentList.toMutableList()
+                if (currentList.isNotEmpty() && currentList.size > position && currentList[position] is AdditionalContactItem.Contact) {
+                    val oldContact = currentList[position] as AdditionalContactItem.Contact
+                    currentList[position] = AdditionalContactItem.Contact(id = oldContact.id, phone = phone)
+                    //additionalContactAdapter.submitList(currentList)
+                }
+            },
+            getPrimaryContact = { binding.etPrimaryContact.getText() },
+            getAllAdditionalContacts = { additionalContactAdapter.currentList.filterIsInstance<AdditionalContactItem.Contact>().map { it.phone } }
+        )
+
+        binding.rvAdditionalContacts.adapter = additionalContactAdapter
+        // 초기에는 빈 리스트 제출
+        additionalContactAdapter.submitList(emptyList())
+
+        // "연락처 추가" 버튼 (XML에 별도로 배치됨) 클릭 시, 새 연락처 항목 추가 (최대 4개)
         binding.btnAddContact.setOnClickListener {
-            if (additionalContactViews.size >= 4) {
-                Toast.makeText(requireContext(), "최대 5개 까지 추가할 수 있습니다.", Toast.LENGTH_SHORT).show()
+            val currentList = additionalContactAdapter.currentList.toMutableList()
+            if (currentList.size >= maxAdditionalContacts) {
+                Toast.makeText(requireContext(), "최대 4개 까지 추가할 수 있습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            // 새 CustomEditText 인스턴스 생성 (동적 생성)
-            val newContactView = CustomEditText(requireContext()).apply {
-                // primary와 같은 스타일 및 힌트 설정
-                setHint("전화번호 입력")
-                setInputType(InputType.TYPE_CLASS_NUMBER)
-                setValidator { input ->
-                    if (input.length == 11 && input.all { it.isDigit() }) {
-                        null // 유효한 입력: 에러 메시지 없음
-                    } else {
-                        "잘못된 형식의 전화번호입니다."
-                    }
-                }
-                // 동적으로 추가하는 뷰에는 고유 ID를 부여 (ConstraintSet이나 인덱스 관리에 필요)
-                id = View.generateViewId()
-            }
-
-            // 10dp를 픽셀로 변환
-            val marginPx = (10 * resources.displayMetrics.density).toInt()
-            // LinearLayout.LayoutParams 생성 후 topMargin 설정
-            val layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            ).apply {
-                topMargin = marginPx
-            }
-            newContactView.layoutParams = layoutParams
-
-            // 현재 btn_add_contact는 ll_additional_contacts의 마지막 자식입니다.
-            // 새 뷰를 버튼 위에 추가하려면, 버튼의 인덱스를 구해서 그 위치에 삽입합니다.
-            val container = binding.llAdditionalContacts
-            val buttonIndex = container.indexOfChild(binding.btnAddContact)
-            container.addView(newContactView, buttonIndex)
-            additionalContactViews.add(newContactView)
+            // 새 연락처 항목 추가: 고유 ID를 생성하여 빈 문자열과 함께 추가
+            currentList.add(AdditionalContactItem.Contact(id = System.currentTimeMillis(), phone = ""))
+            additionalContactAdapter.submitList(currentList)
         }
 
 
-        // ViewModel의 currentStep LiveData를 관찰하여 단계가 변경될 때마다 UI를 업데이트합니다.
         viewModel.currentStep.observe(viewLifecycleOwner) { step ->
             renderStep(step)
         }
 
+        // 스크롤뷰와 연동하여 RecyclerView 스크롤을 비활성화
+        binding.rvAdditionalContacts.isNestedScrollingEnabled = false
+    }
+
+    private fun getAllContacts(): List<String> {
+        // 기본 연락처 + 추가 연락처들을 모두 합친 리스트 반환
+        val primary = binding.etPrimaryContact.getText()
+        val additional = additionalContactAdapter.currentList.filterIsInstance<AdditionalContactItem.Contact>().map { it.phone }
+        return listOf(primary) + additional
     }
 
     /**
-     * 현재 단계(step)에 맞춰 UI를 업데이트합니다.
-     *
-     * @param step 현재 단계(1부터 시작)
+     * renderStep() 메소드
+     * - 현재 단계에 따라 기본 연락처 입력, 관계 선택, 이미지 등록 등의 UI를 보이게 합니다.
+     * - CustomInputType.MULTILINE_TEXT 단계에서는:
+     *    • "ward_emergency_contacts" 단계: tv_side_info에 HTML 서식 문자열을 적용하고,
+     *       rv_additional_contacts와 btn_add_contact를 보이게 합니다.
+     *    • "ward_address" 단계: tv_side_info에 주소 관련 안내 문구를 보입니다.
      */
     private fun renderStep(step: Int) {
         val currentField = viewModel.getCurrentField()
         binding.tvInputTitle.text = currentField.info
 
-        // 모든 관련 UI 요소를 우선 숨김
+        // 모든 주요 UI 요소를 숨김
         hideAllViews()
 
         when (currentField.inputType) {
@@ -178,13 +174,16 @@ class RunFragment : BaseFragment<FragmentRunBinding, RunViewModel>(FragmentRunBi
                 binding.etPrimaryContact.visibility = View.VISIBLE
                 binding.etPrimaryContact.setHint(currentField.hint)
                 setKeyboardType(currentField.keyboardType)
+                updateNavigationButtonsBelow(binding.etPrimaryContact)
             }
             CustomInputType.BUTTON_GROUP -> {
                 binding.flowRelationshipButtons.visibility = View.VISIBLE
+                updateNavigationButtonsBelow(binding.flowRelationshipButtons)
             }
             CustomInputType.IMAGE_PICKER -> {
                 binding.ivProfileImage.visibility = View.VISIBLE
                 binding.btnRegisterPhoto.visibility = View.VISIBLE
+                updateNavigationButtonsBelow(binding.btnRegisterPhoto)
             }
             CustomInputType.MULTILINE_TEXT -> {
                 binding.etPrimaryContact.visibility = View.VISIBLE
@@ -192,122 +191,69 @@ class RunFragment : BaseFragment<FragmentRunBinding, RunViewModel>(FragmentRunBi
                 when (currentField.id) {
                     "ward_emergency_contacts" -> {
                         Timber.d("ward_emergency_contacts")
-                        // 비상 연락망 단계: side info 보이기 (HTML 태그 적용)
                         binding.tvSideInfo.visibility = View.VISIBLE
                         binding.tvSideInfo.text = Html.fromHtml(
                             getString(R.string.ward_emergency_side_info),
                             Html.FROM_HTML_MODE_LEGACY
                         )
-                        // 추가 연락처 컨테이너 보이기
-                        binding.llAdditionalContacts.visibility = View.VISIBLE
-                        // 컨테이너 내의 기존 모든 자식(혹은 이전에 추가했던 뷰들 및 add 버튼)을 초기화
-                        binding.llAdditionalContacts.removeAllViews()
-                        // 이미 추가된 연락처 컴포넌트들을 먼저 추가
-                        additionalContactViews.forEach { additionalView ->
-                            binding.llAdditionalContacts.addView(additionalView)
-                        }
-                        // 마지막 자식으로 항상 "연락처 추가" 버튼을 추가
-                        binding.llAdditionalContacts.addView(binding.btnAddContact)
+                        binding.rvAdditionalContacts.visibility = View.VISIBLE
+                        binding.btnAddContact.visibility = View.VISIBLE
+                        updateNavigationButtonsBelow(binding.btnAddContact)
                     }
                     "ward_address" -> {
                         Timber.d("ward_address")
                         binding.tvSideInfo.visibility = View.VISIBLE
                         binding.tvSideInfo.text = getString(R.string.ward_address_side_info)
+                        updateNavigationButtonsBelow(binding.tvSideInfo)
                     }
                     else -> {
                         binding.tvSideInfo.visibility = View.GONE
+                        binding.rvAdditionalContacts.visibility = View.GONE
                         binding.btnAddContact.visibility = View.GONE
-                        binding.llAdditionalContacts.visibility = View.GONE
-                        updateAddContactButtonPosition()  // 기본 제약 재설정
+                        updateNavigationButtonsBelow(binding.etPrimaryContact)
                     }
                 }
             }
         }
-
         binding.btnPrevious.isEnabled = step > 1
         binding.btnNext.isEnabled = step != viewModel.fields.size
     }
 
-    private fun updateAddContactButtonConstraint(belowEmergencySideInfo: Boolean) {
-        val constraintSet = ConstraintSet()
-        constraintSet.clone(binding.root)
-        val marginPx = if (belowEmergencySideInfo) {
-            (24 * resources.displayMetrics.density).toInt()
-        } else {
-            (10 * resources.displayMetrics.density).toInt()
-        }
-        if (belowEmergencySideInfo) {
-            constraintSet.connect(
-                binding.btnAddContact.id,
-                ConstraintSet.TOP,
-                binding.tvSideInfo.id,
-                ConstraintSet.BOTTOM,
-                marginPx
-            )
-        } else {
-            constraintSet.connect(
-                binding.btnAddContact.id,
-                ConstraintSet.TOP,
-                binding.etPrimaryContact.id,
-                ConstraintSet.BOTTOM,
-                marginPx
-            )
-        }
-        constraintSet.applyTo(binding.root)
-    }
-
     /**
-     * updateAddContactButtonPosition()
-     *
-     * 추가 연락처 컨테이너에 자식 뷰가 있다면, btn_add_contact의 상단 제약을 마지막 자식 뷰의 하단으로 연결합니다.
-     * 자식 뷰가 없으면 기본적으로 et_primary_contact의 하단에 연결합니다.
+     * updateNavigationButtonsBelow()
+     * ConstraintSet을 사용하여 네비게이션 버튼 컨테이너(ll_navigation_buttons)의 상단을
+     * targetView의 하단에 16픽셀 마진을 두고 연결합니다.
      */
-    private fun updateAddContactButtonPosition() {
+    private fun updateNavigationButtonsBelow(targetView: View) {
         val constraintSet = ConstraintSet()
         constraintSet.clone(binding.root)
-        val marginPx = (10 * resources.displayMetrics.density).toInt()
-        if (binding.llAdditionalContacts.childCount > 0) {
-            // 마지막 추가된 뷰를 가져옴
-            val lastChild = binding.llAdditionalContacts.getChildAt(binding.llAdditionalContacts.childCount - 1)
-            constraintSet.connect(
-                binding.btnAddContact.id,
-                ConstraintSet.TOP,
-                lastChild.id,
-                ConstraintSet.BOTTOM,
-                marginPx
-            )
-        } else {
-            constraintSet.connect(
-                binding.btnAddContact.id,
-                ConstraintSet.TOP,
-                binding.etPrimaryContact.id,
-                ConstraintSet.BOTTOM,
-                marginPx
-            )
-        }
+        constraintSet.connect(
+            binding.llNavigationButtons.id,
+            ConstraintSet.TOP,
+            targetView.id,
+            ConstraintSet.BOTTOM,
+            16
+        )
         constraintSet.applyTo(binding.root)
     }
 
-
     /**
-     * 현재 화면에 있는 모든 입력 관련 UI 요소를 숨깁니다.
-     * (각 단계별로 필요한 UI 요소만 표시하기 위함)
+     * hideAllViews()
+     * 모든 주요 UI 요소를 숨깁니다.
      */
     private fun hideAllViews() {
         binding.etPrimaryContact.visibility = View.GONE
         binding.flowRelationshipButtons.visibility = View.GONE
         binding.ivProfileImage.visibility = View.GONE
         binding.btnRegisterPhoto.visibility = View.GONE
-        binding.btnAddContact.visibility = View.GONE
-        binding.llAdditionalContacts.visibility = View.GONE
+        binding.rvAdditionalContacts.visibility = View.GONE
         binding.tvSideInfo.visibility = View.GONE
+        binding.btnAddContact.visibility = View.GONE
     }
 
-
     /**
-     * CustomEditText의 키보드 입력 타입을 설정합니다.
-     *
-     * @param keyboardType CustomKeyboardType에 따른 키보드 타입
+     * setKeyboardType()
+     * et_primary_contact의 입력 타입을 설정합니다.
      */
     private fun setKeyboardType(keyboardType: CustomKeyboardType) {
         binding.etPrimaryContact.setInputType(
@@ -319,11 +265,7 @@ class RunFragment : BaseFragment<FragmentRunBinding, RunViewModel>(FragmentRunBi
         )
     }
 
-    /**
-     * 관계 선택 버튼(버튼 그룹)들의 클릭 리스너를 설정합니다.
-     */
     private fun setupRelationshipButtonListeners() {
-        // 각 버튼과 해당 관계 문자열("부모", "자식", 등)을 페어로 구성합니다.
         val relationshipButtons = listOf(
             binding.btnParent to "부모",
             binding.btnChild to "자식",
@@ -333,23 +275,14 @@ class RunFragment : BaseFragment<FragmentRunBinding, RunViewModel>(FragmentRunBi
             binding.btnCaregiver to "간병인",
             binding.btnOther to "기타"
         )
-
-        // 각 버튼에 클릭 리스너를 설정하여 선택 시 selectRelationship()을 호출합니다.
-        for ((button, relationship) in relationshipButtons) {
+        relationshipButtons.forEach { (button, relationship) ->
             button.setOnClickListener {
                 selectRelationship(button, relationship)
             }
         }
     }
 
-    /**
-     * 버튼 그룹에서 선택된 관계 버튼을 처리합니다.
-     *
-     * @param selectedButton 사용자가 선택한 버튼
-     * @param relationship   버튼에 해당하는 관계 문자열
-     */
     private fun selectRelationship(selectedButton: Button, relationship: String) {
-        // 모든 관계 버튼의 선택 상태를 초기화합니다.
         val relationshipButtons = listOf(
             binding.btnParent,
             binding.btnChild,
@@ -359,23 +292,12 @@ class RunFragment : BaseFragment<FragmentRunBinding, RunViewModel>(FragmentRunBi
             binding.btnCaregiver,
             binding.btnOther
         )
-
-        relationshipButtons.forEach { button ->
-            button.isSelected = false
-        }
-
-        // 선택된 버튼에 선택 효과를 부여하고, 선택된 관계 문자열을 저장합니다.
+        relationshipButtons.forEach { it.isSelected = false }
         selectedButton.isSelected = true
         selectedRelationship = relationship
-
-        // "다음으로" 버튼을 활성화합니다.
         binding.btnNext.isEnabled = true
     }
 
-    /**
-     * 사진 등록 버튼 클릭 시 호출되는 메서드입니다.
-     * 실제 사진 등록 로직을 구현할 곳입니다.
-     */
     private fun registerPhoto() {
         photoPickerLauncher.launch("image/*")
     }

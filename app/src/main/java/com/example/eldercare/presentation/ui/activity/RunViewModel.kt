@@ -31,7 +31,7 @@ class RunViewModel
                 InputField("ward_birth_date", "19971220", "보호 대상자의 생년월일", "잘못된 형식의 생년월일 정보입니다.", CustomInputType.TEXT, CustomKeyboardType.NUMERIC),
                 InputField("ward_nickname", "닉네임을 입력해주세요.", "보호 대 상자의 닉네임", "특수문자나, 초성, 숫자는 사용할 수 없습니다.", CustomInputType.TEXT),
                 InputField("ward_phone", "ex)01012345678", "보호 대상자의 전화번호", "잘못된 형식의 전화번호입니다.",  CustomInputType.TEXT, CustomKeyboardType.PHONE),
-                InputField("ward_address", "주소를 입력해주세요.", "보호 대상자의 주소", inputType = CustomInputType.TEXT),
+                InputField("ward_address", "ex)01012345678", "보호 대상자의 주소", inputType = CustomInputType.TEXT),
                 InputField(
                     "ward_emergency_contacts",
                     "비상연락처를 입력해주세요.",
