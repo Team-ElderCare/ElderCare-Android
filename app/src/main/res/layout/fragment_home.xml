@@ -45,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-        <com.example.eldercare.presentation.ui.custoom.CustomButton
+        <com.example.eldercare.presentation.ui.custom.CustomButton
             android:clickable="true"
             android:focusable="true"
             android:id="@+id/btn_register_probationer"
@@ -59,7 +59,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_recent_activity" />
 
-        <com.example.eldercare.presentation.ui.custoom.CustomButton
+        <com.example.eldercare.presentation.ui.custom.CustomButton
             android:clickable="true"
             android:focusable="true"
         app:customButtonIcon="@drawable/ic_health_and_safety_24x25dp"
