@@ -45,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-        <com.example.eldercare.presentation.ui.custoom.CustomButton
+        <com.example.eldercare.util.component.button.ElderCareButton
             android:clickable="true"
             android:focusable="true"
             android:id="@+id/btn_register_probationer"
@@ -59,16 +59,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_recent_activity" />
 
-        <com.example.eldercare.presentation.ui.custoom.CustomButton
+        <com.example.eldercare.util.component.button.ElderCareButton
             android:clickable="true"
             android:focusable="true"
-        app:customButtonIcon="@drawable/ic_health_and_safety_24x25dp"
-        android:background="@drawable/rectangle_green_btn"
-        android:id="@+id/btn_register_health_info"
-        android:layout_margin="@dimen/spacing3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:customButtonTextView="건강정보"
+            app:customButtonIcon="@drawable/ic_health_and_safety_24x25dp"
+            android:background="@drawable/rectangle_green_btn"
+            android:id="@+id/btn_register_health_info"
+            android:layout_margin="@dimen/spacing3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:customButtonTextView="건강정보"
             app:layout_constraintTop_toBottomOf="@id/view_recent_activity"
             app:layout_constraintStart_toEndOf="@id/btn_register_probationer"
         app:layout_constraintEnd_toEndOf="parent"/>
