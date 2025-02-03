@@ -19,9 +19,7 @@ class AdditionalContactAdapter(
 
     override fun getItemId(position: Int): Long {
         val item = getItem(position)
-        return if (item is AdditionalContactItem.Contact) {
-            item.id
-        } else 0L
+        return if (item is AdditionalContactItem.Contact) item.id else 0L
     }
 
     override fun inflateBinding(

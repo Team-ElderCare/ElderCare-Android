@@ -47,7 +47,7 @@
                 android:text="@string/ward_emergency_side_info"
                 android:visibility="gone"
                 app:layout_constraintTop_toBottomOf="@id/tv_input_title"
-                tools:visibility="visible"  />
+                tools:visibility="visible" />
 
             <!-- 기본 연락처 입력 -->
             <com.example.eldercare.presentation.ui.custom.CustomEditText
@@ -56,25 +56,66 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="8dp"
-                android:hint="전화번호 입력"
                 android:inputType="number"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_side_info" />
 
-            <!-- 추가 연락처들을 담을 컨테이너 (동적으로 CustomEditText가 추가됨) -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginTop="10dp"
-                android:id="@+id/rv_additional_contacts"
+            <LinearLayout
+                android:id="@+id/ll_additional_contacts"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical"
                 android:visibility="invisible"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/et_primary_contact"
-                tools:visibility="visible" />
+                tools:visibility="visible">
+
+                <com.example.eldercare.presentation.ui.custom.CustomEditText
+                    android:id="@+id/et_additional_contact_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:inputType="number"
+                    android:visibility="gone"
+                    app:customHint="ex)01012345678" />
+
+                <com.example.eldercare.presentation.ui.custom.CustomEditText
+                    android:id="@+id/et_additional_contact_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:inputType="number"
+                    android:visibility="gone"
+                    app:customHint="ex)01012345678" />
+
+                <com.example.eldercare.presentation.ui.custom.CustomEditText
+                    android:id="@+id/et_additional_contact_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:inputType="number"
+                    android:visibility="gone"
+                    app:customHint="ex)01012345678"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_side_info" />
+
+                <com.example.eldercare.presentation.ui.custom.CustomEditText
+                    android:id="@+id/et_additional_contact_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:inputType="number"
+                    android:visibility="gone"
+                    app:customHint="ex)01012345678"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_side_info" />
+            </LinearLayout>
 
             <!-- 연락처 추가 버튼 -->
             <Button
@@ -86,7 +127,7 @@
                 android:text="+ 추가하기"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rv_additional_contacts" />
+                app:layout_constraintTop_toBottomOf="@id/ll_additional_contacts" />
 
             <!-- 이미지 등록 영역 -->
             <ImageView
