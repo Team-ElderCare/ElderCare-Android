@@ -14,7 +14,7 @@
             android:background="@color/white">
 
             <include
-                android:id="@+id/include_join_group_search_topbar"
+                android:id="@+id/include_device_manage_topbar"
                 layout="@layout/view_all_topbar_arrow_with_title"
                 text="@{@string/device_manage_title}"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +28,7 @@
                 android:background="@drawable/shape_bottom_left_radius_40dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/include_join_group_search_topbar">
+                app:layout_constraintTop_toBottomOf="@+id/include_device_manage_topbar">
 
                 <TextView
                     android:id="@+id/tv_device_manger"
