@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@id/view_week_calendar" />
 
     <androidx.recyclerview.widget.RecyclerView
-        tools:listitem="@layout/item_recent_activity"
+        tools:listitem="@layout/item_warn"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
