@@ -206,7 +206,16 @@
     </style>
 
     <!--splash theme-->
-    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <!--추후 제대로된 앱 아이콘 나왔을때, 다시 수정-->
+    <style name="SplashTheme" parent="Theme.SplashScreen">
+
+        <item name="windowSplashScreenBackground">@color/white</item>
+
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_transparent_layer_splash</item>
+
+        <item name="postSplashScreenTheme">@style/Theme.ElderCare</item>
+
+
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
