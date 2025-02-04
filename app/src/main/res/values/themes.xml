@@ -174,9 +174,9 @@
     <!-- Chip S No Fill -->
     <style name="Theme.ElderCare.Chip.L.No.Fill" parent="Theme.ElderCare.Chip">
         <item name="cornerRadius">@dimen/padding_m</item>
-        <item name="textStartPadding">8dp</item>
-        <item name="textEndPadding">8dp</item>
-        <item name="android:paddingVertical">12dp</item>
+        <item name="textStartPadding">@dimen/padding_xs</item>
+        <item name="textEndPadding">@dimen/padding_xs</item>
+        <item name="android:paddingVertical">@dimen/padding_s</item>
         <item name="chipBackgroundColor">@color/selector_chip_no_fill_background</item>
         <item name="android:textColor">@color/selector_chip_no_fill_text_color</item>
         <item name="chipStrokeColor">@color/selector_chip_no_fill_stroke</item>
@@ -188,9 +188,9 @@
     <!-- Chip S Fill -->
     <style name="Theme.ElderCare.Chip.L.Fill" parent="Theme.ElderCare.Chip">
         <item name="cornerRadius">@dimen/padding_m</item>
-        <item name="textStartPadding">8dp</item>
-        <item name="textEndPadding">8dp</item>
-        <item name="android:paddingVertical">12dp</item>
+        <item name="textStartPadding">@dimen/padding_xs</item>
+        <item name="textEndPadding">@dimen/padding_xs</item>
+        <item name="android:paddingVertical">@dimen/padding_s</item>
         <item name="chipBackgroundColor">@color/selector_chip_fill_background</item>
         <item name="android:textColor">@color/selector_chip_fill_text_color</item>
         <item name="chipStrokeColor">@color/selector_chip_fill_stroke</item>
@@ -202,9 +202,9 @@
     <!-- Chip Day -->
     <style name="Theme.ElderCare.Chip.Day" parent="Theme.ElderCare.Chip">
         <item name="cornerRadius">50dp</item>
-        <item name="textStartPadding">12dp</item>
-        <item name="textEndPadding">12dp</item>
-        <item name="android:paddingVertical">12dp</item>
+        <item name="textStartPadding">@dimen/padding_s</item>
+        <item name="textEndPadding">@dimen/padding_s</item>
+        <item name="android:paddingVertical">@dimen/padding_s</item>
         <item name="chipBackgroundColor">@color/selector_chip_day_background</item>
         <item name="android:textColor">@color/Green600</item>
         <item name="chipStrokeColor">@color/selector_chip_no_fill_stroke</item>
