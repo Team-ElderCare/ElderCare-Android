@@ -15,6 +15,7 @@
     <string name="device_manage_category_tag">태그</string>
     <string name="device_manage_category_hub">허브</string>
     <string name="device_manage_category_sensor">동작감지센서</string>
+    <string name="device_manage_no_current_device">현재 설정된 기기가 없습니다</string>
     <string name="device_manage_sensor">센서</string>
 
     <!-- topbar -->
