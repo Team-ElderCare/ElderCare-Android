@@ -1,4 +1,4 @@
-package com.example.eldercare.presentation.ui.custoom
+package com.example.eldercare.util.component.button
 
 import android.content.Context
 import android.util.AttributeSet
@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.eldercare.R
 
-class CustomButton
+class ElderCareButton
     @JvmOverloads
     constructor(
         context: Context,

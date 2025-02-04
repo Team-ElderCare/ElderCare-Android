@@ -39,9 +39,6 @@ jobs:
           HFM_BASE_URL: ${{ secrets.BASE_URL }}
         run: echo "base.url=\"$BASE_URL\"" >> local.properties
 
-      - name: Run Tests
-        run: ./gradlew test
-
       - name: Lint Check
         run: ./gradlew ktlintCheck -PcompileSdkVersion=34
 

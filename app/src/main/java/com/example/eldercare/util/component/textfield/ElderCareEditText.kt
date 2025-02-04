@@ -1,4 +1,4 @@
-package com.example.eldercare.presentation.ui.custoom
+package com.example.eldercare.util.component.textfield
 
 import android.content.Context
 import android.text.Editable
@@ -12,7 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.eldercare.R
 import com.example.eldercare.databinding.ViewCustomEditTextBinding
 
-class CustomEditText
+class ElderCareEditText
     @JvmOverloads
     constructor(
         context: Context,

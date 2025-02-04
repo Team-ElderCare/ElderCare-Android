@@ -1,4 +1,4 @@
-package com.example.eldercare.base.dialog
+package com.example.eldercare.util.component.dialog
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
 
-// 추후 파일 위치 변경
-abstract class BaseDialogFragment<T : ViewDataBinding>(
+abstract class ElderCareDialogFragment<T : ViewDataBinding>(
     @LayoutRes private val layoutResId: Int,
 ) :
     DialogFragment() {
