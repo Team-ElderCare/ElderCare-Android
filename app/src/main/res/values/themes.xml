@@ -211,7 +211,6 @@
         <item name="chipStrokeWidth">1dp</item>
         <item name="android:clickable">false</item>
         <item name="android:textAppearance">@style/TextAppearance.SubTitle3</item>
-        <item name="android:textAppearance">@style/TextAppearance.Body3</item>
     </style>
 
     <!-- edit button -->
