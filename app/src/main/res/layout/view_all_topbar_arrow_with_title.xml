@@ -22,8 +22,8 @@
             android:src="@drawable/ic_narrow_left_24x25dp"
             android:contentDescription="@string/back_btn_description"
             android:layout_marginStart="@dimen/spacing3"
-            android:layout_marginTop="@dimen/spacing3"
-            android:layout_marginBottom="@dimen/spacing3"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
