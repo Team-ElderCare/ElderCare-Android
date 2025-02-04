@@ -126,6 +126,22 @@
         <item name="android:textAppearance">@style/TextAppearance.Body3</item>
     </style>
 
+    <!-- edit button -->
+    <style name="Theme.ElderCare.Button.Edit" parent="Theme.ElderCare.Button.Base">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingHorizontal">@dimen/spacing2</item>
+        <item name="android:paddingVertical">@dimen/spacing1</item>
+        <item name="backgroundTint">@color/ash_khaki_50</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:textAppearance">@style/TextAppearance.Caption2</item>
+        <item name="icon">@drawable/ic_edit_25dp</item>
+        <item name="iconPadding">@dimen/spacing1</item>
+        <item name="iconSize">16dp</item>
+        <item name="iconTint">@color/primary</item>
+        <item name="iconGravity">textStart</item>
+    </style>
+
     <!--splash theme-->
     <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="windowNoTitle">true</item>
