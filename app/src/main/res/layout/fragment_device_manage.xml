@@ -1,12 +1,282 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <include
-        android:id="@+id/include_join_group_search_topbar"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
+        <include
+            android:id="@+id/include_join_group_search_topbar"
+            layout="@layout/view_all_topbar_arrow_with_title"
+            text="@{@string/device_manage_title}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_top_device_manage"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="@drawable/shape_bottom_left_radius_40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_join_group_search_topbar">
+
+            <TextView
+                android:id="@+id/tv_device_manger"
+                style="@style/TextAppearance.Title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing4"
+                android:layout_marginTop="@dimen/spacing7"
+                android:text="@string/device_manage_current_device"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_device_manger_add_device"
+                style="@style/Theme.ElderCare.Button.Add.Device"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:height="@dimen/height_m"
+                android:layout_marginStart="72dp"
+                android:layout_marginEnd="@dimen/spacing4"
+                android:text="@string/device_manage_add_device"
+                android:ellipsize="none"
+                android:singleLine="true"
+                android:paddingVertical="6dp"
+                android:paddingStart="@dimen/spacing3"
+                android:paddingEnd="@dimen/spacing4"
+                app:icon="@drawable/ic_plus_16dp"
+                app:iconPadding="4dp"
+                app:iconGravity="textStart"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_device_manger"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_device_manger" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cg_device_manager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing4"
+                android:layout_marginTop="@dimen/spacing7"
+                app:layout_constraintTop_toBottomOf="@+id/tv_device_manger"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_device_manager_category_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_manage_category_all"
+                    app:chipCornerRadius="40dp"
+                    android:background="@color/selector_selector_chip"
+                    android:textColor="@color/selector_text_chip"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_device_manager_category_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_manage_category_tag"
+                    app:chipCornerRadius="40dp"
+                    android:background="@color/selector_selector_chip"
+                    android:textColor="@color/selector_text_chip"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_device_manager_category_hub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_manage_category_hub"
+                    app:chipCornerRadius="40dp"
+                    android:background="@color/selector_selector_chip"
+                    android:textColor="@color/selector_text_chip"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_device_manager_category_sensor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_manage_category_sensor"
+                    app:chipCornerRadius="40dp"
+                    android:background="@color/Brown50"
+                    android:textColor="@color/selector_text_chip"/>
+            </com.google.android.material.chip.ChipGroup>
+
+            <TextView
+                android:id="@+id/tv_device_manger_no_device"
+                style="@style/TextAppearance.SubTitle5"
+                android:text="현재 설정된 기기가 없습니다"
+                android:textColor="@color/Gray500"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cg_device_manager"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_device_manger_no_device"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing6"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cg_device_manager"
+                tools:listitem="@layout/item_connected_device"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_bottom_device_manage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/shape_top_right_radius_40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container_top_device_manage">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_center_device_manager"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <TextView
+                android:id="@+id/tv_device_manger_device_manual"
+                style="@style/TextAppearance.Title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="기기 사용 설명서"
+                android:textColor="@color/Gray800"
+                android:layout_marginTop="28dp"
+                android:layout_marginStart="@dimen/spacing4"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container_device_manger_hub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_s"
+                android:layout_marginHorizontal="@dimen/margin_m"
+                android:background="@drawable/rectangle_brown50_without_stroke"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_device_manger_device_manual">
+
+                <ImageView
+                    android:id="@+id/iv_device_manager_hub_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_l"
+                    android:src="@drawable/ic_hub_70dp"
+                    android:contentDescription="@string/device_manage_category_hub"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_device_manager_hub"
+                    style="@style/TextAppearance.SubTitle3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_s"
+                    android:layout_marginBottom="@dimen/margin_m"
+                    android:text="@string/device_manage_category_hub"
+                    android:textColor="@color/Gray900"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_device_manager_hub_img"
+                    app:layout_constraintStart_toStartOf="@+id/iv_device_manager_hub_img"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_device_manager_hub_img" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container_device_manger_tag"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_s"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/rectangle_brown50_without_stroke"
+                android:backgroundTint="#D5EBF9"
+                app:layout_constraintEnd_toStartOf="@+id/gl_center_device_manager"
+                app:layout_constraintStart_toStartOf="@+id/container_device_manger_hub"
+                app:layout_constraintTop_toBottomOf="@+id/container_device_manger_hub">
+
+                <ImageView
+                    android:id="@+id/iv_device_manager_tag_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_l"
+                    android:src="@drawable/ic_tag_50dp"
+                    android:contentDescription="@string/device_manage_category_tag"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_device_manager_tag"
+                    style="@style/TextAppearance.SubTitle3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_s"
+                    android:layout_marginBottom="@dimen/margin_m"
+                    android:text="@string/device_manage_category_tag"
+                    android:textColor="@color/Gray900"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_device_manager_tag_img"
+                    app:layout_constraintStart_toStartOf="@+id/iv_device_manager_tag_img"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_device_manager_tag_img" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container_device_manger_sensor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="@dimen/padding_s"
+                android:background="@drawable/rectangle_brown50_without_stroke"
+                android:backgroundTint="@color/ash_khaki_100"
+                app:layout_constraintBottom_toBottomOf="@+id/container_device_manger_tag"
+                app:layout_constraintEnd_toEndOf="@+id/container_device_manger_hub"
+                app:layout_constraintStart_toStartOf="@+id/gl_center_device_manager"
+                app:layout_constraintTop_toBottomOf="@+id/container_device_manger_hub">
+
+                <ImageView
+                    android:id="@+id/iv_device_manager_sensor_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_l"
+                    android:src="@drawable/ic_sensor_50dp"
+                    android:contentDescription="@string/device_manage_sensor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_device_manager_sensor"
+                    style="@style/TextAppearance.SubTitle3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_s"
+                    android:layout_marginBottom="@dimen/margin_m"
+                    android:text="@string/device_manage_sensor"
+                    android:textColor="@color/Gray900"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_device_manager_sensor_img"
+                    app:layout_constraintStart_toStartOf="@+id/iv_device_manager_sensor_img"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_device_manager_sensor_img" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
