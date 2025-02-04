@@ -73,36 +73,56 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/device_manage_category_all"
+                    android:textColor="@color/primary"
                     app:chipCornerRadius="40dp"
-                    android:background="@color/selector_selector_chip"
-                    android:textColor="@color/selector_text_chip"/>
+                    app:textStartPadding="@dimen/padding_s"
+                    app:chipBackgroundColor ="@color/selector_chip_day_background"
+                    app:chipStrokeColor="@color/primary"
+                    app:chipStrokeWidth="1dp"
+                    android:clickable="true"
+                    android:textAppearance="@style/TextAppearance.Body6" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_device_manager_category_tag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/device_manage_category_tag"
+                    android:textColor="@color/primary"
                     app:chipCornerRadius="40dp"
-                    android:background="@color/selector_selector_chip"
-                    android:textColor="@color/selector_text_chip"/>
+                    app:textStartPadding="@dimen/padding_s"
+                    app:chipBackgroundColor="@color/selector_chip_day_background"
+                    app:chipStrokeColor="@color/primary"
+                    app:chipStrokeWidth="1dp"
+                    android:clickable="false"
+                    android:textAppearance="@style/TextAppearance.Body6" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_device_manager_category_hub"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/device_manage_category_hub"
+                    android:textColor="@color/primary"
                     app:chipCornerRadius="40dp"
-                    android:background="@color/selector_selector_chip"
-                    android:textColor="@color/selector_text_chip"/>
+                    app:textStartPadding="@dimen/padding_s"
+                    app:chipBackgroundColor="@color/selector_chip_day_background"
+                    app:chipStrokeColor="@color/primary"
+                    app:chipStrokeWidth="1dp"
+                    android:clickable="false"
+                    android:textAppearance="@style/TextAppearance.Body6" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_device_manager_category_sensor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/device_manage_category_sensor"
+                    android:textColor="@color/primary"
                     app:chipCornerRadius="40dp"
-                    android:background="@color/Brown50"
-                    android:textColor="@color/selector_text_chip"/>
+                    app:textStartPadding="@dimen/padding_s"
+                    app:chipBackgroundColor="@color/selector_chip_day_background"
+                    app:chipStrokeColor="@color/primary"
+                    app:chipStrokeWidth="1dp"
+                    android:clickable="false"
+                    android:textAppearance="@style/TextAppearance.Body6" />
             </com.google.android.material.chip.ChipGroup>
 
             <TextView
