@@ -10,10 +10,13 @@
 
     <TextView
         android:id="@+id/btn_time"
-        android:textAppearance="@style/TextAppearance.Body6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="오전 9:30"/>
+        android:text="오전 9:30"
+        android:textAppearance="@style/TextAppearance.Body6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
@@ -34,6 +37,17 @@
         app:layout_constraintBottom_toBottomOf="@+id/btn_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btn_content" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
+        android:id="@+id/tag_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
 
 
 
