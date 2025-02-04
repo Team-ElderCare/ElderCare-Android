@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/toolFragment"
-        android:name="com.example.eldercare.presentation.ui.devicemanage.DeviceManageFragment"
+        android:name="com.example.eldercare.presentation.ui.devicemanage.home.DeviceManageFragment"
         android:label="Tool" />
 
     <fragment

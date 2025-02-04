@@ -1,4 +1,4 @@
-package com.example.eldercare.presentation.ui.devicemanage
+package com.example.eldercare.presentation.ui.devicemanage.home
 
 import com.example.eldercare.base.viewmodel.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -1,4 +1,4 @@
-package com.example.eldercare.presentation.ui.devicemanage
+package com.example.eldercare.presentation.ui.devicemanage.home
 
 import androidx.lifecycle.ViewModelProvider
 import com.example.eldercare.base.fragment.BaseFragment
