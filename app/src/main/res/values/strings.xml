@@ -5,6 +5,18 @@
     <string name="tool_title">기기관리</string>
     <string name="settings_title">설정</string>
 
+    <!-- device manage -->
+    <string name="device_manage_item_image_content_description">설치 장소 |</string>
+    <string name="device_manage_place_location">설치 장소 |</string>
+    <string name="device_manage_device_type">기기 종류 | </string>
+    <string name="device_manage_current_device">현재 설정된 기기</string>
+    <string name="device_manage_add_device">기기추가</string>
+    <string name="device_manage_category_all">전체</string>
+    <string name="device_manage_category_tag">태그</string>
+    <string name="device_manage_category_hub">허브</string>
+    <string name="device_manage_category_sensor">동작감지센서</string>
+    <string name="device_manage_sensor">센서</string>
+
     <!-- topbar -->
     <string name="device_manage_title">기기 관리</string>
 
