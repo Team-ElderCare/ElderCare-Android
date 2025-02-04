@@ -4,5 +4,5 @@ import com.example.eldercare.data.model.UserDto
 
 data class LoginResponse(
     val accessToken: String,
-    val user: UserDto
+    val user: UserDto,
 )

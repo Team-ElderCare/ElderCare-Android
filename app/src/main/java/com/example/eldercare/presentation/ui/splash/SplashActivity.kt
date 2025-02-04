@@ -10,7 +10,6 @@ import com.example.eldercare.base.activity.BaseActivity
 import com.example.eldercare.databinding.ActivitySplashBinding
 import com.example.eldercare.domain.auth.AuthViewModel
 import com.example.eldercare.domain.model.UiState
-import com.example.eldercare.domain.model.UserInfo
 import com.example.eldercare.presentation.ui.login.LoginActivity
 import com.example.eldercare.presentation.ui.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint

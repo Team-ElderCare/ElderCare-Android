@@ -12,15 +12,15 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object LocalModule {
-
     @Provides
     @Singleton
     fun provideSharedPreferences(
-        @ApplicationContext context: Context
+        @ApplicationContext context: Context,
     ): SharedPreferences {
+        // 앱의 preferences 이름
         return context.getSharedPreferences(
-            "eldercare_prefs",  // 앱의 preferences 이름
-            Context.MODE_PRIVATE
+            "eldercare_prefs",
+            Context.MODE_PRIVATE,
         )
     }
 }

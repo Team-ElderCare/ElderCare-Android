@@ -1,16 +1,11 @@
 package com.example.eldercare.presentation.ui.login
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.view.View
-import android.webkit.WebView
-import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import com.example.eldercare.BuildConfig
 import com.example.eldercare.base.activity.BaseActivity
 import com.example.eldercare.databinding.ActivityAuthBinding
 import com.example.eldercare.domain.auth.AuthViewModel
@@ -20,10 +15,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
-
 @AndroidEntryPoint
 class LoginActivity : BaseActivity<ActivityAuthBinding, AuthViewModel>(
-    ActivityAuthBinding::inflate
+    ActivityAuthBinding::inflate,
 ) {
     override val viewModel by viewModels<AuthViewModel>()
 
@@ -60,7 +54,7 @@ class LoginActivity : BaseActivity<ActivityAuthBinding, AuthViewModel>(
                 }
                 loadUrl(kakaoAuthUrl)
             }
-            */
+             */
         }
     }
 

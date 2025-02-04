@@ -5,5 +5,5 @@ data class UserInfo(
     val id: Long,
     val email: String,
     val name: String,
-    val groupId: String?
+    val groupId: String?,
 )

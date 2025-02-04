@@ -23,7 +23,9 @@ interface AuthApi {
     }
 
     @POST("auth/kakao/login")
-    suspend fun kakaoLogin(@Body request: KakaoLoginRequest): Response<LoginResponse>
+    suspend fun kakaoLogin(
+        @Body request: KakaoLoginRequest,
+    ): Response<LoginResponse>
 
     @GET("auth/me")
     suspend fun getUserInfo(): Response<UserInfoResponse>

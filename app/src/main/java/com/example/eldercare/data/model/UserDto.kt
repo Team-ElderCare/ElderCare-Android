@@ -6,7 +6,7 @@ data class UserDto(
     val id: Long,
     val email: String,
     val name: String,
-    val groupId: String?
+    val groupId: String?,
 ) {
     fun toUser() = User(id, email, name)
 }
