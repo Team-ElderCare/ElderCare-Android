@@ -7,5 +7,4 @@ import javax.inject.Inject
 @HiltViewModel
 class RunViewModel
     @Inject
-    constructor() : BaseViewModel() {
-    }
+    constructor() : BaseViewModel()

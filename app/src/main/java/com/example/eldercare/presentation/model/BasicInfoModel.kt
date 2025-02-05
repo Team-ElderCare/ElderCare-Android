@@ -1,6 +1,5 @@
 package com.example.eldercare.presentation.model
 
-
 data class InputField(
     // 필드 식별자 (예: "guardian_name", "guardian_phone")
     val step: Step,
@@ -21,10 +20,13 @@ data class InputField(
 enum class CustomInputType {
     // 일반 텍스트 입력
     TEXT,
+
     // 버튼 그룹 선택
     BUTTON_GROUP,
+
     // 사진 업로드
     IMAGE_PICKER,
+
     // 멀티라인 텍스트
     MULTILINE_TEXT,
 }
@@ -32,8 +34,10 @@ enum class CustomInputType {
 enum class CustomKeyboardType {
     // 일반 키보드
     DEFAULT,
+
     // 숫자 키보드
     NUMERIC,
+
     // 전화번호 키보드
     PHONE,
 }
@@ -48,7 +52,5 @@ enum class Step {
     WARD_NICKNAME,
     WARD_PHONE,
     WARD_ADDRESS,
-    WARD_EMERGENCY_CONTACTS
+    WARD_EMERGENCY_CONTACTS,
 }
-
-
