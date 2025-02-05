@@ -1,6 +1,6 @@
 package com.example.eldercare.di
 
-import com.example.eldercare.data.datasource.repository.auth.AuthRepositoryImpl
+import com.example.eldercare.data.repository.auth.AuthRepositoryImpl
 import com.example.eldercare.domain.repository.AuthRepository
 import dagger.Binds
 import dagger.Module
@@ -13,5 +13,5 @@ import javax.inject.Singleton
 abstract class RepositoryModule {
     @Binds
     @Singleton
-    abstract fun bindsAuthRepository(authRepositoryImpl: AuthRepositoryImpl): AuthRepository
+    abstract fun bindsAuthRepository(impl: AuthRepositoryImpl): AuthRepository
 }

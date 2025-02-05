@@ -1,9 +1,9 @@
-package com.example.eldercare.data.service
+package com.example.eldercare.data.api
 
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-interface AuthService {
+interface AuthApi {
     @POST("$VERSION/$AUTH/$LOGIN")
     suspend fun postLogin(
         @Body body: String,
