@@ -134,7 +134,7 @@
         </com.google.android.material.chip.ChipGroup>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_input_device_name_next"
+            android:id="@+id/btn_input_device_name_previous"
             style="@style/Theme.ElderCare.Button.Capsule"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -154,7 +154,7 @@
             app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_input_device_name_previous"
+            android:id="@+id/btn_input_device_name_next"
             style="@style/Theme.ElderCare.Button.L"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
