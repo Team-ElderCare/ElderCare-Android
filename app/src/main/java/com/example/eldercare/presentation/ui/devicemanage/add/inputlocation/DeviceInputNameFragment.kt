@@ -6,12 +6,15 @@ import androidx.fragment.app.viewModels
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentInputDeviceNameBinding
 
-class DeviceInputNameFragment: BaseFragment<FragmentInputDeviceNameBinding, DeviceInputViewModel> (
-    FragmentInputDeviceNameBinding::inflate
+class DeviceInputNameFragment : BaseFragment<FragmentInputDeviceNameBinding, DeviceInputViewModel> (
+    FragmentInputDeviceNameBinding::inflate,
 ) {
     override val viewModel: DeviceInputViewModel by viewModels()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
             includeInputDeviceNameTopbar.ivAllTopbarArrowWithTitleArrowLeft.setOnClickListener {
@@ -43,5 +46,4 @@ class DeviceInputNameFragment: BaseFragment<FragmentInputDeviceNameBinding, Devi
     private fun enableTextField(isVisible: Boolean) {
         binding.etInputDeviceName.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
-
 }

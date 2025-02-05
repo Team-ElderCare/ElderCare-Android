@@ -7,11 +7,14 @@ import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentInputDeviceLocationBinding
 
 class DeviceInputLocationFragment : BaseFragment<FragmentInputDeviceLocationBinding, DeviceInputViewModel>(
-    FragmentInputDeviceLocationBinding :: inflate
+    FragmentInputDeviceLocationBinding::inflate,
 ) {
     override val viewModel: DeviceInputViewModel by viewModels()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
             chipInputDeviceLocationEnterManually.setOnClickListener {
@@ -37,5 +40,4 @@ class DeviceInputLocationFragment : BaseFragment<FragmentInputDeviceLocationBind
     private fun enableTextField(isVisible: Boolean) {
         binding.etInputDeviceLocation.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
-
 }

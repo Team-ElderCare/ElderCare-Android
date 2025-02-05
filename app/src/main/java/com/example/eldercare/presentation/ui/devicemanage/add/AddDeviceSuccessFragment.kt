@@ -8,12 +8,15 @@ import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentAddDeviceSuccessBinding
 import com.example.eldercare.presentation.ui.devicemanage.add.inputlocation.DeviceInputViewModel
 
-class AddDeviceSuccessFragment: BaseFragment<FragmentAddDeviceSuccessBinding, DeviceInputViewModel>(
-    FragmentAddDeviceSuccessBinding::inflate
+class AddDeviceSuccessFragment : BaseFragment<FragmentAddDeviceSuccessBinding, DeviceInputViewModel>(
+    FragmentAddDeviceSuccessBinding::inflate,
 ) {
     override val viewModel: DeviceInputViewModel by viewModels()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding) {
