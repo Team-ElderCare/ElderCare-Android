@@ -9,7 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.eldercare.base.activity.BaseActivity
 import com.example.eldercare.databinding.ActivityAuthBinding
 import com.example.eldercare.domain.auth.AuthViewModel
-import com.example.eldercare.domain.model.UiState
+import com.example.eldercare.presentation.model.UiState
 import com.example.eldercare.presentation.ui.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn

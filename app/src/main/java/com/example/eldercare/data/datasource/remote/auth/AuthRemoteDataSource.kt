@@ -15,40 +15,33 @@ import javax.inject.Inject
 //            return authApi.postLogin(body)
 //        }
 //    }
-class AuthRemoteDataSource
-    @Inject
-    constructor(
-        private val api: AuthApi,
-    ) {
-        suspend fun kakaoLogin(code: String): Result<LoginResponse> {
-            return try {
-                val response = api.kakaoLogin(KakaoLoginRequest(code))
-                if (response.isSuccessful) {
-                    Result.success(response.body()!!)
-                } else {
-                    Result.failure(Exception("Login failed"))
-                }
-            } catch (e: Exception) {
-                Result.failure(e)
-            }
-        }
-
-        suspend fun getUserInfo(): Result<LoginResponse> {
-            return try {
-                val response = api.getUserInfo()
-                if (response.isSuccessful) {
-                    // 여기서는 토큰이 필요없음
-                    Result.success(
-                        LoginResponse(
-                            accessToken = "",
-                            user = response.body()!!.user,
-                        ),
-                    )
-                } else {
-                    Result.failure(Exception("Failed to get user info"))
-                }
-            } catch (e: Exception) {
-                Result.failure(e)
+class AuthRemoteDataSource @Inject constructor(
+    private val api: AuthApi,
+) {
+    // runCatching을 사용하여 kakao 로그인 요청을 처리
+    // 성공시 LoginResponse 반환, 실패시 Exception을 Result로 래핑하여 반환
+    suspend fun kakaoLogin(code: String): Result<LoginResponse> = runCatching {
+        api.kakaoLogin(KakaoLoginRequest(code)).let { response ->
+            if (response.isSuccessful) {
+                response.body()!!
+            } else {
+                throw Exception("Login failed")
             }
         }
     }
+
+    // runCatching을 사용하여 유저 정보 요청을 처리
+    // 성공시 액세스 토큰이 비어있는 LoginResponse 반환, 실패시 Exception을 Result로 래핑하여 반환
+    suspend fun getUserInfo(): Result<LoginResponse> = runCatching {
+        api.getUserInfo().let { response ->
+            if (response.isSuccessful) {
+                LoginResponse(
+                    accessToken = "",
+                    user = response.body()!!.user,
+                )
+            } else {
+                throw Exception("Failed to get user info")
+            }
+        }
+    }
+}

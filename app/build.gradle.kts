@@ -109,4 +109,8 @@ dependencies {
 
     // splashscreen
     implementation(libs.core.splashscreen)
+
+    // EncryptedSharedPreferences
+    implementation(libs.androidx.security.crypto)
+
 }

@@ -2,7 +2,7 @@ package com.example.eldercare.domain.auth
 
 import androidx.lifecycle.viewModelScope
 import com.example.eldercare.base.viewmodel.BaseViewModel
-import com.example.eldercare.domain.model.UiState
+import com.example.eldercare.presentation.model.UiState
 import com.example.eldercare.domain.model.UserInfo
 import com.example.eldercare.domain.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
