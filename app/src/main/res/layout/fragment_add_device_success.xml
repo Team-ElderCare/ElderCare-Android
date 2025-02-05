@@ -7,11 +7,19 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/gl_add_success"
+            android:id="@+id/gl_add_success_horizontal"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_input_device_name_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
 
         <include
             android:id="@+id/include_add_success_topbar"
@@ -25,10 +33,11 @@
             android:id="@+id/iv_add_success_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/add_device_success_title"
+            android:src="@drawable/ic_success_80dp"
+            android:contentDescription="@string/add_device_success_image_description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/gl_add_success" />
+            app:layout_constraintTop_toTopOf="@+id/gl_add_success_horizontal" />
 
         <TextView
             android:id="@+id/tv_add_success_title"
@@ -54,6 +63,44 @@
             app:layout_constraintStart_toStartOf="@+id/tv_add_success_title"
             app:layout_constraintEnd_toEndOf="@+id/tv_add_success_title"
             app:layout_constraintTop_toBottomOf="@+id/tv_add_success_title"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_add_success_next"
+            style="@style/Theme.ElderCare.Button.Capsule"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:text="@string/input_name_previous_btn"
+            android:textAppearance="@style/TextAppearance.SubTitle5"
+            android:textColor="@color/primary"
+            android:singleLine="true"
+            android:paddingVertical="@dimen/padding_m"
+            android:layout_marginStart="@dimen/spacing4"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="@dimen/spacing4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/gl_input_device_name_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="@color/primary"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_add_success_previous"
+            style="@style/Theme.ElderCare.Button.L"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/primary"
+            android:text="@string/input_name_next_btn"
+            android:textAppearance="@style/TextAppearance.SubTitle5"
+            android:textColor="@color/white"
+            android:singleLine="true"
+            android:paddingVertical="@dimen/padding_m"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="@dimen/spacing4"
+            android:layout_marginBottom="@dimen/spacing4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/gl_input_device_name_vertical" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

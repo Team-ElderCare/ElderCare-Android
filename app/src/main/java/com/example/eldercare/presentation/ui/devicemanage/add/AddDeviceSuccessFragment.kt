@@ -3,6 +3,7 @@ package com.example.eldercare.presentation.ui.devicemanage.add
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentAddDeviceSuccessBinding
 import com.example.eldercare.presentation.ui.devicemanage.add.inputlocation.DeviceInputViewModel
@@ -19,7 +20,13 @@ class AddDeviceSuccessFragment: BaseFragment<FragmentAddDeviceSuccessBinding, De
             includeAddSuccessTopbar.ivAllTopbarArrowWithTitleArrowLeft.setOnClickListener {
                 parentFragmentManager.popBackStack()
             }
-            // 성공시 기기관리 홈으로 이동해야 함
+            btnAddSuccessPrevious.setOnClickListener {
+                parentFragmentManager.popBackStack()
+            }
+            btnAddSuccessNext.setOnClickListener {
+                val action = AddDeviceSuccessFragmentDirections.actionAddDeviceSuccessFragmentToToolFragment()
+                findNavController().navigate(action)
+            }
         }
     }
 }
