@@ -1,12 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_container"
     android:layout_width="match_parent"
+    android:padding="16dp"
     android:layout_height="match_parent">
 
-
-    <TextView
+    <!-- 검색 필드 -->
+    <com.example.eldercare.presentation.ui.custom.CustomEditText
+        android:id="@+id/tf_search"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="fragment_tool"/>
+        android:layout_height="wrap_content"
+        app:clearButtonEnabled="false"
+        app:customHint="Search here"
+        app:customIcon="@drawable/ic_search_24x25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Clear 버튼 필드 -->
+    <com.example.eldercare.presentation.ui.custom.CustomEditText
+        android:id="@+id/tf_clear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:clearButtonEnabled="true"
+        app:customHint="Enter text"
+        app:customIcon="@drawable/ic_clear_21x20dp"
+        app:customUnit="cm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tf_search" />
+
+    <!-- Clear 버튼 필드 -->
+    <com.example.eldercare.presentation.ui.custom.CustomEditText
+        android:id="@+id/tf_clear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:clearButtonEnabled="true"
+        app:customHint="Enter text"
+        app:customIcon="@drawable/ic_clear_21x20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tf_clear" />
+
+    <com.example.eldercare.presentation.ui.custom.CustomEditText
+        android:id="@+id/tfDropdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:customHint="드롭다운 옵션 선택"
+        app:customIcon="@drawable/ic_dropdown_17x15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tf_clear2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

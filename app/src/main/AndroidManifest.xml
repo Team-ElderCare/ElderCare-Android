@@ -34,6 +34,13 @@
             android:exported="true">
         </activity>
 
+        <!-- BasicInfoActivity 설정 -->
+        <activity
+            android:name=".presentation.ui.basicInfo.BasicInfoActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true">
+        </activity>
+
         <!-- SetAlarmActivity 설정 -->
         <activity
             android:name=".presentation.ui.alarm.SetAlarmActivity"
