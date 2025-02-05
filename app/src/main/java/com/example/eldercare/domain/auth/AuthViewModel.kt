@@ -2,9 +2,9 @@ package com.example.eldercare.domain.auth
 
 import androidx.lifecycle.viewModelScope
 import com.example.eldercare.base.viewmodel.BaseViewModel
-import com.example.eldercare.presentation.model.UiState
 import com.example.eldercare.domain.model.UserInfo
 import com.example.eldercare.domain.repository.AuthRepository
+import com.example.eldercare.presentation.model.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

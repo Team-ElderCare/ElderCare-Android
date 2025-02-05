@@ -112,5 +112,4 @@ dependencies {
 
     // EncryptedSharedPreferences
     implementation(libs.androidx.security.crypto)
-
 }
