@@ -4,6 +4,7 @@
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="Theme.ElderCare" parent="Base.Theme.ElderCare" />
@@ -175,8 +176,7 @@
         <item name="android:textColor">@color/selector_chip_fill_text_color</item>
         <item name="chipStrokeColor">@color/primary</item>
         <item name="chipStrokeWidth">1dp</item>
-        <item name="android:clickable">false</item>
-        <item name="android:textAppearance">@style/TextAppearance.Body3</item>
+        <item name="android:textAppearance">@style/TextAppearance.Body1</item>
     </style>
 
     <!-- Chip S No Fill -->
