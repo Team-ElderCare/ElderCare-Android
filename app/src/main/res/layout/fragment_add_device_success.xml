@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_add_success"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <include
+            android:id="@+id/include_add_success_topbar"
+            layout="@layout/view_all_topbar_arrow_with_title"
+            text="@{@string/add_device_topbar}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_add_success_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/add_device_success_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/gl_add_success" />
+
+        <TextView
+            android:id="@+id/tv_add_success_title"
+            style="@style/TextAppearance.Title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_device_success_title"
+            android:textColor="@color/Gray800"
+            android:layout_marginTop="@dimen/spacing7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_add_success_image"/>
+
+        <TextView
+            android:id="@+id/tv_add_success_sub_title"
+            style="@style/TextAppearance.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_device_success_sub_title"
+            android:textColor="@color/Gray800"
+            android:layout_marginHorizontal="@dimen/spacing4"
+            android:layout_marginTop="@dimen/spacing2"
+            app:layout_constraintStart_toStartOf="@+id/tv_add_success_title"
+            app:layout_constraintEnd_toEndOf="@+id/tv_add_success_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_add_success_title"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
