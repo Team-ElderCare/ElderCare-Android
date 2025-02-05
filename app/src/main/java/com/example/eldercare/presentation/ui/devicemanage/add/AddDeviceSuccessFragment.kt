@@ -27,9 +27,13 @@ class AddDeviceSuccessFragment : BaseFragment<FragmentAddDeviceSuccessBinding, D
                 parentFragmentManager.popBackStack()
             }
             btnAddSuccessNext.setOnClickListener {
-                val action = AddDeviceSuccessFragmentDirections.actionAddDeviceSuccessFragmentToToolFragment()
-                findNavController().navigate(action)
+                navigateToDeviceManageHome()
             }
         }
+    }
+
+    private fun navigateToDeviceManageHome() {
+        val action = AddDeviceSuccessFragmentDirections.actionAddDeviceSuccessFragmentToToolFragment()
+        findNavController().navigate(action)
     }
 }
