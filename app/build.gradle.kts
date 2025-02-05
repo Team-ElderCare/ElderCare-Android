@@ -26,6 +26,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // TODO: 카카오 키 설정
+        buildConfigField("String", "KAKAO_API_KEY", "\"temp_key\"")
+        buildConfigField("String", "KAKAO_REDIRECT_URI", "\"temp_uri\"")
     }
 
     buildTypes {
@@ -105,4 +109,7 @@ dependencies {
 
     // splashscreen
     implementation(libs.core.splashscreen)
+
+    // EncryptedSharedPreferences
+    implementation(libs.androidx.security.crypto)
 }
