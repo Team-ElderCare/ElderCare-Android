@@ -56,5 +56,4 @@ class DeviceInputNameFragment : BaseFragment<FragmentInputDeviceNameBinding, Dev
         val action = DeviceInputNameFragmentDirections.actionDeviceInputNameFragmentToAddDeviceSuccessFragment()
         findNavController().navigate(action)
     }
-
 }

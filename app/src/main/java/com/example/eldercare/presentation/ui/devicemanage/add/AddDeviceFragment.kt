@@ -14,7 +14,10 @@ class AddDeviceFragment : BaseFragment<FragmentAddDeviceBinding, AddDeviceViewMo
         ViewModelProvider(this)[AddDeviceViewModel::class.java]
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding) {

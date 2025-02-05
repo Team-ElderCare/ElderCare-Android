@@ -6,7 +6,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentInputDeviceLocationBinding
-import com.example.eldercare.presentation.ui.devicemanage.add.AddDeviceFragmentDirections
 
 class DeviceInputLocationFragment : BaseFragment<FragmentInputDeviceLocationBinding, DeviceInputViewModel>(
     FragmentInputDeviceLocationBinding::inflate,
@@ -54,5 +53,4 @@ class DeviceInputLocationFragment : BaseFragment<FragmentInputDeviceLocationBind
         val action = DeviceInputLocationFragmentDirections.actionDeviceInputLocationFragmentToDeviceInputNameFragment()
         findNavController().navigate(action)
     }
-
 }
