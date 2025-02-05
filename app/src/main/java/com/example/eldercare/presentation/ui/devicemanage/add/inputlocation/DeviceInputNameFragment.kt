@@ -1,4 +1,4 @@
-package com.example.eldercare.presentation.ui.devicemanage.inputlocation
+package com.example.eldercare.presentation.ui.devicemanage.add.inputlocation
 
 import android.os.Bundle
 import android.view.View
