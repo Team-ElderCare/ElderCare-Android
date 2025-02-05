@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.ktlint)
+    alias(libs.plugins.navigation.safeargs.kotlin)
 }
 
 val properties =
