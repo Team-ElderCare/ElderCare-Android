@@ -87,6 +87,7 @@
         <action
             android:id="@+id/action_addDeviceSuccessFragment_to_toolFragment"
             app:destination="@id/toolFragment"
+            app:popUpTo="@id/toolFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>
