@@ -28,9 +28,21 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".presentation.ui.login.LoginActivity"
+            android:exported="false">
+        </activity>
+
         <!-- MainActivity 설정 -->
         <activity
             android:name=".presentation.ui.main.MainActivity"
+            android:exported="true">
+        </activity>
+
+        <!-- BasicInfoActivity 설정 -->
+        <activity
+            android:name=".presentation.ui.basicInfo.BasicInfoActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="true">
         </activity>
 

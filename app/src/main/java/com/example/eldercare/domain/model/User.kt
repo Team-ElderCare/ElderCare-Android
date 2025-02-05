@@ -1,9 +1,7 @@
 package com.example.eldercare.domain.model
 
-data class UserInfo(
-    val groups: List<String> = emptyList(),
+data class User(
     val id: Long,
     val email: String,
     val name: String,
-    val groupId: String?,
 )
