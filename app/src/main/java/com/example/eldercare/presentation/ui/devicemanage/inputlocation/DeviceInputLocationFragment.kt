@@ -6,10 +6,10 @@ import androidx.fragment.app.viewModels
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentInputDeviceLocationBinding
 
-class DeviceInputLocationFragment : BaseFragment<FragmentInputDeviceLocationBinding, DeviceInputLocationViewModel>(
+class DeviceInputLocationFragment : BaseFragment<FragmentInputDeviceLocationBinding, DeviceInputViewModel>(
     FragmentInputDeviceLocationBinding :: inflate
 ) {
-    override val viewModel: DeviceInputLocationViewModel by viewModels()
+    override val viewModel: DeviceInputViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
