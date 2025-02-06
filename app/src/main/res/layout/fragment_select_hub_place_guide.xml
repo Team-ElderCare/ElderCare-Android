@@ -54,18 +54,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_select_hub_place_guide_title" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_select_hub_place_guide_tooltip"
+        style="@style/Theme.ElderCare.Button.Add.Device"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minWidth="0dp"
-        android:minHeight="0dp"
-        android:background="@drawable/rectangle_primary_radius_32dp"
         android:text="@string/recommend_place_tooltip_title"
-        android:textColor="@color/white"
         android:textAppearance="@style/TextAppearance.Body3"
         android:drawableEnd="@drawable/ic_show_tooltip_20dp"
-        android:drawablePadding="8dp"
+        android:drawablePadding="@dimen/spacing2"
         android:paddingStart="@dimen/spacing4"
         android:paddingEnd="@dimen/spacing4"
         android:paddingVertical="@dimen/spacing2"
