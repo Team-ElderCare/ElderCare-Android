@@ -64,6 +64,7 @@
     <string name="recommend_place_tooltip_content">부엌, 거실, 복도, 중앙 통로, 배란다 추천</string>
     <string name="button_text_next">다음으로</string>
     <string name="button_text_previous">이전으로</string>
+    <string name="button_wifi_list">와이파이 목록</string>
     <string name="button_go_to_download">설치하러 가기</string>
 
     <!-- add Hub -->
@@ -74,6 +75,7 @@
     <string name="add_hub_process_last"> 4</string>
 
     <string name="add_hub_guide_image_content_description">허브 설치 가이드 이미지</string>
+    <string name="add_power_guide_image_content_description">전원 연결 가이드 이미지</string>
     <string name="add_hub_guide_first">엘더케어와 함께 사랑하는\n사람을 지킬 준비를 시작해요!</string>
     <string name="add_hub_guide_second">우선, 허브를\n설치해봐요!</string>
     <string name="add_select_hub_place_title">허브를 설치할 장소 정하기</string>
@@ -84,10 +86,13 @@
     <string name="connect_to_power_title">전원에 연결하기</string>
     <string name="connect_to_power_desc">배치 장소를 정하셨다면 근처에 콘센트를 찾아 연결해주세요.</string>
     <string name="connect_to_wifi_title">Wifi 연결하기</string>
-    <string name="connect_to_wifi_desc">허브와 연결할 Wi-Fi를 선택해주세요.</string>
+    <string name="connect_to_wifi_desc">와이파이 목록에서 Wi-Fi 선택하고 비밀번호를 입력하세요.</string>
+    <string name="connect_to_wifi_placeholder">비밀번호 입력</string>
+    <string name="connect_to_bluetooth_title">블루투스를 켜주세요.</string>
+    <string name="connect_to_bluetooth_on">Bluetooth 켜기</string>
+    <string name="connect_to_bluetooth_content_description">블루투스 아이콘</string>
     <string name="success_download_required_data">필수 데이터를 다운\n완료했습니다!</string>
     <string name="add_hub_guide_last_title">위험한 일이 생겼다면?</string>
     <string name="add_hub_guide_last_desc">보호대상자에게 비상 버튼을 누르라고 꼭 알려주세요!</string>
     <string name="find_connectable_wifi">연결할 수 있는 와이파이를 찾고 있는 중입니다.</string>
-
 </resources>
