@@ -9,7 +9,7 @@ import com.example.eldercare.databinding.DialogOneButtonBinding
 class OneButtonDialogFragment(
     private val icon: Int?,
     private val title: String,
-    private val detail: String,
+    private val detail: String?,
     private val buttonText: String,
     private val clickBtn: () -> Unit,
     private val onDialogClosed: () -> Unit = {}
@@ -34,8 +34,12 @@ class OneButtonDialogFragment(
             } else {
                 ivOneBtnDialogIcon.setImageResource(icon)
             }
+            if(detail.isNullOrEmpty()) {
+                tvOneBtnDialogDetail.visibility = View.GONE
+            } else {
+                tvOneBtnDialogDetail.text = detail
+            }
             tvOneBtnDialogTitle.text = title
-            tvOneBtnDialogDetail.text = detail
             btnOneBtnDialog.text = buttonText
         }
     }
