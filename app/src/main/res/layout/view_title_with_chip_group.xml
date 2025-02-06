@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="title"
+            type="String" />
+        <variable
+            name="description"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_view_title_with_chip_group_title"
+            style="@style/TextAppearance.Heading06"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{title}"
+            android:textColor="@color/Gray800"
+            android:layout_marginHorizontal="@dimen/spacing4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/tv_view_title_with_chip_group_guide"
+            style="@style/TextAppearance.Body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{description}"
+            android:textColor="@color/Gray800"
+            android:layout_marginTop="@dimen/spacing2"
+            app:layout_constraintStart_toStartOf="@+id/tv_view_title_with_chip_group_title"
+            app:layout_constraintEnd_toEndOf="@+id/tv_view_title_with_chip_group_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_view_title_with_chip_group_title"/>
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cg_view_title_with_chip_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing4"
+            android:layout_marginTop="@dimen/spacing7"
+            android:layout_marginEnd="@dimen/spacing4"
+            android:layout_marginBottom="@dimen/spacing4"
+            app:singleSelection="true"
+            app:layout_constraintTop_toBottomOf="@+id/tv_view_title_with_chip_group_guide"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:singleLine="false"
+            app:chipSpacingHorizontal="@dimen/spacing3"
+            app:chipSpacingVertical="@dimen/spacing2">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_view_title_with_chip_group_living_room"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_living_room" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_view_title_with_chip_group_kitchen"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_kitchen" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_view_title_with_chip_group_bedroom"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_master_bedroom" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_view_title_with_chip_group_refrigerator"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_refrigerator" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_view_title_with_chip_group_study"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_study" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_view_title_with_chip_group_safe"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_safe" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_view_title_with_chip_group_medicine_cabinet"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_medicine_cabinet" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_view_title_with_chip_group_window"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_window" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_view_title_with_chip_group_front_door"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_front_door" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_view_title_with_chip_group_enter_manually"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_enter_manually" />
+        </com.google.android.material.chip.ChipGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
