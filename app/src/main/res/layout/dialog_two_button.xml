@@ -4,7 +4,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_radius_16dp"
+        android:backgroundTint="@color/white">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_two_btn_dialog"
