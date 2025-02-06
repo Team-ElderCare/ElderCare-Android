@@ -11,7 +11,7 @@
         android:icon="@drawable/ic_run_25dp"
         android:enabled="true" />
     <item
-        android:id="@+id/toolFragment"
+        android:id="@+id/deviceManageFragment"
         android:title="@string/tool_title"
         android:icon="@drawable/ic_tool_25dp"
         android:enabled="true" />
