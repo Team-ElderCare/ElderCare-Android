@@ -2,6 +2,7 @@ package com.example.eldercare.presentation.ui.devicemanage.add.hub
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentAddHubSelectPlaceBinding
 
@@ -36,16 +37,21 @@ class AddHubSelectPlaceFragment : BaseFragment<FragmentAddHubSelectPlaceBinding,
             }
 
             btnAddHubSelectPrevious.setOnClickListener {
-
+                findNavController().popBackStack()
             }
             btnAddHubSelectNext.setOnClickListener {
-
+                navigateToAddHubSelectNameFragment()
             }
         }
     }
 
     private fun enableTextField(isVisible: Boolean) {
         binding.etAddHubSelectPlace.visibility = if (isVisible) View.VISIBLE else View.GONE
+    }
+
+    private fun navigateToAddHubSelectNameFragment() {
+        val action = AddHubSelectPlaceFragmentDirections.actionAddHubSelectPlaceFragmentToAddHubSelectNameFragment()
+        findNavController().navigate(action)
     }
 
 }

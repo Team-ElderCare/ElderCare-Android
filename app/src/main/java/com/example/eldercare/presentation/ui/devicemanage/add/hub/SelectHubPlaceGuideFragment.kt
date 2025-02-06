@@ -2,6 +2,7 @@ package com.example.eldercare.presentation.ui.devicemanage.add.hub
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.example.eldercare.R
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentSelectHubPlaceGuideBinding
@@ -23,7 +24,7 @@ class SelectHubPlaceGuideFragment : BaseFragment<FragmentSelectHubPlaceGuideBind
                 tooltipBalloon()?.showAlignBottom(btnSelectHubPlaceGuideTooltip)
             }
             btnSelectHubPlaceGuideNext.setOnClickListener {
-
+                navigateToAddHubConnectPowerFragment()
             }
         }
     }
@@ -46,4 +47,10 @@ class SelectHubPlaceGuideFragment : BaseFragment<FragmentSelectHubPlaceGuideBind
                 setBalloonAnimation(com.skydoves.balloon.BalloonAnimation.FADE)
             }
         }
+
+    private fun navigateToAddHubConnectPowerFragment() {
+        val action = SelectHubPlaceGuideFragmentDirections.actionSelectHubPlaceGuideFragmentToAddHubConnectPowerFragment()
+        findNavController().navigate(action)
+    }
+
 }

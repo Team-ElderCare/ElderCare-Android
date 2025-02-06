@@ -2,6 +2,7 @@ package com.example.eldercare.presentation.ui.devicemanage.add.hub
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentAddHubSelectNameBinding
 
@@ -36,16 +37,21 @@ class AddHubSelectNameFragment : BaseFragment<FragmentAddHubSelectNameBinding, N
             }
 
             btnAddHubSelectPrevious.setOnClickListener {
-
+                findNavController().popBackStack()
             }
             btnAddHubSelectNext.setOnClickListener {
-
+                navigateToAddHubConnectBluetoothFragment()
             }
         }
     }
 
     private fun enableTextField(isVisible: Boolean) {
         binding.etAddHubSelectName.visibility = if (isVisible) View.VISIBLE else View.GONE
+    }
+
+    private fun navigateToAddHubConnectBluetoothFragment() {
+        val action = AddHubSelectNameFragmentDirections.actionAddHubSelectNameFragmentToAddHubConnectBluetoothFragment()
+        findNavController().navigate(action)
     }
 
 }
