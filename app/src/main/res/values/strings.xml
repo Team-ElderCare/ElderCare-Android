@@ -47,6 +47,7 @@
 
     <!-- topbar -->
     <string name="device_manage_title">기기 관리</string>
+    <string name="edit_and_delete_title">기기 수정 및 삭제</string>
 
     <!-- contentDescription-->
     <string name="back_btn_description">뒤로가기 버튼</string>
@@ -64,8 +65,15 @@
     <string name="recommend_place_tooltip_content">부엌, 거실, 복도, 중앙 통로, 배란다 추천</string>
     <string name="button_text_next">다음으로</string>
     <string name="button_text_previous">이전으로</string>
+    <string name="button_text_delete">삭제하기</string>
+    <string name="button_text_edit_success">수정완료</string>
     <string name="button_wifi_list">와이파이 목록</string>
     <string name="button_go_to_download">설치하러 가기</string>
+
+    <!-- edit and delete device -->
+    <string name="edit_and_delete_device_type">기기 종류 | </string>
+    <string name="edit_and_delete_device_name">기기 이름</string>
+    <string name="edit_and_delete_device_location">설치 장소</string>
 
     <!-- add Hub -->
     <string name="add_hub_process_all">/ 4</string>
