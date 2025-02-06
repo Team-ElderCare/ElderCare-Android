@@ -116,8 +116,6 @@
 
     <!-- add device button -->
     <style name="Theme.ElderCare.Button.Add.Device" parent="Theme.ElderCare.Button.Base">
-        <item name="android:width">100dp</item>
-        <item name="android:height">32dp</item>
         <item name="cornerRadius">@dimen/padding_m</item>
         <item name="android:backgroundTint">@color/primary</item>
         <item name="android:textColor">@color/white</item>
