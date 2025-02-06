@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_input_device_name"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <include
+            android:id="@+id/include_input_device_name_topbar"
+            layout="@layout/view_all_topbar_arrow_with_title"
+            text="@{@string/add_device_topbar}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_input_device_name_title"
+            style="@style/TextAppearance.Heading06"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/add_device_input_name_title"
+            android:textColor="@color/Gray800"
+            android:layout_marginTop="@dimen/spacing6"
+            android:layout_marginHorizontal="@dimen/spacing4"
+            app:layout_constraintTop_toBottomOf="@+id/include_input_device_name_topbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:id="@+id/tv_input_device_name_guide"
+            style="@style/TextAppearance.Body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/add_device_input_name_guide"
+            android:textColor="@color/Gray800"
+            android:layout_marginTop="@dimen/spacing2"
+            app:layout_constraintStart_toStartOf="@+id/tv_input_device_name_title"
+            app:layout_constraintEnd_toEndOf="@+id/tv_input_device_name_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_input_device_name_title"/>
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cg_input_device_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing4"
+            android:layout_marginTop="@dimen/spacing7"
+            android:layout_marginEnd="@dimen/spacing4"
+            android:layout_marginBottom="@dimen/spacing4"
+            app:singleSelection="true"
+            app:layout_constraintTop_toBottomOf="@+id/tv_input_device_name_guide"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:singleLine="false"
+            app:chipSpacingHorizontal="@dimen/spacing3"
+            app:chipSpacingVertical="@dimen/spacing2">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_input_device_name_living_room"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_living_room" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_input_device_name_kitchen"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_kitchen" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_input_device_name_bedroom"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_master_bedroom" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_input_device_name_refrigerator"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_refrigerator" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_input_device_name_study"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_study" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_input_device_name_safe"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_safe" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_input_device_name_medicine_cabinet"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_medicine_cabinet" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_input_device_name_window"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_window" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_input_device_name_front_door"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_front_door" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_input_device_name_enter_manually"
+                style="@style/Theme.ElderCare.Chip.S.Fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chip_enter_manually" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_input_device_name_previous"
+            style="@style/Theme.ElderCare.Button.Capsule"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:text="@string/input_name_previous_btn"
+            android:textAppearance="@style/TextAppearance.SubTitle5"
+            android:textColor="@color/primary"
+            android:singleLine="true"
+            android:paddingVertical="@dimen/padding_m"
+            android:layout_marginStart="@dimen/spacing4"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="@dimen/spacing4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/gl_input_device_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="@color/primary"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_input_device_name_next"
+            style="@style/Theme.ElderCare.Button.L"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/primary"
+            android:text="@string/input_name_next_btn"
+            android:textAppearance="@style/TextAppearance.SubTitle5"
+            android:textColor="@color/white"
+            android:singleLine="true"
+            android:paddingVertical="@dimen/padding_m"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="@dimen/spacing4"
+            android:layout_marginBottom="@dimen/spacing4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/gl_input_device_name" />
+
+        <com.example.eldercare.util.component.textfield.ElderCareEditText
+            android:id="@+id/et_input_device_name"
+            style="Theme.ElderCare.Button.Capsule"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:customIcon="@drawable/ic_clear_21x20dp"
+            android:layout_marginTop="@dimen/spacing3"
+            android:layout_marginHorizontal="@dimen/spacing4"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cg_input_device_name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

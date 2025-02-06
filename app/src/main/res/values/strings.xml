@@ -5,6 +5,52 @@
     <string name="tool_title">기기관리</string>
     <string name="settings_title">설정</string>
 
+    <!-- chip location -->
+    <string name="chip_living_room">거실</string>
+    <string name="chip_kitchen">부엌</string>
+    <string name="chip_master_bedroom">안방</string>
+    <string name="chip_refrigerator">냉장고</string>
+    <string name="chip_study">서재</string>
+    <string name="chip_safe">금고</string>
+    <string name="chip_medicine_cabinet">약장</string>
+    <string name="chip_window">창문</string>
+    <string name="chip_front_door">현관문</string>
+    <string name="chip_enter_manually">직접 입력하기</string>
+
+    <!-- device manage -->
+    <string name="device_manage_item_image_content_description">설치 장소 |</string>
+    <string name="device_manage_place_location">설치 장소 |</string>
+    <string name="device_manage_device_type">기기 종류 | </string>
+    <string name="device_manage_current_device">현재 설정된 기기</string>
+    <string name="device_manage_add_device">기기추가</string>
+    <string name="device_manage_category_all">전체</string>
+    <string name="device_manage_category_tag">태그</string>
+    <string name="device_manage_category_hub">허브</string>
+    <string name="device_manage_category_sensor">동작감지센서</string>
+    <string name="device_manage_no_current_device">현재 설정된 기기가 없습니다</string>
+    <string name="device_manage_sensor">센서</string>
+
+    <!-- add device -->
+    <string name="add_device_topbar">기기 추가</string>
+    <string name="add_device_input_location_title">설치 장소를 선택해주세요</string>
+    <string name="add_device_input_location_guide">엘더케어의 추천 장소를 선택하거나 원하는 장소를 직접 입력해주세요.</string>
+    <string name="add_device_input_name_title">설치 기기의 이름을 정하세요.</string>
+    <string name="add_device_input_name_guide">엘더케어의 추천 장소를 선택하거나 원하는 장소를 직접 입력해주세요.</string>
+    <string name="add_device_select_device">설치할 기기를\n선택해주세요.</string>
+    <string name="input_location_next_btn">다음으로</string>
+    <string name="input_name_next_btn">다음으로</string>
+    <string name="input_name_previous_btn">이전으로</string>
+    <string name="add_device_success_image_description">기기 설치(등록) 성공 이미지</string>
+    <string name="add_device_success_title">기기 설치가 완료되었습니다.</string>
+    <string name="add_device_success_sub_title">엘더케어는 언제나 당신과 함께합니다.</string>
+
+
+    <!-- topbar -->
+    <string name="device_manage_title">기기 관리</string>
+
+    <!-- contentDescription-->
+    <string name="back_btn_description">뒤로가기 버튼</string>
+
     <string name="ward_emergency_side_info"><![CDATA[보호 대상자가 연락을 받지 않으면 연결되는 <font color="#F44336">2차 연락망</font>으로 사용해요.
     <font color="#F44336">5개</font>까지 등록할 수 있으니 꼭 등록해주세요!]]></string>
 

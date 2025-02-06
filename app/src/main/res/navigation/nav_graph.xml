@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.eldercare.presentation.ui.home.HomeFragment"
-        android:label="Home" >
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_setAlarmNameFragment"
             app:destination="@id/setAlarmNameFragment" />
@@ -15,27 +17,77 @@
     <fragment
         android:id="@+id/runFragment"
         android:name="com.example.eldercare.presentation.ui.activity.RunFragment"
-        android:label="Run" />
-
-    <fragment
-        android:id="@+id/toolFragment"
-        android:name="com.example.eldercare.presentation.ui.toolControl.ToolFragment"
-        android:label="Tool" />
+        android:label="Run"
+        tools:layout="@layout/fragment_run"/>
 
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.eldercare.presentation.ui.setting.SettingsFragment"
-        android:label="Settings" />
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings"/>
+
     <fragment
         android:id="@+id/setAlarmNameFragment"
         android:name="com.example.eldercare.presentation.ui.alarm.name.SetAlarmNameFragment"
-        android:label="SetAlarmNameFragment" >
+        android:label="SetAlarmNameFragment"
+        tools:layout="@layout/fragment_set_alarm_name">
         <action
             android:id="@+id/action_setAlarmNameFragment_to_setAlarmCycleFragment"
             app:destination="@id/setAlarmCycleFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/setAlarmCycleFragment"
         android:name="com.example.eldercare.presentation.ui.alarm.cycle.SetAlarmCycleFragment"
-        android:label="SetAlarmCycleFragment" />
+        android:label="SetAlarmCycleFragment"
+        tools:layout="@layout/fragment_set_alarm_cycle"/>
+
+    <!-- Device Manage -->
+    <fragment
+        android:id="@+id/toolFragment"
+        android:name="com.example.eldercare.presentation.ui.devicemanage.home.DeviceManageFragment"
+        android:label="Tool"
+        tools:layout="@layout/fragment_device_manage">
+        <action
+            android:id="@+id/action_toolFragment_to_addDeviceFragment"
+            app:destination="@id/addDeviceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deviceInputLocationFragment"
+        android:name="com.example.eldercare.presentation.ui.devicemanage.add.inputlocation.DeviceInputLocationFragment"
+        android:label="DeviceInputLocationFragment"
+        tools:layout="@layout/fragment_input_device_location">
+        <action
+            android:id="@+id/action_deviceInputLocationFragment_to_deviceInputNameFragment"
+            app:destination="@id/deviceInputNameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addDeviceFragment"
+        android:name="com.example.eldercare.presentation.ui.devicemanage.add.AddDeviceFragment"
+        android:label="AddDeviceFragment"
+        tools:layout="@layout/fragment_add_device">
+        <action
+            android:id="@+id/action_addDeviceFragment_to_deviceInputLocationFragment"
+            app:destination="@id/deviceInputLocationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deviceInputNameFragment"
+        android:name="com.example.eldercare.presentation.ui.devicemanage.add.inputlocation.DeviceInputNameFragment"
+        android:label="DeviceInputNameFragment"
+        tools:layout="@layout/fragment_input_device_name">
+        <action
+            android:id="@+id/action_deviceInputNameFragment_to_addDeviceSuccessFragment"
+            app:destination="@id/addDeviceSuccessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addDeviceSuccessFragment"
+        android:name="com.example.eldercare.presentation.ui.devicemanage.add.AddDeviceSuccessFragment"
+        android:label="AddDeviceSuccessFragment"
+        tools:layout="@layout/fragment_add_device_success">
+        <action
+            android:id="@+id/action_addDeviceSuccessFragment_to_toolFragment"
+            app:destination="@id/toolFragment"
+            app:popUpTo="@id/toolFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

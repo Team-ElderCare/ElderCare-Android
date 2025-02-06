@@ -1,9 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.ElderCare" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.ElderCare" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="Theme.ElderCare" parent="Base.Theme.ElderCare" />
@@ -37,6 +38,14 @@
         <item name="backgroundTint">@color/selector_selector_chip</item>
         <item name="strokeColor">@color/Gray400</item>
         <item name="android:textColor">@color/Gray700</item>
+    </style>
+
+    <!--  chip style-->
+    <style name="CustomChipChoice" parent="@style/Widget.MaterialComponents.Chip.Filter">
+        <item name="chipBackgroundColor">@color/selector_selector_chip</item>
+        <item name="android:textColor">@color/selector_text_chip</item>
+        <item name="strokeColor">@color/selector_stroke_chip</item>
+        <item name="android:textAppearance">@style/TextAppearance.Body6</item>
     </style>
 
     <!-- Corner size -->
@@ -124,6 +133,14 @@
         <item name="android:textAppearance">@style/TextAppearance.SubTitle4</item>
     </style>
 
+    <!-- Button L -->
+    <style name="Theme.ElderCare.Button.L" parent="Theme.ElderCare.Button.Base">
+        <item name="android:backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">36dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.SubTitle5</item>
+    </style>
+
     <!-- Dialog button -->
     <style name="Theme.ElderCare.Button.Dialog" parent="Theme.ElderCare.Button.Base">
         <item name="cornerRadius">@dimen/radius_xl</item>
@@ -131,7 +148,6 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textAppearance">@style/TextAppearance.SubTitle3</item>
     </style>
-
 
     <!-- Base Chip Style -->
     <style name="Theme.ElderCare.Chip" parent="Widget.MaterialComponents.Chip.Choice">
@@ -161,23 +177,22 @@
     <!-- Chip S Fill -->
     <style name="Theme.ElderCare.Chip.S.Fill" parent="Theme.ElderCare.Chip">
         <item name="cornerRadius">@dimen/padding_m</item>
-        <item name="textStartPadding">10dp</item>
-        <item name="textEndPadding">10dp</item>
-        <item name="android:paddingVertical">4dp</item>
+        <item name="textStartPadding">@dimen/padding_s</item>
+        <item name="textEndPadding">@dimen/padding_s</item>
+        <item name="android:paddingVertical">@dimen/padding_xs</item>
         <item name="chipBackgroundColor">@color/selector_chip_fill_background</item>
         <item name="android:textColor">@color/selector_chip_fill_text_color</item>
-        <item name="chipStrokeColor">@color/selector_chip_fill_stroke</item>
+        <item name="chipStrokeColor">@color/primary</item>
         <item name="chipStrokeWidth">1dp</item>
-        <item name="android:clickable">false</item>
-        <item name="android:textAppearance">@style/TextAppearance.Body3</item>
+        <item name="android:textAppearance">@style/TextAppearance.Body1</item>
     </style>
 
     <!-- Chip S No Fill -->
     <style name="Theme.ElderCare.Chip.L.No.Fill" parent="Theme.ElderCare.Chip">
         <item name="cornerRadius">@dimen/padding_m</item>
-        <item name="textStartPadding">8dp</item>
-        <item name="textEndPadding">8dp</item>
-        <item name="android:paddingVertical">12dp</item>
+        <item name="textStartPadding">@dimen/padding_xs</item>
+        <item name="textEndPadding">@dimen/padding_xs</item>
+        <item name="android:paddingVertical">@dimen/padding_s</item>
         <item name="chipBackgroundColor">@color/selector_chip_no_fill_background</item>
         <item name="android:textColor">@color/selector_chip_no_fill_text_color</item>
         <item name="chipStrokeColor">@color/selector_chip_no_fill_stroke</item>
@@ -189,9 +204,9 @@
     <!-- Chip S Fill -->
     <style name="Theme.ElderCare.Chip.L.Fill" parent="Theme.ElderCare.Chip">
         <item name="cornerRadius">@dimen/padding_m</item>
-        <item name="textStartPadding">8dp</item>
-        <item name="textEndPadding">8dp</item>
-        <item name="android:paddingVertical">12dp</item>
+        <item name="textStartPadding">@dimen/padding_xs</item>
+        <item name="textEndPadding">@dimen/padding_xs</item>
+        <item name="android:paddingVertical">@dimen/padding_s</item>
         <item name="chipBackgroundColor">@color/selector_chip_fill_background</item>
         <item name="android:textColor">@color/selector_chip_fill_text_color</item>
         <item name="chipStrokeColor">@color/selector_chip_fill_stroke</item>
@@ -203,15 +218,45 @@
     <!-- Chip Day -->
     <style name="Theme.ElderCare.Chip.Day" parent="Theme.ElderCare.Chip">
         <item name="cornerRadius">50dp</item>
-        <item name="textStartPadding">12dp</item>
-        <item name="textEndPadding">12dp</item>
-        <item name="android:paddingVertical">12dp</item>
+        <item name="textStartPadding">@dimen/padding_s</item>
+        <item name="textEndPadding">@dimen/padding_s</item>
+        <item name="android:paddingVertical">@dimen/padding_s</item>
         <item name="chipBackgroundColor">@color/selector_chip_day_background</item>
         <item name="android:textColor">@color/Green600</item>
         <item name="chipStrokeColor">@color/selector_chip_no_fill_stroke</item>
         <item name="chipStrokeWidth">1dp</item>
         <item name="android:clickable">false</item>
         <item name="android:textAppearance">@style/TextAppearance.SubTitle3</item>
+    </style>
+
+    <!-- Chip Device -->
+    <style name="Theme.ElderCare.Chip.Device" parent="Theme.ElderCare.Chip">
+        <item name="cornerRadius">40dp</item>
+        <item name="textStartPadding">@dimen/padding_s</item>
+        <item name="textEndPadding">@dimen/padding_s</item>
+        <item name="android:paddingVertical">4dp</item>
+        <item name="chipBackgroundColor">@color/selector_chip_day_background</item>
+        <item name="android:textColor">@color/selector_device_chip_text_color</item>
+        <item name="chipStrokeColor">@color/primary</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textAppearance">@style/TextAppearance.Body6</item>
+    </style>
+
+    <!-- edit button -->
+    <style name="Theme.ElderCare.Button.Edit" parent="Theme.ElderCare.Button.Base">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingHorizontal">@dimen/spacing2</item>
+        <item name="android:paddingVertical">@dimen/spacing1</item>
+        <item name="backgroundTint">@color/ash_khaki_50</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:textAppearance">@style/TextAppearance.Caption2</item>
+        <item name="icon">@drawable/ic_edit_25dp</item>
+        <item name="iconPadding">@dimen/spacing1</item>
+        <item name="iconSize">16dp</item>
+        <item name="iconTint">@color/primary</item>
+        <item name="iconGravity">textStart</item>
     </style>
 
     <!--splash theme-->

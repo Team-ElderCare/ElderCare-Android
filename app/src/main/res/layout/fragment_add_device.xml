@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_center_add_device"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <include
+            android:id="@+id/include_add_device_topbar"
+            layout="@layout/view_all_topbar_arrow_with_title"
+            text="@{@string/add_device_topbar}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_add_device_title"
+            style="@style/TextAppearance.Heading06"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_device_select_device"
+            android:textColor="@color/Gray800"
+            android:layout_marginStart="@dimen/spacing4"
+            android:layout_marginTop="@dimen/spacing10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_add_device_topbar"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_add_device_hub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_s"
+            android:layout_marginHorizontal="@dimen/margin_m"
+            android:background="@drawable/rectangle_brown50_without_stroke"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_add_device_title">
+
+            <ImageView
+                android:id="@+id/iv_add_device_hub_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_l"
+                android:src="@drawable/ic_hub_70dp"
+                android:contentDescription="@string/device_manage_category_hub"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_add_device_hub"
+                style="@style/TextAppearance.SubTitle3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_s"
+                android:layout_marginBottom="@dimen/margin_m"
+                android:text="@string/device_manage_category_hub"
+                android:textColor="@color/Gray900"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/iv_add_device_hub_img"
+                app:layout_constraintStart_toStartOf="@+id/iv_add_device_hub_img"
+                app:layout_constraintTop_toBottomOf="@+id/iv_add_device_hub_img" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_add_device_tag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_s"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="@dimen/spacing8"
+            android:background="@drawable/rectangle_brown50_without_stroke"
+            android:backgroundTint="#D5EBF9"
+            app:layout_constraintEnd_toStartOf="@+id/gl_center_add_device"
+            app:layout_constraintStart_toStartOf="@+id/container_add_device_hub"
+            app:layout_constraintTop_toBottomOf="@+id/container_add_device_hub">
+
+            <ImageView
+                android:id="@+id/iv_add_device_tag_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_l"
+                android:contentDescription="@string/device_manage_category_tag"
+                android:src="@drawable/ic_tag_50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_add_device_tag"
+                style="@style/TextAppearance.SubTitle3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_s"
+                android:layout_marginBottom="@dimen/margin_m"
+                android:text="@string/device_manage_category_tag"
+                android:textColor="@color/Gray900"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/iv_add_device_tag_img"
+                app:layout_constraintStart_toStartOf="@+id/iv_add_device_tag_img"
+                app:layout_constraintTop_toBottomOf="@+id/iv_add_device_tag_img" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_device_manger_sensor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/rectangle_brown50_without_stroke"
+            android:backgroundTint="@color/ash_khaki_100"
+            app:layout_constraintBottom_toBottomOf="@+id/container_add_device_tag"
+            app:layout_constraintEnd_toEndOf="@+id/container_add_device_hub"
+            app:layout_constraintStart_toStartOf="@+id/gl_center_add_device"
+            app:layout_constraintTop_toTopOf="@+id/container_add_device_tag">
+
+            <ImageView
+                android:id="@+id/iv_add_device_sensor_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_l"
+                android:contentDescription="@string/device_manage_sensor"
+                android:src="@drawable/ic_sensor_50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_add_device_sensor"
+                style="@style/TextAppearance.SubTitle3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_s"
+                android:layout_marginBottom="@dimen/margin_m"
+                android:text="@string/device_manage_sensor"
+                android:textColor="@color/Gray900"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/iv_add_device_sensor_img"
+                app:layout_constraintStart_toStartOf="@+id/iv_add_device_sensor_img"
+                app:layout_constraintTop_toBottomOf="@+id/iv_add_device_sensor_img" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
