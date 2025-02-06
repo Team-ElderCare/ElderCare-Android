@@ -10,9 +10,12 @@ import com.skydoves.balloon.Balloon
 import com.skydoves.balloon.createBalloon
 
 class SelectHubPlaceGuideFragment : BaseFragment<FragmentSelectHubPlaceGuideBinding, Nothing>(
-    FragmentSelectHubPlaceGuideBinding::inflate
+    FragmentSelectHubPlaceGuideBinding::inflate,
 ) {
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         addListener()
@@ -52,5 +55,4 @@ class SelectHubPlaceGuideFragment : BaseFragment<FragmentSelectHubPlaceGuideBind
         val action = SelectHubPlaceGuideFragmentDirections.actionSelectHubPlaceGuideFragmentToAddHubConnectPowerFragment()
         findNavController().navigate(action)
     }
-
 }

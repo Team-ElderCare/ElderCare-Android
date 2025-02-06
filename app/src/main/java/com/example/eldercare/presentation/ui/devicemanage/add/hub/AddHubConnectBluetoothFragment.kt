@@ -7,9 +7,12 @@ import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentAddHubBluetoothConnectBinding
 
 class AddHubConnectBluetoothFragment : BaseFragment<FragmentAddHubBluetoothConnectBinding, Nothing>(
-    FragmentAddHubBluetoothConnectBinding::inflate
+    FragmentAddHubBluetoothConnectBinding::inflate,
 ) {
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         addListener()
@@ -28,5 +31,4 @@ class AddHubConnectBluetoothFragment : BaseFragment<FragmentAddHubBluetoothConne
         val action = AddHubConnectBluetoothFragmentDirections.actionAddHubConnectBluetoothFragmentToAddHubConnectWifiFragment()
         findNavController().navigate(action)
     }
-
 }

@@ -7,9 +7,12 @@ import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentAddHubSelectPlaceBinding
 
 class AddHubSelectPlaceFragment : BaseFragment<FragmentAddHubSelectPlaceBinding, Nothing>(
-    FragmentAddHubSelectPlaceBinding::inflate
-){
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    FragmentAddHubSelectPlaceBinding::inflate,
+) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         addListeners()
@@ -53,5 +56,4 @@ class AddHubSelectPlaceFragment : BaseFragment<FragmentAddHubSelectPlaceBinding,
         val action = AddHubSelectPlaceFragmentDirections.actionAddHubSelectPlaceFragmentToAddHubSelectNameFragment()
         findNavController().navigate(action)
     }
-
 }

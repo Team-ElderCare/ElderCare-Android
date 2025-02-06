@@ -12,10 +12,12 @@ class OneButtonDialogFragment(
     private val detail: String?,
     private val buttonText: String,
     private val clickBtn: () -> Unit,
-    private val onDialogClosed: () -> Unit = {}
+    private val onDialogClosed: () -> Unit = {},
 ) : BaseDialogFragment<DialogOneButtonBinding>(R.layout.dialog_one_button) {
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         initLayout()
@@ -29,12 +31,12 @@ class OneButtonDialogFragment(
 
     private fun initLayout() {
         with(binding) {
-            if(icon == null) {
+            if (icon == null) {
                 ivOneBtnDialogIcon.visibility = View.GONE
             } else {
                 ivOneBtnDialogIcon.setImageResource(icon)
             }
-            if(detail.isNullOrEmpty()) {
+            if (detail.isNullOrEmpty()) {
                 tvOneBtnDialogDetail.visibility = View.GONE
             } else {
                 tvOneBtnDialogDetail.text = detail
@@ -50,5 +52,4 @@ class OneButtonDialogFragment(
             dismiss()
         }
     }
-
 }

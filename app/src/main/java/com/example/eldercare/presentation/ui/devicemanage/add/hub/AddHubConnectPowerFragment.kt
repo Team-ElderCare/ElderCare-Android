@@ -7,9 +7,12 @@ import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentAddHubConnectPowerBinding
 
 class AddHubConnectPowerFragment : BaseFragment<FragmentAddHubConnectPowerBinding, Nothing>(
-    FragmentAddHubConnectPowerBinding::inflate
+    FragmentAddHubConnectPowerBinding::inflate,
 ) {
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         addListener()
@@ -31,5 +34,4 @@ class AddHubConnectPowerFragment : BaseFragment<FragmentAddHubConnectPowerBindin
         val action = AddHubConnectPowerFragmentDirections.actionAddHubConnectPowerFragmentToAddHubSelectPlaceFragment()
         findNavController().navigate(action)
     }
-
 }

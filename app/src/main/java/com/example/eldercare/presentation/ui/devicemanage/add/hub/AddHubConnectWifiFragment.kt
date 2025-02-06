@@ -7,9 +7,12 @@ import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentAddHubConnectWifiBinding
 
 class AddHubConnectWifiFragment : BaseFragment<FragmentAddHubConnectWifiBinding, Nothing>(
-    FragmentAddHubConnectWifiBinding::inflate
+    FragmentAddHubConnectWifiBinding::inflate,
 ) {
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         addListener()
@@ -18,7 +21,6 @@ class AddHubConnectWifiFragment : BaseFragment<FragmentAddHubConnectWifiBinding,
     private fun addListener() {
         with(binding) {
             btnAddHubConnectWifiList.setOnClickListener {
-
             }
 
             btnAddHubConnectWifiPrevious.setOnClickListener {
@@ -34,5 +36,4 @@ class AddHubConnectWifiFragment : BaseFragment<FragmentAddHubConnectWifiBinding,
         val action = AddHubConnectWifiFragmentDirections.actionAddHubConnectWifiFragmentToDeviceManageFragment()
         findNavController().navigate(action)
     }
-
 }

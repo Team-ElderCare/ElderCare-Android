@@ -14,10 +14,12 @@ class TwoButtonDialogFragment(
     private val rightButtonText: String,
     private val leftButtonClick: () -> Unit,
     private val rightButtonClick: () -> Unit,
-    private val onDialogClosed: () -> Unit = {}
+    private val onDialogClosed: () -> Unit = {},
 ) : BaseDialogFragment<DialogTwoButtonBinding>(R.layout.dialog_two_button) {
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         initLayout()
@@ -31,7 +33,7 @@ class TwoButtonDialogFragment(
 
     private fun initLayout() {
         with(binding) {
-            if(icon == null) {
+            if (icon == null) {
                 ivTwoBtnDialogIcon.visibility = View.GONE
             } else {
                 ivTwoBtnDialogIcon.setImageResource(icon)
@@ -56,5 +58,4 @@ class TwoButtonDialogFragment(
             }
         }
     }
-
 }

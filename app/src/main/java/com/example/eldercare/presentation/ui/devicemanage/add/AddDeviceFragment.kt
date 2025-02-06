@@ -45,5 +45,4 @@ class AddDeviceFragment : BaseFragment<FragmentAddDeviceBinding, AddDeviceViewMo
         val action = AddDeviceFragmentDirections.actionAddDeviceFragmentToFirstAddHubGuideFragment()
         findNavController().navigate(action)
     }
-
 }

@@ -9,10 +9,12 @@ import com.example.eldercare.databinding.DialogNoButtonBinding
 class NoButtonDialogFragment(
     private val icon: Int?,
     private val title: String,
-    private val onDialogClosed: () -> Unit = {}
+    private val onDialogClosed: () -> Unit = {},
 ) : BaseDialogFragment<DialogNoButtonBinding>(R.layout.dialog_no_button) {
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         initLayout()
@@ -25,14 +27,12 @@ class NoButtonDialogFragment(
 
     private fun initLayout() {
         with(binding) {
-            if(icon == null) {
-                    ivNoBtnDialogIcon.visibility = View.GONE
+            if (icon == null) {
+                ivNoBtnDialogIcon.visibility = View.GONE
             } else {
                 ivNoBtnDialogIcon.setImageResource(icon)
             }
             tvNoBtnDialogTitle.text = title
         }
     }
-
 }
-

@@ -7,10 +7,12 @@ import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentAddHubGuideSeconedBinding
 
 class SecondAddHubGuideFragment : BaseFragment<FragmentAddHubGuideSeconedBinding, Nothing>(
-    FragmentAddHubGuideSeconedBinding::inflate
+    FragmentAddHubGuideSeconedBinding::inflate,
 ) {
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
         addListener()
     }
@@ -27,5 +29,4 @@ class SecondAddHubGuideFragment : BaseFragment<FragmentAddHubGuideSeconedBinding
         val action = SecondAddHubGuideFragmentDirections.actionSecondAddHubGuideFragmentToSelectHubPlaceGuideFragment()
         findNavController().navigate(action)
     }
-
 }

@@ -6,10 +6,12 @@ import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentEditAndDeleteDeviceBinding
 
 class DeviceEditAndDeleteFragment : BaseFragment<FragmentEditAndDeleteDeviceBinding, Nothing>(
-    FragmentEditAndDeleteDeviceBinding::inflate
+    FragmentEditAndDeleteDeviceBinding::inflate,
 ) {
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         addListener()
@@ -56,10 +58,8 @@ class DeviceEditAndDeleteFragment : BaseFragment<FragmentEditAndDeleteDeviceBind
             }
 
             btnDeviceEditAndDeletePrevious.setOnClickListener {
-
             }
             btnDeviceEditAndDeleteNext.setOnClickListener {
-
             }
         }
     }
@@ -71,5 +71,4 @@ class DeviceEditAndDeleteFragment : BaseFragment<FragmentEditAndDeleteDeviceBind
     private fun enableLocationTextField(isVisible: Boolean) {
         binding.etDeviceEditAndDeleteLocation.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
-
 }

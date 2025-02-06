@@ -7,9 +7,12 @@ import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentAddHubSelectNameBinding
 
 class AddHubSelectNameFragment : BaseFragment<FragmentAddHubSelectNameBinding, Nothing>(
-    FragmentAddHubSelectNameBinding::inflate
-){
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    FragmentAddHubSelectNameBinding::inflate,
+) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         addListeners()
@@ -53,6 +56,4 @@ class AddHubSelectNameFragment : BaseFragment<FragmentAddHubSelectNameBinding, N
         val action = AddHubSelectNameFragmentDirections.actionAddHubSelectNameFragmentToAddHubConnectBluetoothFragment()
         findNavController().navigate(action)
     }
-
 }
-
