@@ -9,5 +9,10 @@
     <font color="#F44336">5개</font>까지 등록할 수 있으니 꼭 등록해주세요!]]></string>
 
     <string name="ward_address_side_info"><![CDATA[<font color="#575757">위기상황이 발생하면 등록된 주소를 통해 근처 응급실에 빠르게 신고를 할 수 있어요</font>]]></string>
-</resources>
 
+    <!-- component -->
+    <string name="no_button_dialog_image_desc">버튼 없는 다이얼로그 아이콘</string>
+    <string name="one_button_dialog_image_desc">단일 버튼 다이얼로그 아이콘</string>
+    <string name="two_button_dialog_image_desc">삭제 취소 다이얼로그 아이콘</string>
+
+</resources>
