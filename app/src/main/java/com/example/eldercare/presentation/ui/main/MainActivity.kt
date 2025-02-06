@@ -1,8 +1,11 @@
 package com.example.eldercare.presentation.ui.main
 
+import android.content.Context
 import android.graphics.drawable.InsetDrawable
 import android.graphics.drawable.StateListDrawable
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
@@ -23,6 +26,18 @@ class MainActivity :
     ) {
     override val viewModel: MainViewModel by lazy {
         ViewModelProvider(this)[MainViewModel::class.java]
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        if (event.action == MotionEvent.ACTION_DOWN) {
+            val currentFocusView = currentFocus
+            if (currentFocusView != null) {
+                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(currentFocusView.windowToken, 0)
+                currentFocusView.clearFocus()
+            }
+        }
+        return super.onTouchEvent(event)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
