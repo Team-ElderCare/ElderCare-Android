@@ -18,7 +18,7 @@
             style="@style/TextAppearance.Title6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/add_hub_process_second"
+            android:text="@string/add_hub_process_last"
             android:textColor="@color/Gray900"
             android:layout_marginStart="@dimen/spacing4"
             android:layout_marginTop="@dimen/spacing9"
