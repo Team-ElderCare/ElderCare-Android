@@ -124,6 +124,15 @@
         <item name="android:textAppearance">@style/TextAppearance.SubTitle4</item>
     </style>
 
+    <!-- Dialog button -->
+    <style name="Theme.ElderCare.Button.Dialog" parent="Theme.ElderCare.Button.Base">
+        <item name="cornerRadius">@dimen/radius_xl</item>
+        <item name="android:backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAppearance">@style/TextAppearance.SubTitle3</item>
+    </style>
+
+
     <!-- Base Chip Style -->
     <style name="Theme.ElderCare.Chip" parent="Widget.MaterialComponents.Chip.Choice">
         <item name="android:stateListAnimator">@null</item>
