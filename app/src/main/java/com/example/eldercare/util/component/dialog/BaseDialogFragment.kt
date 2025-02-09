@@ -1,6 +1,9 @@
 package com.example.eldercare.util.component.dialog
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,13 +31,23 @@ abstract class BaseDialogFragment<T : ViewDataBinding>(
 
     override fun onStart() {
         super.onStart()
-        dialog?.window?.setLayout(
-            WindowManager.LayoutParams.MATCH_PARENT,
-            WindowManager.LayoutParams.MATCH_PARENT,
-        )
+        dialog?.window?.apply {
+            val screenHeight = resources.displayMetrics.heightPixels
+            val dialogY = (screenHeight * 0.35).toInt()
+
+            setLayout(
+                (resources.displayMetrics.widthPixels * 0.7).toInt(),
+                WindowManager.LayoutParams.WRAP_CONTENT
+            )
+            setGravity(Gravity.TOP)
+
+            val params = attributes
+            params.y = dialogY
+            attributes = params
+        }
         dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
         dialog?.setCancelable(false)
-        dialog?.setCanceledOnTouchOutside(true)
+        dialog?.setCanceledOnTouchOutside(false)
     }
 
     override fun onDestroyView() {
