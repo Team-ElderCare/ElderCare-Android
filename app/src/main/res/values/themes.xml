@@ -116,8 +116,6 @@
 
     <!-- add device button -->
     <style name="Theme.ElderCare.Button.Add.Device" parent="Theme.ElderCare.Button.Base">
-        <item name="android:width">100dp</item>
-        <item name="android:height">32dp</item>
         <item name="cornerRadius">@dimen/padding_m</item>
         <item name="android:backgroundTint">@color/primary</item>
         <item name="android:textColor">@color/white</item>
@@ -139,6 +137,14 @@
         <item name="android:textColor">@color/white</item>
         <item name="cornerRadius">36dp</item>
         <item name="android:textAppearance">@style/TextAppearance.SubTitle5</item>
+    </style>
+
+    <!-- Dialog button -->
+    <style name="Theme.ElderCare.Button.Dialog" parent="Theme.ElderCare.Button.Base">
+        <item name="cornerRadius">@dimen/radius_xl</item>
+        <item name="android:backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAppearance">@style/TextAppearance.SubTitle3</item>
     </style>
 
     <!-- Base Chip Style -->

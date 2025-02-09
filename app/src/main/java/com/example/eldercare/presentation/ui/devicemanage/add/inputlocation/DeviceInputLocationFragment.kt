@@ -21,18 +21,19 @@ class DeviceInputLocationFragment : BaseFragment<FragmentInputDeviceLocationBind
             includeInputDeviceLocationTopbar.ivAllTopbarArrowWithTitleArrowLeft.setOnClickListener {
                 parentFragmentManager.popBackStack()
             }
-            chipInputDeviceLocationEnterManually.setOnClickListener {
-                if (chipInputDeviceLocationEnterManually.isChecked) {
+            val cg = includeInputDeviceLocationViewTitleWithCg
+            cg.cgViewTitleWithChipGroup.setOnClickListener {
+                if (cg.chipViewTitleWithChipGroupEnterManually.isChecked) {
                     enableTextField(true)
-                    cgInputDeviceLocation.clearCheck()
-                    chipInputDeviceLocationEnterManually.isChecked = true
+                    cg.cgViewTitleWithChipGroup.clearCheck()
+                    cg.chipViewTitleWithChipGroupEnterManually.isChecked = true
                 } else {
                     enableTextField(false)
                 }
             }
 
-            cgInputDeviceLocation.setOnCheckedStateChangeListener { _, checkedIds ->
-                if (checkedIds.contains(chipInputDeviceLocationEnterManually.id)) {
+            cg.cgViewTitleWithChipGroup.setOnCheckedStateChangeListener { _, checkedIds ->
+                if (checkedIds.contains(cg.chipViewTitleWithChipGroupEnterManually.id)) {
                     enableTextField(true)
                 } else {
                     enableTextField(false)

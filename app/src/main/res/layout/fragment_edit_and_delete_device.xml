@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_device_edit_and_delete_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <include
+        android:id="@+id/include_device_edit_and_delete_topbar"
+        layout="@layout/view_all_topbar_arrow_with_title"
+        text="@{@string/edit_and_delete_title}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_device_edit_and_delete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_radius_12dp"
+            android:backgroundTint="@color/Gray50"
+            android:layout_marginTop="@dimen/spacing3"
+            android:layout_marginHorizontal="@dimen/spacing4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/include_device_edit_and_delete_topbar">
+
+            <TextView
+                android:id="@+id/tv_device_edit_and_delete_device_type_title"
+                style="@style/TextAppearance.Body6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_and_delete_device_type"
+                android:textColor="@color/Gray900"
+                android:layout_marginStart="@dimen/spacing3"
+                android:layout_marginVertical="@dimen/spacing3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+            <TextView
+                android:id="@+id/tv_device_edit_and_delete_device_type_name"
+                style="@style/TextAppearance.Body6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Gray900"
+                android:layout_marginVertical="@dimen/spacing3"
+                app:layout_constraintStart_toEndOf="@+id/tv_device_edit_and_delete_device_type_title"
+                app:layout_constraintTop_toTopOf="@+id/tv_device_edit_and_delete_device_type_title"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_device_edit_and_delete_device_type_title"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_device_edit_and_delete_device_name_title"
+            style="@style/TextAppearance.Title6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_and_delete_device_name"
+            android:textColor="@color/Gray800"
+            android:layout_marginTop="@dimen/spacing7"
+            app:layout_constraintStart_toStartOf="@+id/container_device_edit_and_delete"
+            app:layout_constraintTop_toBottomOf="@+id/container_device_edit_and_delete" />
+
+        <include
+            android:id="@+id/include_device_edit_and_delete_device_name_cg"
+            layout="@layout/view_place_chip_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing3"
+            android:layout_marginHorizontal="@dimen/spacing4"
+            app:layout_constraintTop_toBottomOf="@+id/tv_device_edit_and_delete_device_name_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.example.eldercare.util.component.textfield.ElderCareEditText
+            android:id="@+id/et_device_edit_and_delete_device_name"
+            style="@style/TextAppearance.Body4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            app:customIcon="@drawable/ic_clear_21x20dp"
+            android:layout_marginTop="@dimen/spacing4"
+            android:layout_marginHorizontal="@dimen/spacing4"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_device_edit_and_delete_device_name_cg" />
+
+        <TextView
+            android:id="@+id/tv_device_edit_and_delete_device_location"
+            style="@style/TextAppearance.Title6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_and_delete_device_location"
+            android:textColor="@color/Gray800"
+            android:layout_marginStart="@dimen/spacing4"
+            android:layout_marginTop="@dimen/spacing7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_device_edit_and_delete_device_name" />
+
+        <include
+            android:id="@+id/include_device_edit_and_delete_place_cg"
+            layout="@layout/view_place_chip_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing3"
+            android:layout_marginHorizontal="@dimen/spacing4"
+            app:layout_constraintTop_toBottomOf="@+id/tv_device_edit_and_delete_device_location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.example.eldercare.util.component.textfield.ElderCareEditText
+            android:id="@+id/et_device_edit_and_delete_location"
+            style="@style/TextAppearance.Body4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            app:customIcon="@drawable/ic_clear_21x20dp"
+            android:layout_marginTop="@dimen/spacing4"
+            android:layout_marginHorizontal="@dimen/spacing4"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_device_edit_and_delete_place_cg" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_device_edit_and_delete_previous"
+            style="@style/Theme.ElderCare.Button.Capsule"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:text="@string/button_text_delete"
+            android:textAppearance="@style/TextAppearance.SubTitle5"
+            android:textColor="@color/primary"
+            android:singleLine="true"
+            android:paddingVertical="@dimen/padding_m"
+            android:layout_marginStart="@dimen/spacing4"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="@dimen/spacing4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/gl_device_edit_and_delete_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="@color/primary"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_device_edit_and_delete_next"
+            style="@style/Theme.ElderCare.Button.L"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/primary"
+            android:text="@string/button_text_edit_success"
+            android:textAppearance="@style/TextAppearance.SubTitle5"
+            android:textColor="@color/white"
+            android:singleLine="true"
+            android:paddingVertical="@dimen/padding_m"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="@dimen/spacing4"
+            android:layout_marginBottom="@dimen/spacing4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/gl_device_edit_and_delete_vertical" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

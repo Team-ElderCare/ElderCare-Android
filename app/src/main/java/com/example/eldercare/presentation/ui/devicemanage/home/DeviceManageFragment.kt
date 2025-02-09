@@ -31,7 +31,7 @@ class DeviceManageFragment : BaseFragment<FragmentDeviceManageBinding, DeviceMan
     }
 
     private fun navigateToAddDevice() {
-        val action = DeviceManageFragmentDirections.actionToolFragmentToAddDeviceFragment()
+        val action = DeviceManageFragmentDirections.actionDeviceManageFragmentToAddDeviceFragment()
         findNavController().navigate(action)
     }
 }

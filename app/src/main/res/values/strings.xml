@@ -44,9 +44,25 @@
     <string name="add_device_success_title">기기 설치가 완료되었습니다.</string>
     <string name="add_device_success_sub_title">엘더케어는 언제나 당신과 함께합니다.</string>
 
+    <!-- Dialolg -->
+    <string name="dialog_btn_next">다음</string>
+    <string name="dialog_btn_delete">삭제</string>
+    <string name="dialog_btn_cancel">취소</string>
+    <string name="dialog_btn_confirm">완료</string>
+    <string name="dialog_set_name">\'다음\'버튼을 눌러 기기명을 설정해주세요.</string>
+    <string name="dialog_delete_device">한 번 삭제하신 기기는 되돌릴 수 없습니다.</string>
+    <string name="dialog_success_download_hub">허브 설치가 완료되었습니다.</string>
+    <string name="dialog_connect_tag_title">\'태그\'가 연결되었습니다.</string>
+    <string name="dialog_connect_sensor_title">‘동작감지센서’가\n연결 되었습니다.</string>
+    <string name="dialog_connect_hub_title">‘허브’가 연결 되었습니다.</string>
+    <string name="dialog_connect_failed_network_title">네트워크 연결에 실패 했습니다.</string>
+    <string name="dialog_connect_failed_network_detail">인터넷 연결상태를 확인 후 시도하세요.</string>
+    <string name="dialog_connect_check_network_title">네트워크 연결 확인</string>
+    <string name="dialog_connect_check_network_detail">원활한 서비스 이용을 위해 블루투스와 와이파이를 켜주세요.</string>
 
     <!-- topbar -->
     <string name="device_manage_title">기기 관리</string>
+    <string name="edit_and_delete_title">기기 수정 및 삭제</string>
 
     <!-- contentDescription-->
     <string name="back_btn_description">뒤로가기 버튼</string>
@@ -55,5 +71,51 @@
     <font color="#F44336">5개</font>까지 등록할 수 있으니 꼭 등록해주세요!]]></string>
 
     <string name="ward_address_side_info"><![CDATA[<font color="#575757">위기상황이 발생하면 등록된 주소를 통해 근처 응급실에 빠르게 신고를 할 수 있어요</font>]]></string>
-</resources>
 
+    <!-- component -->
+    <string name="no_button_dialog_image_desc">버튼 없는 다이얼로그 아이콘</string>
+    <string name="one_button_dialog_image_desc">단일 버튼 다이얼로그 아이콘</string>
+    <string name="two_button_dialog_image_desc">삭제 취소 다이얼로그 아이콘</string>
+    <string name="recommend_place_tooltip_title">추천 장소 보기</string>
+    <string name="recommend_place_tooltip_content">부엌, 거실, 복도, 중앙 통로, 배란다 추천</string>
+    <string name="button_text_next">다음으로</string>
+    <string name="button_text_previous">이전으로</string>
+    <string name="button_text_delete">삭제하기</string>
+    <string name="button_text_edit_success">수정완료</string>
+    <string name="button_wifi_list">와이파이 목록</string>
+    <string name="button_go_to_download">설치하러 가기</string>
+
+    <!-- edit and delete device -->
+    <string name="edit_and_delete_device_type">기기 종류 | </string>
+    <string name="edit_and_delete_device_name">기기 이름</string>
+    <string name="edit_and_delete_device_location">설치 장소</string>
+
+    <!-- add Hub -->
+    <string name="add_hub_process_all">/ 4</string>
+    <string name="add_hub_process_first"> 1</string>
+    <string name="add_hub_process_second"> 2</string>
+    <string name="add_hub_process_third"> 3</string>
+    <string name="add_hub_process_last"> 4</string>
+
+    <string name="add_hub_guide_image_content_description">허브 설치 가이드 이미지</string>
+    <string name="add_power_guide_image_content_description">전원 연결 가이드 이미지</string>
+    <string name="add_hub_guide_first">엘더케어와 함께 사랑하는\n사람을 지킬 준비를 시작해요!</string>
+    <string name="add_hub_guide_second">우선, 허브를\n설치해봐요!</string>
+    <string name="add_select_hub_place_title">허브를 설치할 장소 정하기</string>
+    <string name="add_select_hub_place_desc1">허브는 보호대상자를 연결하고, 다른 기기와 통신을 맡아요. 그래서 방을 넓게 인식할 수 있는 위치에 배치해주세요.</string>
+    <string name="add_select_hub_place_desc2">사람들이 많이 선택하는 장소에요. 설치할 장소를 선택해주세요.</string>
+    <string name="add_select_hub_name_title">기기 이름을 지어주세요.</string>
+    <string name="add_select_hub_name_desc">엘더케어의 추천 이름! 많은 사람들이 기기를 설치된 방에 따라 이름을 지어주세요.</string>
+    <string name="connect_to_power_title">전원에 연결하기</string>
+    <string name="connect_to_power_desc">배치 장소를 정하셨다면 근처에 콘센트를 찾아 연결해주세요.</string>
+    <string name="connect_to_wifi_title">Wifi 연결하기</string>
+    <string name="connect_to_wifi_desc">와이파이 목록에서 Wi-Fi 선택하고 비밀번호를 입력하세요.</string>
+    <string name="connect_to_wifi_placeholder">비밀번호 입력</string>
+    <string name="connect_to_bluetooth_title">블루투스를 켜주세요.</string>
+    <string name="connect_to_bluetooth_on">Bluetooth 켜기</string>
+    <string name="connect_to_bluetooth_content_description">블루투스 아이콘</string>
+    <string name="success_download_required_data">필수 데이터를 다운\n완료했습니다!</string>
+    <string name="add_hub_guide_last_title">위험한 일이 생겼다면?</string>
+    <string name="add_hub_guide_last_desc">보호대상자에게 비상 버튼을 누르라고 꼭 알려주세요!</string>
+    <string name="find_connectable_wifi">연결할 수 있는 와이파이를 찾고 있는 중입니다.</string>
+</resources>

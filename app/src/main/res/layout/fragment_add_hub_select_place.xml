@@ -7,34 +7,64 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/gl_input_device_name"
+            android:id="@+id/gl_add_hub_select_place_vertical"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.5" />
 
-        <include
-            android:id="@+id/include_input_device_name_topbar"
-            layout="@layout/view_all_topbar_arrow_with_title"
-            text="@{@string/add_device_topbar}"
-            app:layout_constraintEnd_toEndOf="parent"
+        <TextView
+            android:id="@+id/tv_add_hub_select_place_process_first"
+            style="@style/TextAppearance.Title6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_hub_process_third"
+            android:textColor="@color/Gray900"
+            android:layout_marginStart="@dimen/spacing4"
+            android:layout_marginTop="@dimen/spacing9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/tv_add_hub_select_place_process_all"
+            style="@style/TextAppearance.SubTitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_hub_process_all"
+            android:textColor="@color/Gray300"
+            android:layout_marginStart="6dp"
+            app:layout_constraintStart_toEndOf="@id/tv_add_hub_select_place_process_first"
+            app:layout_constraintTop_toTopOf="@id/tv_add_hub_select_place_process_first"
+            app:layout_constraintBottom_toBottomOf="@id/tv_add_hub_select_place_process_first" />
+
         <include
-            android:id="@+id/include_input_device_name_view_title_with_cg"
+            android:id="@+id/include_add_hub_select_place_view_title_with_cg"
             layout="@layout/view_title_with_chip_group"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            title="@{@string/add_device_input_name_title}"
-            description="@{@string/add_device_input_name_guide}"
-            android:layout_marginTop="@dimen/spacing6"
-            app:layout_constraintTop_toBottomOf="@id/include_input_device_name_topbar"
+            title="@{@string/add_select_hub_place_title}"
+            description="@{@string/add_select_hub_place_desc2}"
+            android:layout_marginTop="@dimen/spacing3"
+            app:layout_constraintTop_toBottomOf="@id/tv_add_hub_select_place_process_first"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+
+        <com.example.eldercare.util.component.textfield.ElderCareEditText
+            android:id="@+id/et_add_hub_select_place"
+            style="@style/TextAppearance.Body4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:customIcon="@drawable/ic_clear_21x20dp"
+            android:layout_marginTop="@dimen/spacing3"
+            android:layout_marginHorizontal="@dimen/spacing4"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_add_hub_select_place_view_title_with_cg" />
+
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_input_device_name_previous"
+            android:id="@+id/btn_add_hub_select_previous"
             style="@style/Theme.ElderCare.Button.Capsule"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -48,13 +78,13 @@
             android:layout_marginEnd="6dp"
             android:layout_marginBottom="@dimen/spacing4"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/gl_input_device_name"
+            app:layout_constraintEnd_toStartOf="@+id/gl_add_hub_select_place_vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:strokeColor="@color/primary"
             app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_input_device_name_next"
+            android:id="@+id/btn_add_hub_select_next"
             style="@style/Theme.ElderCare.Button.L"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -69,21 +99,7 @@
             android:layout_marginBottom="@dimen/spacing4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/gl_input_device_name" />
-
-        <com.example.eldercare.util.component.textfield.ElderCareEditText
-            android:id="@+id/et_input_device_name"
-            style="Theme.ElderCare.Button.Capsule"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:customIcon="@drawable/ic_clear_21x20dp"
-            android:layout_marginTop="@dimen/spacing3"
-            android:layout_marginHorizontal="@dimen/spacing4"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include_input_device_name_view_title_with_cg" />
+            app:layout_constraintStart_toStartOf="@+id/gl_add_hub_select_place_vertical" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>

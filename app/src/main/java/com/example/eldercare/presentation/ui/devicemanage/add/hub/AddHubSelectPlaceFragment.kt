@@ -1,28 +1,27 @@
-package com.example.eldercare.presentation.ui.devicemanage.add.inputlocation
+package com.example.eldercare.presentation.ui.devicemanage.add.hub
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.eldercare.base.fragment.BaseFragment
-import com.example.eldercare.databinding.FragmentInputDeviceNameBinding
+import com.example.eldercare.databinding.FragmentAddHubSelectPlaceBinding
 
-class DeviceInputNameFragment : BaseFragment<FragmentInputDeviceNameBinding, DeviceInputViewModel> (
-    FragmentInputDeviceNameBinding::inflate,
+class AddHubSelectPlaceFragment : BaseFragment<FragmentAddHubSelectPlaceBinding, Nothing>(
+    FragmentAddHubSelectPlaceBinding::inflate,
 ) {
-    override val viewModel: DeviceInputViewModel by viewModels()
-
     override fun onViewCreated(
         view: View,
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
+
+        addListeners()
+    }
+
+    private fun addListeners() {
         with(binding) {
-            includeInputDeviceNameTopbar.ivAllTopbarArrowWithTitleArrowLeft.setOnClickListener {
-                parentFragmentManager.popBackStack()
-            }
-            val cg = includeInputDeviceNameViewTitleWithCg
-            cg.chipViewTitleWithChipGroupEnterManually.setOnClickListener {
+            val cg = includeAddHubSelectPlaceViewTitleWithCg
+            cg.cgViewTitleWithChipGroup.setOnClickListener {
                 if (cg.chipViewTitleWithChipGroupEnterManually.isChecked) {
                     enableTextField(true)
                     cg.cgViewTitleWithChipGroup.clearCheck()
@@ -31,6 +30,7 @@ class DeviceInputNameFragment : BaseFragment<FragmentInputDeviceNameBinding, Dev
                     enableTextField(false)
                 }
             }
+
             cg.cgViewTitleWithChipGroup.setOnCheckedStateChangeListener { _, checkedIds ->
                 if (checkedIds.contains(cg.chipViewTitleWithChipGroupEnterManually.id)) {
                     enableTextField(true)
@@ -39,22 +39,21 @@ class DeviceInputNameFragment : BaseFragment<FragmentInputDeviceNameBinding, Dev
                 }
             }
 
-            btnInputDeviceNameNext.setOnClickListener {
-                navigateToSuccess()
+            btnAddHubSelectPrevious.setOnClickListener {
+                findNavController().popBackStack()
             }
-
-            btnInputDeviceNamePrevious.setOnClickListener {
-                parentFragmentManager.popBackStack()
+            btnAddHubSelectNext.setOnClickListener {
+                navigateToAddHubSelectNameFragment()
             }
         }
     }
 
     private fun enableTextField(isVisible: Boolean) {
-        binding.etInputDeviceName.visibility = if (isVisible) View.VISIBLE else View.GONE
+        binding.etAddHubSelectPlace.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
 
-    private fun navigateToSuccess() {
-        val action = DeviceInputNameFragmentDirections.actionDeviceInputNameFragmentToAddDeviceSuccessFragment()
+    private fun navigateToAddHubSelectNameFragment() {
+        val action = AddHubSelectPlaceFragmentDirections.actionAddHubSelectPlaceFragmentToAddHubSelectNameFragment()
         findNavController().navigate(action)
     }
 }
