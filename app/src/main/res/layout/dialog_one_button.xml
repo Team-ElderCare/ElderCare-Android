@@ -36,6 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/Gray400"
+            android:textAlignment="center"
             android:layout_marginHorizontal="@dimen/spacing5"
             android:layout_marginTop="@dimen/spacing1"
             app:layout_constraintTop_toBottomOf="@id/tv_one_btn_dialog_title"
