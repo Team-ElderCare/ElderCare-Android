@@ -1,0 +1,14 @@
+package com.example.eldercare.presentation.ui.basicInfo
+
+enum class BasicInfoStep {
+    GUARDIAN_NAME,
+    GUARDIAN_PHONE,
+    GUARDIAN_RELATIONSHIP,
+    GUARDIAN_PHOTO,
+    PROTECTED_NAME,
+    PROTECTED_BIRTH_DATE,
+    PROTECTED_NICKNAME,
+    PROTECTED_PHONE,
+    PROTECTED_ADDRESS,
+    PROTECTED_EMERGENCY_CONTACTS,
+}
