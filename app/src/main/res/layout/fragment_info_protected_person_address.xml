@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp">
+
+    <TextView
+        android:id="@+id/tv_info_guardian_name"
+        style="@style/TextAppearance.Title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="보호대상자의\n주소를 입력해주세요."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_side_info"
+        style="@style/TextAppearance.Body2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/ward_address_side_info"
+        android:textColor="@color/Gray600"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_info_guardian_name" />
+
+    <com.example.eldercare.presentation.ui.custom.CustomEditText
+        android:id="@+id/et_primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        app:customHint="지번, 도로명, 건물명으로 검색"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_side_info" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_info_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add_success_previous"
+        style="@style/Theme.ElderCare.Button.Capsule"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:text="@string/input_name_previous_btn"
+        android:textAppearance="@style/TextAppearance.SubTitle5"
+        android:textColor="@color/primary"
+        android:singleLine="true"
+        android:paddingVertical="@dimen/padding_m"
+        android:layout_marginStart="@dimen/spacing4"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="@dimen/spacing4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/gl_info_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="@color/primary"
+        app:strokeWidth="1dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add_success_next"
+        style="@style/Theme.ElderCare.Button.L"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/primary"
+        android:text="@string/input_name_next_btn"
+        android:textAppearance="@style/TextAppearance.SubTitle5"
+        android:textColor="@color/white"
+        android:singleLine="true"
+        android:paddingVertical="@dimen/padding_m"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="@dimen/spacing4"
+        android:layout_marginBottom="@dimen/spacing4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/gl_info_vertical" />
+</androidx.constraintlayout.widget.ConstraintLayout>
