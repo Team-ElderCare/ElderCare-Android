@@ -44,6 +44,21 @@
     <string name="add_device_success_title">기기 설치가 완료되었습니다.</string>
     <string name="add_device_success_sub_title">엘더케어는 언제나 당신과 함께합니다.</string>
 
+    <!-- Dialolg -->
+    <string name="dialog_btn_next">다음</string>
+    <string name="dialog_btn_delete">삭제</string>
+    <string name="dialog_btn_cancel">취소</string>
+    <string name="dialog_btn_confirm">완료</string>
+    <string name="dialog_set_name">\'다음\'버튼을 눌러 기기명을 설정해주세요.</string>
+    <string name="dialog_delete_device">한 번 삭제하신 기기는 되돌릴 수 없습니다.</string>
+    <string name="dialog_success_download_hub">허브 설치가 완료되었습니다.</string>
+    <string name="dialog_connect_tag_title">\'태그\'가 연결되었습니다.</string>
+    <string name="dialog_connect_sensor_title">‘동작감지센서’가\n연결 되었습니다.</string>
+    <string name="dialog_connect_hub_title">‘허브’가 연결 되었습니다.</string>
+    <string name="dialog_connect_failed_network_title">네트워크 연결에 실패 했습니다.</string>
+    <string name="dialog_connect_failed_network_detail">인터넷 연결상태를 확인 후 시도하세요.</string>
+    <string name="dialog_connect_check_network_title">네트워크 연결 확인</string>
+    <string name="dialog_connect_check_network_detail">원활한 서비스 이용을 위해 블루투스와 와이파이를 켜주세요.</string>
 
     <!-- topbar -->
     <string name="device_manage_title">기기 관리</string>
