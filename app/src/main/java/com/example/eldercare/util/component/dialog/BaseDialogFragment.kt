@@ -1,7 +1,5 @@
 package com.example.eldercare.util.component.dialog
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -37,7 +35,7 @@ abstract class BaseDialogFragment<T : ViewDataBinding>(
 
             setLayout(
                 (resources.displayMetrics.widthPixels * 0.7).toInt(),
-                WindowManager.LayoutParams.WRAP_CONTENT
+                WindowManager.LayoutParams.WRAP_CONTENT,
             )
             setGravity(Gravity.TOP)
 
