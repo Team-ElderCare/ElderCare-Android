@@ -51,9 +51,9 @@
     <!-- contentDescription-->
     <string name="back_btn_description">뒤로가기 버튼</string>
 
+    <!-- basicInfo -->
     <string name="ward_emergency_side_info"><![CDATA[보호 대상자가 연락을 받지 않으면 연결되는 <font color="#F44336">2차 연락망</font>으로 사용해요.
     <font color="#F44336">5개</font>까지 등록할 수 있으니 꼭 등록해주세요!]]></string>
-
-    <string name="ward_address_side_info"><![CDATA[<font color="#575757">위기상황이 발생하면 등록된 주소를 통해 근처 응급실에 빠르게 신고를 할 수 있어요</font>]]></string>
+    <string name="ward_address_side_info">위기상황이 발생하면 등록된 주소를 통해 근처 응급실에 빠르게 신고를 할 수 있어요</string>
 </resources>
 

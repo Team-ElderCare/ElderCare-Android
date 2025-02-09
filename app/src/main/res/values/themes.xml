@@ -179,7 +179,20 @@
         <item name="android:textAppearance">@style/TextAppearance.Body1</item>
     </style>
 
-    <!-- Chip S No Fill -->
+    <!-- Chip S Fill (basic info relationShip) -->
+    <style name="Theme.ElderCare.Chip.S.RelationShip.Fill" parent="Theme.ElderCare.Chip">
+        <item name="cornerRadius">@dimen/padding_m</item>
+        <item name="textStartPadding">10dp</item>
+        <item name="textEndPadding">10dp</item>
+        <item name="android:paddingVertical">4dp</item>
+        <item name="chipBackgroundColor">@color/selector_chip_fill_relation_background</item>
+        <item name="android:textColor">@color/selector_chip_fill_relation_text_color</item>
+        <item name="chipStrokeColor">@color/selector_chip_no_fill_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Body5</item>
+    </style>
+
+    <!-- Chip L No Fill -->
     <style name="Theme.ElderCare.Chip.L.No.Fill" parent="Theme.ElderCare.Chip">
         <item name="cornerRadius">@dimen/padding_m</item>
         <item name="textStartPadding">@dimen/padding_xs</item>
