@@ -20,7 +20,7 @@ class SetAlarmTimeAdapter :
     BaseAdapter<DrugAlarmTime, ItemAlarmBinding, SetAlarmTimeAdapter.SetAlarmTimeViewHolder>(
         diffCallback = DrugAlarmTimeDiffCallback(),
     ) {
-    private val drugAlarmDataList: MutableList<DrugAlarmTime> = mutableListOf()
+    var list: List<DrugAlarmTime> = emptyList()
 
     interface OnClickListener {
         fun onItemClick(position: Int)
@@ -34,49 +34,48 @@ class SetAlarmTimeAdapter :
         time: String,
         position: Int,
     ) {
-        val updateList = drugAlarmDataList.toMutableList()
+        val updateList = list.toMutableList()
         updateList[position] = updateList[position].copy(time = time)
 
         // 원본 데이터에 변경 반영
-        drugAlarmDataList.clear()
-        drugAlarmDataList.addAll(updateList)
+        list = updateList
+//        list.clear()
+//        list.addAll(updateList)
 
         // 업데이트된 리스트 제출
         submitList(updateList)
     }
 
     fun deleteDrugAlarm() {
-        if (drugAlarmDataList.size == 0) return
-        val newList = drugAlarmDataList.toMutableList()
+        if (list.size == 0) return
+        val newList = list.toMutableList()
 
-        newList.removeAt(drugAlarmDataList.lastIndex)
-        drugAlarmDataList.clear()
-        drugAlarmDataList.addAll(newList)
+        newList.removeAt(list.lastIndex)
+        list = newList
+
         // 여기서 같은 drugAlarmData 객체를 전달하면 인식 X , 새로운 객체를 전달해야함 !!
         submitList(newList)
     }
 
     fun deleteDrugAlarmItem(position: Int) {
         listener?.onDeleteClick(position)
-        val newList = drugAlarmDataList.toMutableList()
+        val newList = list.toMutableList()
         newList.removeAt(position)
 
-        drugAlarmDataList.clear()
-        drugAlarmDataList.addAll(newList)
+        list = newList
         submitList(newList)
     }
 
     fun addDrugAlarm() {
-        val newList = drugAlarmDataList.toMutableList()
+        val newList = list.toMutableList()
         newList.add(
-            drugAlarmDataList.size,
+            list.size,
             DrugAlarmTime(
-                id = drugAlarmDataList.size,
+                id = list.size,
                 time = "08:00",
             ),
         )
-        drugAlarmDataList.clear()
-        drugAlarmDataList.addAll(newList)
+        list = newList
         submitList(newList)
     }
 
@@ -105,7 +104,7 @@ class SetAlarmTimeAdapter :
             }
 
             btnDelete.setOnClickListener {
-                if (drugAlarmDataList.size == 0) return@setOnClickListener
+                if (list.size == 0) return@setOnClickListener
                 if (bindingAdapterPosition != RecyclerView.NO_POSITION) {
                     try {
                         deleteDrugAlarmItem(bindingAdapterPosition)
