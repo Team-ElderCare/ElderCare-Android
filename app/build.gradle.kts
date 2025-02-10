@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.ktlint)
     alias(libs.plugins.navigation.safeargs.kotlin)
+    id("org.jetbrains.kotlin.kapt")
 }
 
 val properties =

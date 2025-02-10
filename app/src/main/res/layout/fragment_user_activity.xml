@@ -38,15 +38,20 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/spacing2"
         android:text="활동기록"
+        android:layout_marginStart="@dimen/spacing5"
         android:textAppearance="@style/TextAppearance.Title6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_week_calendar" />
 
     <androidx.recyclerview.widget.RecyclerView
-        tools:listitem="@layout/item_warn"
+        android:id="@+id/sensedListRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        app:layout_constraintVertical_bias="0.0"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_user_activity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

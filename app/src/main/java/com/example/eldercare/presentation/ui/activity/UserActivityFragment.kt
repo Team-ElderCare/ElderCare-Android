@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.example.eldercare.base.fragment.BaseFragment
-import com.example.eldercare.databinding.FragmentRunBinding
+import com.example.eldercare.databinding.FragmentUserActivityBinding
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -13,8 +13,9 @@ import java.time.temporal.TemporalAdjusters
 import java.util.Date
 
 // 활동 탭
-class RunFragment : BaseFragment<FragmentRunBinding, RunViewModel>(FragmentRunBinding::inflate) {
-    override val viewModel: RunViewModel by viewModels()
+class UserActivityFragment : BaseFragment<FragmentUserActivityBinding, UserActivityViewModel>(FragmentUserActivityBinding::inflate) {
+    override val viewModel: UserActivityViewModel by viewModels()
+    private val adapter by lazy { UserActivityAdapter() }
 
     // todo : 오늘 요일 구하기
     private fun getDayOfWeek(dayOfWeek: Int): String =
@@ -101,6 +102,8 @@ class RunFragment : BaseFragment<FragmentRunBinding, RunViewModel>(FragmentRunBi
         super.onViewCreated(view, savedInstanceState)
         selectToday()
 
+        binding.sensedListRecyclerView.adapter = adapter
+        adapter.setData()
         with(binding.viewWeekCalendar) {
             // 오늘로부터 이전 6일을 표시해주기 !
             tvDate.text = getTodayDate()

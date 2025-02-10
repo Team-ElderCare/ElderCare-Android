@@ -13,6 +13,8 @@ class UserRecentActivityRVAdapter :
     BaseAdapter<UserRecentActivityData, ItemNormalBinding, UserRecentActivityRVAdapter.UserRecentActivityViewHolder>(
         UserRecentActivityDiffCallback(),
     ) {
+    var list: List<UserRecentActivityData> = emptyList()
+
     override fun inflateBinding(
         inflater: LayoutInflater,
         parent: ViewGroup,
