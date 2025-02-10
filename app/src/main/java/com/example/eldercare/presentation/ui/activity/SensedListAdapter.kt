@@ -6,7 +6,6 @@ import com.example.eldercare.base.adapter.BaseAdapter
 import com.example.eldercare.base.adapter.BaseViewHolder
 import com.example.eldercare.base.diffutil.BaseDiffCallback
 import com.example.eldercare.databinding.ItemSensedBinding
-import timber.log.Timber
 
 class SensedListDiffUtilCallback :
     BaseDiffCallback<SensedItem>(
@@ -25,7 +24,6 @@ class SensedListAdapter :
     val list: List<SensedItem> = emptyList()
 
     fun setList(newList: List<SensedItem>) {
-        Timber.d("감지된 리스트 :$newList")
         submitList(newList)
     }
 
