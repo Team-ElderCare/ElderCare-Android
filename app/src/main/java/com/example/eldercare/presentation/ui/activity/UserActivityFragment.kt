@@ -4,6 +4,7 @@ import android.icu.util.Calendar
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentUserActivityBinding
 import java.text.SimpleDateFormat
@@ -18,8 +19,10 @@ class UserActivityFragment : BaseFragment<FragmentUserActivityBinding, UserActiv
     private val adapter by lazy { UserActivityAdapter() }
     val now: LocalDate = LocalDate.now()
 
+    private val navController by lazy { findNavController() }
+
     // 0 : 오늘 ,1 : 1일전 , 2 : 2일전
-    val dateList =
+    private val dateList =
         listOf(
             getFormattedDate(now),
             getFormattedDate(now.minusDays(1)),
@@ -179,7 +182,12 @@ class UserActivityFragment : BaseFragment<FragmentUserActivityBinding, UserActiv
     ) {
         super.onViewCreated(view, savedInstanceState)
         initCalendar()
-        binding.sensedListRecyclerView.adapter = adapter
+        with(binding) {
+            sensedListRecyclerView.adapter = adapter
+            btnBack.setOnClickListener {
+                navController.popBackStack()
+            }
+        }
         adapter.setData()
     }
 }
