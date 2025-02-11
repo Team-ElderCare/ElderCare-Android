@@ -1,17 +1,12 @@
 package com.example.eldercare.presentation.ui.activity
 
-import android.icu.util.Calendar
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentUserActivityBinding
-import java.text.SimpleDateFormat
 import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.time.temporal.TemporalAdjusters
-import java.util.Date
 
 // 활동 탭
 class UserActivityFragment : BaseFragment<FragmentUserActivityBinding, UserActivityViewModel>(FragmentUserActivityBinding::inflate) {
@@ -24,50 +19,17 @@ class UserActivityFragment : BaseFragment<FragmentUserActivityBinding, UserActiv
     // 0 : 오늘 ,1 : 1일전 , 2 : 2일전
     private val dateList =
         listOf(
-            getFormattedDate(now),
-            getFormattedDate(now.minusDays(1)),
-            getFormattedDate(now.minusDays(2)),
-            getFormattedDate(now.minusDays(3)),
-            getFormattedDate(now.minusDays(4)),
-            getFormattedDate(now.minusDays(5)),
-            getFormattedDate(now.minusDays(6)),
+            DateUtil.formatFullDate(now),
+            DateUtil.formatFullDate(now.minusDays(1)),
+            DateUtil.formatFullDate(now.minusDays(2)),
+            DateUtil.formatFullDate(now.minusDays(3)),
+            DateUtil.formatFullDate(now.minusDays(4)),
+            DateUtil.formatFullDate(now.minusDays(5)),
+            DateUtil.formatFullDate(now.minusDays(6)),
         )
 
-    // 달력 관련 처리
-    private fun getFormattedDate(date: LocalDate): String {
-        // 여기서 해당 날짜의 요일을 넘겨줘야함
-        val dayOfWeek = date.dayOfWeek
-        val thisWeek =
-            date.with(TemporalAdjusters.previousOrSame(dayOfWeek))
-        val formatter = DateTimeFormatter.ofPattern("dd")
-        val formattedDate = thisWeek.format(formatter)
-        return formattedDate
-    }
-
-    private fun getDayOfWeek(dayOfWeek: Int): String =
-        when (dayOfWeek) {
-            1 -> "월"
-            2 -> "화"
-            3 -> "수"
-            4 -> "목"
-            5 -> "금"
-            6 -> "토"
-            7 -> "일"
-            else -> {
-                throw IllegalArgumentException()
-            }
-        }
-
-    private fun getTodayDate(): String {
-        val now = System.currentTimeMillis()
-        val date = Date(now)
-        val sdf = SimpleDateFormat("yyyy.MM.dd")
-        val today = sdf.format(date)
-        return today
-    }
-
     private fun selectToday() {
-        val num = doDayOfWeek()
+        val num = DateUtil.doDayOfWeek()
         when (num) {
             1 -> {
                 binding.viewWeekCalendar.seventhDay.setDayOfWeek("일")
@@ -94,13 +56,10 @@ class UserActivityFragment : BaseFragment<FragmentUserActivityBinding, UserActiv
         binding.viewWeekCalendar.seventhDay.isSelected = true
     }
 
-    private fun doDayOfWeek(): Int {
-        val cal: Calendar = Calendar.getInstance()
-        val nWeek: Int = cal.get(Calendar.DAY_OF_WEEK)
-        return nWeek
-    }
-
-    private fun onSelectDate(item: View) {
+    private fun onSelectDate(
+        item: View,
+        position: Int,
+    ) {
         binding.viewWeekCalendar.seventhDay.isSelected = false
         binding.viewWeekCalendar.firstDay.isSelected = false
         binding.viewWeekCalendar.secondDay.isSelected = false
@@ -109,62 +68,63 @@ class UserActivityFragment : BaseFragment<FragmentUserActivityBinding, UserActiv
         binding.viewWeekCalendar.fifthDay.isSelected = false
         binding.viewWeekCalendar.sixthDay.isSelected = false
         item.isSelected = !item.isSelected
+        binding.viewWeekCalendar.tvDate.text = dateList[position]
     }
 
     private fun processCalendar() {
         with(binding.viewWeekCalendar) {
             // 오늘로부터 이전 6일을 표시해주기 !
-            tvDate.text = getTodayDate()
+            tvDate.text = DateUtil.getTodayDate()
             val now = LocalDate.now()
 
-            seventhDay.setDate(getFormattedDate(now))
-            sixthDay.setDate(getFormattedDate(now.minusDays(1)))
-            fifthDay.setDate(getFormattedDate(now.minusDays(2)))
-            fourthDay.setDate(getFormattedDate(now.minusDays(3)))
-            thirdDay.setDate(getFormattedDate(now.minusDays(4)))
-            secondDay.setDate(getFormattedDate(now.minusDays(5)))
-            firstDay.setDate(getFormattedDate(now.minusDays(6)))
+            seventhDay.setDate(DateUtil.getFormattedDate(now))
+            sixthDay.setDate(DateUtil.getFormattedDate(now.minusDays(1)))
+            fifthDay.setDate(DateUtil.getFormattedDate(now.minusDays(2)))
+            fourthDay.setDate(DateUtil.getFormattedDate(now.minusDays(3)))
+            thirdDay.setDate(DateUtil.getFormattedDate(now.minusDays(4)))
+            secondDay.setDate(DateUtil.getFormattedDate(now.minusDays(5)))
+            firstDay.setDate(DateUtil.getFormattedDate(now.minusDays(6)))
 
-            sixthDay.setDayOfWeek(getDayOfWeek(now.minusDays(1).dayOfWeek.value))
-            fifthDay.setDayOfWeek(getDayOfWeek(now.minusDays(2).dayOfWeek.value))
-            fourthDay.setDayOfWeek(getDayOfWeek(now.minusDays(3).dayOfWeek.value))
-            thirdDay.setDayOfWeek(getDayOfWeek(now.minusDays(4).dayOfWeek.value))
-            secondDay.setDayOfWeek(getDayOfWeek(now.minusDays(5).dayOfWeek.value))
-            firstDay.setDayOfWeek(getDayOfWeek(now.minusDays(6).dayOfWeek.value))
+            sixthDay.setDayOfWeek(DateUtil.getDayOfWeek(now.minusDays(1).dayOfWeek.value))
+            fifthDay.setDayOfWeek(DateUtil.getDayOfWeek(now.minusDays(2).dayOfWeek.value))
+            fourthDay.setDayOfWeek(DateUtil.getDayOfWeek(now.minusDays(3).dayOfWeek.value))
+            thirdDay.setDayOfWeek(DateUtil.getDayOfWeek(now.minusDays(4).dayOfWeek.value))
+            secondDay.setDayOfWeek(DateUtil.getDayOfWeek(now.minusDays(5).dayOfWeek.value))
+            firstDay.setDayOfWeek(DateUtil.getDayOfWeek(now.minusDays(6).dayOfWeek.value))
 
             firstDay.setOnClickListener {
-                onSelectDate(it)
+                onSelectDate(it, 6)
                 // todo : 해당하는 데이터를 어댑터에 보내주기
                 viewModel.getActivities(dateList[6])
                 adapter.setData()
             }
             secondDay.setOnClickListener {
-                onSelectDate(it)
+                onSelectDate(it, 5)
                 viewModel.getActivities(dateList[5])
                 adapter.setData()
             }
             thirdDay.setOnClickListener {
-                onSelectDate(it)
+                onSelectDate(it, 4)
                 viewModel.getActivities(dateList[4])
                 adapter.setData()
             }
             fourthDay.setOnClickListener {
-                onSelectDate(it)
+                onSelectDate(it, 3)
                 viewModel.getActivities(dateList[3])
                 adapter.setData()
             }
             fifthDay.setOnClickListener {
-                onSelectDate(it)
+                onSelectDate(it, 2)
                 viewModel.getActivities(dateList[2])
                 adapter.setData()
             }
             sixthDay.setOnClickListener {
-                onSelectDate(it)
+                onSelectDate(it, 1)
                 viewModel.getActivities(dateList[1])
                 adapter.setData()
             }
             seventhDay.setOnClickListener {
-                onSelectDate(it)
+                onSelectDate(it, 0)
                 viewModel.getActivities(dateList[0])
                 adapter.setData()
             }
