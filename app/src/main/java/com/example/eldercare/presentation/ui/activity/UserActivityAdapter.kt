@@ -3,6 +3,7 @@ package com.example.eldercare.presentation.ui.activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.eldercare.R
 import com.example.eldercare.base.adapter.BaseAdapter
 import com.example.eldercare.base.adapter.BaseViewHolder
 import com.example.eldercare.base.diffutil.BaseDiffCallback
@@ -113,6 +114,7 @@ class UserActivityAdapter :
         private val sensedCount = binding.tvSensedCount
         private val btnTagOpen = binding.btnOpen
         private val recyclerview = binding.sensedListRecyclerview
+        private val layout = binding.layout
         val adapter = SensedListAdapter()
 
         init {
@@ -120,6 +122,9 @@ class UserActivityAdapter :
         }
 
         override fun bind(item: UserActivityItem) {
+            if (item.sensedTagList.isNotEmpty()) {
+                layout.setBackgroundResource(R.drawable.rectangle_yellow_with_stroke)
+            }
             firstTime.text = item.firstTime
             lastTime.text = item.lastTime
             deviceName.text = item.deviceName
