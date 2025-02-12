@@ -13,5 +13,6 @@
         <attr name="customIcon" format="reference" />
         <attr name="clearButtonEnabled" format="boolean" />
         <attr name="customUnit" format="string" />
+        <attr name="isPhoneNumber" format="boolean" />
     </declare-styleable>
 </resources>

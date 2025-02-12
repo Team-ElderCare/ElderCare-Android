@@ -27,6 +27,8 @@ class CustomEditText
         private var unit: String? = null // 단위 표시 텍스트
         private var dropdownOptions: List<String>? = null // 드롭 다운 메뉴
         private var onOptionSelected: ((String) -> Unit)? = null
+        private var isPhoneNumber = false
+        private var isFormatted = false
 
         init {
             binding = ViewCustomEditTextBinding.inflate(LayoutInflater.from(context), this, true)
@@ -44,6 +46,7 @@ class CustomEditText
                 try {
                     binding.etInputField.hint = getString(R.styleable.CustomTextField_customHint)
                     unit = getString(R.styleable.CustomTextField_customUnit)
+                    isPhoneNumber = getBoolean(R.styleable.CustomTextField_isPhoneNumber, false)
                     val customIcon = getResourceId(R.styleable.CustomTextField_customIcon, -1)
 
                     binding.tvUnit.visibility = if (unit.isNullOrEmpty()) GONE else VISIBLE
@@ -92,6 +95,9 @@ class CustomEditText
             binding.etInputField.setOnFocusChangeListener { _, hasFocus ->
                 binding.clTextField.isActivated = hasFocus
                 updateUnitAndClearButtonVisibility(hasFocus)
+
+                if (isPhoneNumber)
+                    checkPhoneFormat(hasFocus)
             }
             // 부모 레이아웃 클릭 시 EditText에 포커스 부여 및 활성화 상태 변경
             binding.clTextField.setOnClickListener {
@@ -101,7 +107,34 @@ class CustomEditText
             }
         }
 
-        private fun setupTextWatcher() {
+    private fun checkPhoneFormat(hasFocus: Boolean) {
+        val input = getText()
+
+        if (!hasFocus) {
+            if (input.all { it.isDigit()} && (input.length == 11 || input.length == 10)) {
+                val formatted = formatPhoneNumber(input)
+                if (formatted != input) {
+                    binding.etInputField.setText(formatted)
+                    isFormatted = true
+                }
+            }
+        } else {
+            if (isFormatted) {
+                binding.etInputField.setText(input.replace("-", ""))
+                isFormatted = false
+            }
+        }
+    }
+
+    private fun formatPhoneNumber(number: String): String {
+        return when (number.length) {
+            11 -> "${number.substring(0, 3)}-${number.substring(3, 7)}-${number.substring(7, 11)}"
+            10 -> "${number.substring(0, 3)}-${number.substring(3, 6)}-${number.substring(6, 10)}"
+            else -> number
+        }
+    }
+
+    private fun setupTextWatcher() {
             binding.etInputField.addTextChangedListener(
                 object : TextWatcher {
                     override fun beforeTextChanged(
