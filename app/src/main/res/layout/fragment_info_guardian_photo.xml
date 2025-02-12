@@ -11,7 +11,7 @@
         style="@style/TextAppearance.Title2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="100dp"
         android:text="보호자님의 사진을\n등록해주세요."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

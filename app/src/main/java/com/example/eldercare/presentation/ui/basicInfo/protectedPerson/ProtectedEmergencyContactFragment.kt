@@ -40,6 +40,7 @@ class ProtectedEmergencyContactFragment : BaseFragment<FragmentInfoProtectedPers
                 binding.etAdditionalContact2,
                 binding.etAdditionalContact3,
                 binding.etAdditionalContact4,
+                binding.etAdditionalContact5,
             )
     }
 
@@ -50,10 +51,9 @@ class ProtectedEmergencyContactFragment : BaseFragment<FragmentInfoProtectedPers
 
         if (savedContacts.isNotEmpty()) {
             binding.llAdditionalContacts.visibility = View.VISIBLE
-            binding.etPrimary.setText(savedContacts.first())
         }
 
-        savedContacts.drop(1).forEachIndexed { index, contact ->
+        savedContacts.forEachIndexed { index, contact ->
             if (index in additionalContacts.indices) {
                 additionalContacts[index].apply {
                     setText(contact)
@@ -67,32 +67,22 @@ class ProtectedEmergencyContactFragment : BaseFragment<FragmentInfoProtectedPers
 
     private fun focusLastEnteredContact(contactCount: Int) {
         binding.root.post {
-            val targetEditText =
-                if (contactCount > 1) {
-                    additionalContacts.getOrNull(contactCount - 2) ?: binding.etPrimary
-                } else {
-                    binding.etPrimary
-                }
-
+            val targetEditText = additionalContacts.getOrNull(contactCount - 1) ?: additionalContacts[0]
             targetEditText.requestFocus()
             targetEditText.requestFocusAndShowKeyboard()
         }
     }
 
     private fun setupValidation() {
-        configureEditText(binding.etPrimary, isPrimary = true)
         additionalContacts.forEach { editText ->
-            configureEditText(editText, isPrimary = false)
+            configureEditText(editText)
         }
     }
 
-    private fun configureEditText(
-        editText: CustomEditText,
-        isPrimary: Boolean,
-    ) {
+    private fun configureEditText(editText: CustomEditText) {
         editText.apply {
             setValidator { input ->
-                val errorMessage = validateInput(input, isPrimary)
+                val errorMessage = validateInput(input)
                 if (errorMessage == null) updateSavedContacts()
                 errorMessage
             }
@@ -119,23 +109,26 @@ class ProtectedEmergencyContactFragment : BaseFragment<FragmentInfoProtectedPers
         binding.btnAddSuccessPrevious.setOnClickListener { findNavController().popBackStack() }
     }
 
-    private fun validateInput(
-        input: String,
-        isPrimary: Boolean,
-    ): String? {
-        if (input.isEmpty()) {
-            if (isPrimary && getVisibleContacts().all { it.isEmpty() }) {
-                return "잘못된 형식의 전화번호입니다."
-            }
-            return null
-        }
+    private fun validateInput(input: String): String? {
+        val cleanedInput = input.replace("-", "") // ✅ "-" 제거 후 숫자만 추출
 
-        if (input.length != 11 || !input.all { it.isDigit() }) {
+        if (cleanedInput.isEmpty()) return null
+
+        if ((cleanedInput.length != 10 && cleanedInput.length != 11) || !cleanedInput.all { it.isDigit() }) {
             return "잘못된 형식의 전화번호입니다."
         }
 
-        val nonEmptyContacts = getVisibleContacts().filter { it.isNotEmpty() }
-        if (nonEmptyContacts.count { it == input } > 1) {
+        // (010-XXXX-XXXX 또는 011-XXX-XXXX) 체크
+        val phonePattern = Regex("^01[016789]-\\d{3,4}-\\d{4}$")
+        if (input.contains("-") && !phonePattern.matches(input)) {
+            return "잘못된 형식의 전화번호입니다."
+        }
+
+        val nonEmptyContacts =
+            getVisibleContacts()
+                .map { it.replace("-", "") }
+
+        if (nonEmptyContacts.count { it == cleanedInput } > 1) {
             return "중복된 전화번호가 존재합니다."
         }
 
@@ -143,21 +136,22 @@ class ProtectedEmergencyContactFragment : BaseFragment<FragmentInfoProtectedPers
     }
 
     private fun getVisibleContacts(): List<String> {
-        return listOf(binding.etPrimary.getText()) +
-            additionalContacts.filter { it.visibility == View.VISIBLE }
-                .map { it.getText() }
+        return additionalContacts.filter { it.visibility == View.VISIBLE }
+            .map { it.getText() }
     }
 
     private fun updateSavedContacts() {
         val allContacts = getVisibleContacts()
         val validContacts =
             allContacts.filter {
-                it.isNotEmpty() && validateInput(it, isPrimary = false) == null
+                it.isNotEmpty() && validateInput(it) == null
             }
+
         if (validContacts.isEmpty()) {
-            binding.etPrimary.setError("잘못된 형식의 전화번호입니다.")
+            additionalContacts[0].setError("잘못된 형식의 전화번호입니다.")
             return
         }
+
         viewModel.saveInput(BasicInfoStep.PROTECTED_EMERGENCY_CONTACTS, validContacts.joinToString(","))
     }
 }
