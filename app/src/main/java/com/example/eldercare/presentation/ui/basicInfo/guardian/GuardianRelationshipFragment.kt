@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.eldercare.R
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentInfoGuardianRelationshipBinding
-import com.example.eldercare.presentation.ui.basicInfo.BasicInfoStep
+import com.example.eldercare.domain.model.basicInfo.Relationship
 import com.example.eldercare.presentation.ui.basicInfo.BasicInfoViewModel
 import com.google.android.material.chip.Chip
 
@@ -30,25 +30,34 @@ class GuardianRelationshipFragment : BaseFragment<FragmentInfoGuardianRelationsh
     private fun setupChipGroup() {
         updateButtonState(false)
 
-        val savedRelationship = viewModel.getInput(BasicInfoStep.GUARDIAN_RELATIONSHIP)
+        val savedRelationship = viewModel.getSavedRelationship()
 
         binding.chipGroupRelationship.setOnCheckedStateChangeListener { group, checkedIds ->
             if (checkedIds.isNotEmpty()) {
                 val selectedChip = group.findViewById<Chip>(checkedIds.first())
                 val selectedText = selectedChip.text.toString()
 
-                viewModel.saveInput(BasicInfoStep.GUARDIAN_RELATIONSHIP, selectedText)
-                updateButtonState(true)
+                val relationship = Relationship.fromDisplayName(selectedText)
+                if (relationship != null) {
+                    viewModel.saveRelationship(relationship)
+                    updateButtonState(true)
+                }
             } else {
                 updateButtonState(false)
             }
         }
 
-        if (!savedRelationship.isNullOrEmpty()) {
-            val chipToSelect = getChipByText(savedRelationship)
+        savedRelationship?.let {
+            val chipToSelect = getChipByRelationship(it)
             chipToSelect?.isChecked = true
             updateButtonState(true)
         }
+    }
+
+    private fun getChipByRelationship(relationship: Relationship): Chip? {
+        return binding.chipGroupRelationship.children
+            .filterIsInstance<Chip>()
+            .firstOrNull { it.text.toString() == relationship.displayName }
     }
 
     private fun setupOnClickListener() {
@@ -71,11 +80,5 @@ class GuardianRelationshipFragment : BaseFragment<FragmentInfoGuardianRelationsh
                 ContextCompat.getColor(requireContext(), R.color.Gray200)
             }
         binding.btnAddSuccessNext.backgroundTintList = ColorStateList.valueOf(color)
-    }
-
-    private fun getChipByText(text: String): Chip? {
-        return binding.chipGroupRelationship.children
-            .filterIsInstance<Chip>()
-            .firstOrNull { it.text.toString() == text }
     }
 }
