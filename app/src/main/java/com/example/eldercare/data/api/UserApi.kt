@@ -9,5 +9,5 @@ interface UserApi {
     @POST("/users/registration")
     suspend fun postUsersRegistration(
         @Body body: UserRegistrationRequest,
-    ) : Response<String>
+    ): Response<String>
 }

@@ -1,10 +1,12 @@
 package com.example.eldercare.presentation.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentRunBinding
+import com.example.eldercare.presentation.ui.basicInfo.BasicInfoActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,6 +22,8 @@ class RunFragment : BaseFragment<FragmentRunBinding, RunViewModel>(FragmentRunBi
         binding.run {
             // 런 액티비티로 이동
             binding.btnStart.setOnClickListener {
+                val intent = Intent(requireContext(), BasicInfoActivity::class.java)
+                startActivity(intent)
             }
         }
     }

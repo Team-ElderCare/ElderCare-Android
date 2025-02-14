@@ -10,30 +10,33 @@ import javax.inject.Inject
 class BasicInfoRepositoryImpl
     @Inject
     constructor(
-        private val basicInfoDataSource: BasicInfoDataSource
-) : BasicInfoRepository {
-    override suspend fun postProtectedRegistration(
-        protectedName: String,
-        protectedBirthDate: String,
-        protectedPhoneNumber: String,
-        address: Address
-    ): Result<String> {
-        return basicInfoDataSource.postProtectedRegistration(
-            protectedName,
-            protectedBirthDate,
-            protectedPhoneNumber,
-            address
-        )
-    }
+        private val basicInfoDataSource: BasicInfoDataSource,
+    ) : BasicInfoRepository {
+        override suspend fun postProtectedRegistration(
+            protectedName: String,
+            protectedBirthDate: String,
+            protectedPhoneNumber: String,
+            address: Address,
+        ): Result<String> {
+            return basicInfoDataSource.postProtectedRegistration(
+                protectedName,
+                protectedBirthDate,
+                protectedPhoneNumber,
+                address,
+            )
+        }
 
-    override suspend fun postUserRegistration(
-        username: String,
-        phoneNumber: String,
-        relationship: Relationship,
-        userImageUrl: MultipartBody.Part
-    ): Result<String> {
-        return basicInfoDataSource.postUsersRegistration(
-            username, phoneNumber, relationship, userImageUrl
-        )
+        override suspend fun postUserRegistration(
+            username: String,
+            phoneNumber: String,
+            relationship: Relationship,
+            userImageUrl: MultipartBody.Part,
+        ): Result<String> {
+            return basicInfoDataSource.postUsersRegistration(
+                username,
+                phoneNumber,
+                relationship,
+                userImageUrl,
+            )
+        }
     }
-}

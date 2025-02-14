@@ -6,6 +6,5 @@ data class ProtectedRegistrationRequest(
     val protectedName: String,
     val protectedBirthDate: String,
     val protectedPhoneNumber: String,
-    val address: Address
+    val address: Address,
 )
-

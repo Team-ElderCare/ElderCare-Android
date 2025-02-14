@@ -7,6 +7,5 @@ data class UserRegistrationRequest(
     val username: String,
     val phoneNumber: String,
     val relationship: Relationship,
-    val userImageUrl: MultipartBody.Part
+    val userImageUrl: MultipartBody.Part,
 )
-

@@ -7,7 +7,8 @@ enum class Relationship(val displayName: String) {
     COUSIN("사촌"),
     FRIEND("친구"),
     CAREGIVER("간병인"),
-    ETC("기타");
+    ETC("기타"),
+    ;
 
     companion object {
         fun fromDisplayName(displayName: String): Relationship? {
@@ -15,5 +16,3 @@ enum class Relationship(val displayName: String) {
         }
     }
 }
-
-

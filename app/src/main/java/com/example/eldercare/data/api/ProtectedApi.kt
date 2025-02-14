@@ -9,5 +9,5 @@ interface ProtectedApi {
     @POST("/protected/registration")
     suspend fun postProtectedRegistration(
         @Body body: ProtectedRegistrationRequest,
-    ) : Response<String>
+    ): Response<String>
 }
