@@ -12,7 +12,9 @@ import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentInfoProtectedPersonNameBinding
 import com.example.eldercare.presentation.ui.basicInfo.BasicInfoStep
 import com.example.eldercare.presentation.ui.basicInfo.BasicInfoViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProtectedNameFragment : BaseFragment<FragmentInfoProtectedPersonNameBinding, BasicInfoViewModel>(
     FragmentInfoProtectedPersonNameBinding::inflate,
 ) {

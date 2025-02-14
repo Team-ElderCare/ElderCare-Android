@@ -12,7 +12,9 @@ import com.example.eldercare.databinding.FragmentInfoProtectedPersonEmergencyCon
 import com.example.eldercare.presentation.ui.basicInfo.BasicInfoStep
 import com.example.eldercare.presentation.ui.basicInfo.BasicInfoViewModel
 import com.example.eldercare.presentation.ui.custom.CustomEditText
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProtectedEmergencyContactFragment : BaseFragment<FragmentInfoProtectedPersonEmergencyContactBinding, BasicInfoViewModel>(
     FragmentInfoProtectedPersonEmergencyContactBinding::inflate,
 ) {
@@ -110,23 +112,20 @@ class ProtectedEmergencyContactFragment : BaseFragment<FragmentInfoProtectedPers
     }
 
     private fun validateInput(input: String): String? {
-        val cleanedInput = input.replace("-", "") // ✅ "-" 제거 후 숫자만 추출
+        val cleanedInput = input.replace("-", "")
 
         if (cleanedInput.isEmpty()) return null
 
-        if ((cleanedInput.length != 10 && cleanedInput.length != 11) || !cleanedInput.all { it.isDigit() }) {
+        if (cleanedInput.length != 11 || !cleanedInput.all { it.isDigit() }) {
             return "잘못된 형식의 전화번호입니다."
         }
 
-        // (010-XXXX-XXXX 또는 011-XXX-XXXX) 체크
-        val phonePattern = Regex("^01[016789]-\\d{3,4}-\\d{4}$")
+        val phonePattern = Regex("^010-\\d{4}-\\d{4}$")
         if (input.contains("-") && !phonePattern.matches(input)) {
             return "잘못된 형식의 전화번호입니다."
         }
 
-        val nonEmptyContacts =
-            getVisibleContacts()
-                .map { it.replace("-", "") }
+        val nonEmptyContacts = getVisibleContacts().map { it.replace("-", "") }
 
         if (nonEmptyContacts.count { it == cleanedInput } > 1) {
             return "중복된 전화번호가 존재합니다."

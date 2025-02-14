@@ -6,20 +6,20 @@ import okhttp3.MultipartBody
 import javax.inject.Inject
 
 class PostUserRegistrationUseCase
-@Inject
-constructor(
-    private val basicInfoRepository: BasicInfoRepository,
-) {
-    suspend operator fun invoke(
-        username: String,
-        phoneNumber: String,
-        relationship: Relationship,
-        userImageUrl: MultipartBody.Part
-    ): Result<String> =
-        basicInfoRepository.postUserRegistration(
-            username,
-            phoneNumber,
-            relationship,
-            userImageUrl
-        )
-}
+    @Inject
+    constructor(
+        private val basicInfoRepository: BasicInfoRepository,
+    ) {
+        suspend operator fun invoke(
+            username: String,
+            phoneNumber: String,
+            relationship: Relationship,
+            userImageUrl: MultipartBody.Part,
+        ): Result<String> =
+            basicInfoRepository.postUserRegistration(
+                username,
+                phoneNumber,
+                relationship,
+                userImageUrl,
+            )
+    }

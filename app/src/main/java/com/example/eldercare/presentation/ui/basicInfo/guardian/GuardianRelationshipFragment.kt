@@ -13,7 +13,9 @@ import com.example.eldercare.databinding.FragmentInfoGuardianRelationshipBinding
 import com.example.eldercare.domain.model.basicInfo.Relationship
 import com.example.eldercare.presentation.ui.basicInfo.BasicInfoViewModel
 import com.google.android.material.chip.Chip
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GuardianRelationshipFragment : BaseFragment<FragmentInfoGuardianRelationshipBinding, BasicInfoViewModel>(
     FragmentInfoGuardianRelationshipBinding::inflate,
 ) {

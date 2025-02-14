@@ -11,7 +11,9 @@ import androidx.navigation.NavController
 import com.example.eldercare.base.activity.BaseActivity
 import com.example.eldercare.databinding.ActivityBasicInfoBinding
 import com.example.eldercare.util.context.hideKeyboard
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BasicInfoActivity : BaseActivity<ActivityBasicInfoBinding, BasicInfoViewModel> (
     ActivityBasicInfoBinding::inflate,
 ) {

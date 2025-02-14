@@ -11,7 +11,9 @@ import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentInfoProtectedPersonAddressBinding
 import com.example.eldercare.presentation.ui.basicInfo.BasicInfoStep
 import com.example.eldercare.presentation.ui.basicInfo.BasicInfoViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProtectedAddressFragment : BaseFragment<FragmentInfoProtectedPersonAddressBinding, BasicInfoViewModel>(
     FragmentInfoProtectedPersonAddressBinding::inflate,
 ) {

@@ -12,7 +12,9 @@ import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentInfoProtectedPersonPhoneBinding
 import com.example.eldercare.presentation.ui.basicInfo.BasicInfoStep
 import com.example.eldercare.presentation.ui.basicInfo.BasicInfoViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProtectedPhoneFragment : BaseFragment<FragmentInfoProtectedPersonPhoneBinding, BasicInfoViewModel>(
     FragmentInfoProtectedPersonPhoneBinding::inflate,
 ) {
@@ -70,11 +72,20 @@ class ProtectedPhoneFragment : BaseFragment<FragmentInfoProtectedPersonPhoneBind
     }
 
     private fun validateInput(input: String): String? {
-        return if (input.length == 11 && input.all { it.isDigit() }) {
-            null
-        } else {
-            "잘못된 형식의 전화번호입니다."
+        val cleanedInput = input.replace("-", "")
+
+        if (cleanedInput.isEmpty()) return null
+
+        if (cleanedInput.length != 11 || !cleanedInput.all { it.isDigit() }) {
+            return "잘못된 형식의 전화번호입니다."
         }
+
+        val phonePattern = Regex("^010-\\d{4}-\\d{4}$")
+        if (input.contains("-") && !phonePattern.matches(input)) {
+            return "잘못된 형식의 전화번호입니다."
+        }
+
+        return null
     }
 
     private fun updateButtonState(isValid: Boolean) {
