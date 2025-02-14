@@ -51,7 +51,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:itemCount="3"
-        tools:listitem="@layout/item_recent_activity" />
+        tools:listitem="@layout/item_danger" />
 
     <TextView
         android:id="@+id/tv_no_activity"

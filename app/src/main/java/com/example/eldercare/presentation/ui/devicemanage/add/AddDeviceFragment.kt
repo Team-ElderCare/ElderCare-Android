@@ -25,7 +25,7 @@ class AddDeviceFragment : BaseFragment<FragmentAddDeviceBinding, AddDeviceViewMo
                 parentFragmentManager.popBackStack()
             }
             containerAddDeviceHub.setOnClickListener {
-                // 허브 등록으로 이동
+                navigateToAddHubFirstFragment()
             }
             containerAddDeviceTag.setOnClickListener {
                 navigateToDeviceInput()
@@ -38,6 +38,11 @@ class AddDeviceFragment : BaseFragment<FragmentAddDeviceBinding, AddDeviceViewMo
 
     private fun navigateToDeviceInput() {
         val action = AddDeviceFragmentDirections.actionAddDeviceFragmentToDeviceInputLocationFragment()
+        findNavController().navigate(action)
+    }
+
+    private fun navigateToAddHubFirstFragment() {
+        val action = AddDeviceFragmentDirections.actionAddDeviceFragmentToFirstAddHubGuideFragment()
         findNavController().navigate(action)
     }
 }

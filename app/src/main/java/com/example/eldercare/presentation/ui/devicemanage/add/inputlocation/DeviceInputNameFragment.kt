@@ -21,17 +21,18 @@ class DeviceInputNameFragment : BaseFragment<FragmentInputDeviceNameBinding, Dev
             includeInputDeviceNameTopbar.ivAllTopbarArrowWithTitleArrowLeft.setOnClickListener {
                 parentFragmentManager.popBackStack()
             }
-            chipInputDeviceNameEnterManually.setOnClickListener {
-                if (chipInputDeviceNameEnterManually.isChecked) {
+            val cg = includeInputDeviceNameViewTitleWithCg
+            cg.chipViewTitleWithChipGroupEnterManually.setOnClickListener {
+                if (cg.chipViewTitleWithChipGroupEnterManually.isChecked) {
                     enableTextField(true)
-                    cgInputDeviceName.clearCheck()
-                    chipInputDeviceNameEnterManually.isChecked = true
+                    cg.cgViewTitleWithChipGroup.clearCheck()
+                    cg.chipViewTitleWithChipGroupEnterManually.isChecked = true
                 } else {
                     enableTextField(false)
                 }
             }
-            cgInputDeviceName.setOnCheckedStateChangeListener { _, checkedIds ->
-                if (checkedIds.contains(chipInputDeviceNameEnterManually.id)) {
+            cg.cgViewTitleWithChipGroup.setOnCheckedStateChangeListener { _, checkedIds ->
+                if (checkedIds.contains(cg.chipViewTitleWithChipGroupEnterManually.id)) {
                     enableTextField(true)
                 } else {
                     enableTextField(false)

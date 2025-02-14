@@ -9,16 +9,13 @@
         android:name="com.example.eldercare.presentation.ui.home.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home">
-        <action
-            android:id="@+id/action_homeFragment_to_setAlarmNameFragment"
-            app:destination="@id/setAlarmNameFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/runFragment"
-        android:name="com.example.eldercare.presentation.ui.activity.RunFragment"
+        android:name="com.example.eldercare.presentation.ui.activity.UserActivityFragment"
         android:label="Run"
-        tools:layout="@layout/fragment_run"/>
+        tools:layout="@layout/fragment_user_activity"/>
 
     <fragment
         android:id="@+id/settingsFragment"
@@ -26,31 +23,18 @@
         android:label="Settings"
         tools:layout="@layout/fragment_settings"/>
 
-    <fragment
-        android:id="@+id/setAlarmNameFragment"
-        android:name="com.example.eldercare.presentation.ui.alarm.name.SetAlarmNameFragment"
-        android:label="SetAlarmNameFragment"
-        tools:layout="@layout/fragment_set_alarm_name">
-        <action
-            android:id="@+id/action_setAlarmNameFragment_to_setAlarmCycleFragment"
-            app:destination="@id/setAlarmCycleFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/setAlarmCycleFragment"
-        android:name="com.example.eldercare.presentation.ui.alarm.cycle.SetAlarmCycleFragment"
-        android:label="SetAlarmCycleFragment"
-        tools:layout="@layout/fragment_set_alarm_cycle"/>
-
     <!-- Device Manage -->
     <fragment
-        android:id="@+id/toolFragment"
+        android:id="@+id/deviceManageFragment"
         android:name="com.example.eldercare.presentation.ui.devicemanage.home.DeviceManageFragment"
         android:label="Tool"
         tools:layout="@layout/fragment_device_manage">
         <action
-            android:id="@+id/action_toolFragment_to_addDeviceFragment"
+            android:id="@+id/action_deviceManageFragment_to_addDeviceFragment"
             app:destination="@id/addDeviceFragment" />
+        <action
+            android:id="@+id/action_deviceManageFragment_to_deviceEditAndDeleteFragment"
+            app:destination="@id/deviceEditAndDeleteFragment" />
     </fragment>
     <fragment
         android:id="@+id/deviceInputLocationFragment"
@@ -69,6 +53,9 @@
         <action
             android:id="@+id/action_addDeviceFragment_to_deviceInputLocationFragment"
             app:destination="@id/deviceInputLocationFragment" />
+        <action
+            android:id="@+id/action_addDeviceFragment_to_firstAddHubGuideFragment"
+            app:destination="@id/firstAddHubGuideFragment" />
     </fragment>
     <fragment
         android:id="@+id/deviceInputNameFragment"
@@ -85,9 +72,95 @@
         android:label="AddDeviceSuccessFragment"
         tools:layout="@layout/fragment_add_device_success">
         <action
-            android:id="@+id/action_addDeviceSuccessFragment_to_toolFragment"
-            app:destination="@id/toolFragment"
-            app:popUpTo="@id/toolFragment"
+            android:id="@+id/action_addDeviceSuccessFragment_to_deviceManageFragment"
+            app:destination="@id/deviceManageFragment"
+            app:popUpTo="@id/deviceManageFragment"
             app:popUpToInclusive="true" />
     </fragment>
+
+    <fragment
+        android:id="@+id/deviceEditAndDeleteFragment"
+        android:name="com.example.eldercare.presentation.ui.devicemanage.edit.DeviceEditAndDeleteFragment"
+        android:label="DeviceEditAndDeleteFragment"
+        tools:layout="@layout/fragment_edit_and_delete_device"/>
+
+    <!-- Add Hub -->
+    <fragment
+        android:id="@+id/firstAddHubGuideFragment"
+        android:name="com.example.eldercare.presentation.ui.devicemanage.add.hub.FirstAddHubGuideFragment"
+        android:label="FirstAddHubGuideFragment"
+        tools:layout="@layout/fragment_add_hub_guide_first"
+        >
+        <action
+            android:id="@+id/action_firstAddHubGuideFragment_to_secondAddHubGuideFragment"
+            app:destination="@id/secondAddHubGuideFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondAddHubGuideFragment"
+        android:name="com.example.eldercare.presentation.ui.devicemanage.add.hub.SecondAddHubGuideFragment"
+        android:label="SecondAddHubGuideFragment"
+        tools:layout="@layout/fragment_add_hub_guide_seconed" >
+        <action
+            android:id="@+id/action_secondAddHubGuideFragment_to_selectHubPlaceGuideFragment"
+            app:destination="@id/selectHubPlaceGuideFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectHubPlaceGuideFragment"
+        android:name="com.example.eldercare.presentation.ui.devicemanage.add.hub.SelectHubPlaceGuideFragment"
+        android:label="SelectHubPlaceGuideFragment"
+        tools:layout="@layout/fragment_select_hub_place_guide">
+        <action
+            android:id="@+id/action_selectHubPlaceGuideFragment_to_addHubConnectPowerFragment"
+            app:destination="@id/addHubConnectPowerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addHubConnectPowerFragment"
+        android:name="com.example.eldercare.presentation.ui.devicemanage.add.hub.AddHubConnectPowerFragment"
+        android:label="AddHubConnectPowerFragment"
+        tools:layout="@layout/fragment_add_hub_connect_power">
+        <action
+            android:id="@+id/action_addHubConnectPowerFragment_to_addHubSelectPlaceFragment"
+            app:destination="@id/addHubSelectPlaceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addHubSelectPlaceFragment"
+        android:name="com.example.eldercare.presentation.ui.devicemanage.add.hub.AddHubSelectPlaceFragment"
+        android:label="AddHubSelectPlaceFragment"
+        tools:layout="@layout/fragment_add_hub_select_place">
+        <action
+            android:id="@+id/action_addHubSelectPlaceFragment_to_addHubSelectNameFragment"
+            app:destination="@id/addHubSelectNameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addHubSelectNameFragment"
+        android:name="com.example.eldercare.presentation.ui.devicemanage.add.hub.AddHubSelectNameFragment"
+        android:label="AddHubSelectNameFragment"
+        tools:layout="@layout/fragment_input_device_name">
+
+        <action
+            android:id="@+id/action_addHubSelectNameFragment_to_addHubConnectBluetoothFragment"
+            app:destination="@id/addHubConnectBluetoothFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addHubConnectBluetoothFragment"
+        android:name="com.example.eldercare.presentation.ui.devicemanage.add.hub.AddHubConnectBluetoothFragment"
+        android:label="AddHubConnectBluetoothFragment"
+        tools:layout="@layout/fragment_add_hub_bluetooth_connect">
+        <action
+            android:id="@+id/action_addHubConnectBluetoothFragment_to_addHubConnectWifiFragment"
+            app:destination="@id/addHubConnectWifiFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addHubConnectWifiFragment"
+        android:name="com.example.eldercare.presentation.ui.devicemanage.add.hub.AddHubConnectWifiFragment"
+        android:label="AddHubConnectWifiFragment"
+        tools:layout="@layout/fragment_add_hub_connect_wifi">
+        <action
+            android:id="@+id/action_addHubConnectWifiFragment_to_deviceManageFragment"
+            app:destination="@id/deviceManageFragment"
+            app:popUpTo="@id/deviceManageFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+
 </navigation>

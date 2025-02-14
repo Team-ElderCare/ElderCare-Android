@@ -33,7 +33,7 @@ class AddDeviceSuccessFragment : BaseFragment<FragmentAddDeviceSuccessBinding, D
     }
 
     private fun navigateToDeviceManageHome() {
-        val action = AddDeviceSuccessFragmentDirections.actionAddDeviceSuccessFragmentToToolFragment()
+        val action = AddDeviceSuccessFragmentDirections.actionAddDeviceSuccessFragmentToDeviceManageFragment()
         findNavController().navigate(action)
     }
 }

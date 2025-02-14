@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="@dimen/spacing4"
+    android:layout_marginBottom="@dimen/spacing2"
+    android:id="@+id/layout"
+    android:background="@drawable/rectangle_yellow_with_stroke"
+    android:padding="@dimen/spacing4"
+    android:layout_height="wrap_content">
+
+
+
+    <TextView
+        android:id="@+id/tv_first_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오전 08:00"
+        android:textAppearance="@style/TextAppearance.Body6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="~"
+        android:textAppearance="@style/TextAppearance.Body6"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_last_time"
+        app:layout_constraintStart_toEndOf="@+id/tv_first_time"
+        app:layout_constraintTop_toTopOf="@+id/tv_last_time" />
+
+
+    <TextView
+        android:id="@+id/tv_last_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오후 09:00"
+        android:textAppearance="@style/TextAppearance.Body6"
+        app:layout_constraintStart_toEndOf="@+id/textView14"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_device_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="약장"
+        android:layout_marginTop="@dimen/spacing3"
+        app:layout_constraintBottom_toTopOf="@id/sensed_list_recyclerview"
+        android:textAppearance="@style/TextAppearance.Title5"
+        app:layout_constraintStart_toStartOf="@+id/tv_first_time"
+        app:layout_constraintTop_toBottomOf="@+id/tv_first_time" />
+
+    <TextView
+        android:id="@+id/tv_sensed_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2회 감지"
+        android:textAppearance="@style/TextAppearance.Body3"
+        app:layout_constraintBottom_toBottomOf="@id/tv_device_name"
+        app:layout_constraintEnd_toStartOf="@+id/btn_open"
+        app:layout_constraintTop_toTopOf="@+id/tv_device_name" />
+
+    <ImageButton
+        android:id="@+id/btn_open"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_tag"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_sensed_count"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_sensed_count" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
+        android:id="@+id/sensed_list_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sensed_count"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_sensed" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

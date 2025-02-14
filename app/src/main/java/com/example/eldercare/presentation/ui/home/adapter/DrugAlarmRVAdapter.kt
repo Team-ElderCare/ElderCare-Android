@@ -13,7 +13,11 @@ class DrugAlarmRVAdapter :
     BaseAdapter<DrugAlarmData, ItemDrugAlarmBinding, DrugAlarmRVAdapter.DrugAlarmViewHolder>(
         DrugAlarmDiffCallback(),
     ) {
-    private val drugAlarmDataList: MutableList<DrugAlarmData> = mutableListOf()
+    var list: List<DrugAlarmData> = emptyList()
+
+    fun setData(newList: List<DrugAlarmData>) {
+        list = newList
+    }
 
     override fun inflateBinding(
         inflater: LayoutInflater,

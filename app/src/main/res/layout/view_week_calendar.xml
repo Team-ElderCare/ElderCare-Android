@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@drawable/background_wave"
+    android:minHeight="240dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing5"
+        android:gravity="center"
+        android:text="2024.12.17"
+        android:textAppearance="@style/TextAppearance.Title3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+   <com.example.eldercare.presentation.ui.custoom.CustomWeekTextView
+       android:id="@+id/first_day"
+       android:layout_marginTop="@dimen/spacing3"
+       app:layout_constraintTop_toBottomOf="@id/tv_date"
+       app:layout_constraintStart_toStartOf="parent"
+       android:layout_width="wrap_content"
+       app:layout_constraintEnd_toStartOf="@id/second_day"
+       android:layout_height="wrap_content"/>
+
+
+    <com.example.eldercare.presentation.ui.custoom.CustomWeekTextView
+        android:id="@+id/second_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:customWeekDayOfWeek="화"
+        app:layout_constraintEnd_toStartOf="@id/third_day"
+        app:layout_constraintStart_toEndOf="@id/first_day"
+        app:layout_constraintTop_toTopOf="@+id/first_day" />
+
+
+    <com.example.eldercare.presentation.ui.custoom.CustomWeekTextView
+        android:id="@+id/third_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:customWeekDayOfWeek="수"
+        app:layout_constraintEnd_toStartOf="@id/fourth_day"
+        app:layout_constraintStart_toEndOf="@id/second_day"
+        app:layout_constraintTop_toTopOf="@+id/second_day" />
+
+    <com.example.eldercare.presentation.ui.custoom.CustomWeekTextView
+        android:id="@+id/fourth_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:customWeekDayOfWeek="목"
+        app:layout_constraintEnd_toStartOf="@id/fifth_day"
+        app:layout_constraintStart_toEndOf="@id/third_day"
+        app:layout_constraintTop_toTopOf="@+id/third_day" />
+
+    <com.example.eldercare.presentation.ui.custoom.CustomWeekTextView
+        android:id="@+id/fifth_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:customWeekDayOfWeek="금"
+        app:layout_constraintEnd_toStartOf="@id/sixth_day"
+        app:layout_constraintStart_toEndOf="@id/fourth_day"
+        app:layout_constraintTop_toTopOf="@+id/fourth_day" />
+
+    <com.example.eldercare.presentation.ui.custoom.CustomWeekTextView
+        android:id="@+id/sixth_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:customWeekDayOfWeek="토"
+        app:layout_constraintEnd_toStartOf="@id/seventh_day"
+        app:layout_constraintStart_toEndOf="@id/fifth_day"
+        app:layout_constraintTop_toTopOf="@+id/fifth_day" />
+
+
+    <com.example.eldercare.presentation.ui.custoom.CustomWeekTextView
+        android:id="@+id/seventh_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:customWeekDayOfWeek="일"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/sixth_day"
+        app:layout_constraintTop_toTopOf="@+id/sixth_day" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,4 +15,9 @@
         <attr name="customUnit" format="string" />
         <attr name="isPhoneNumber" format="boolean" />
     </declare-styleable>
+    <declare-styleable name="CustomWeekTextView">
+        <attr name="customWeekDate" format="string"/>
+        <attr name="customWeekDayOfWeek" format="string"/>
+    </declare-styleable>
+
 </resources>
