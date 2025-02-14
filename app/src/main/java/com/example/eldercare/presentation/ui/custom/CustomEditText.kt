@@ -96,8 +96,9 @@ class CustomEditText
                 binding.clTextField.isActivated = hasFocus
                 updateUnitAndClearButtonVisibility(hasFocus)
 
-                if (isPhoneNumber)
+                if (isPhoneNumber) {
                     checkPhoneFormat(hasFocus)
+                }
             }
             // 부모 레이아웃 클릭 시 EditText에 포커스 부여 및 활성화 상태 변경
             binding.clTextField.setOnClickListener {
@@ -107,34 +108,29 @@ class CustomEditText
             }
         }
 
-    private fun checkPhoneFormat(hasFocus: Boolean) {
-        val input = getText()
+        private fun checkPhoneFormat(hasFocus: Boolean) {
+            val input = getText()
 
-        if (!hasFocus) {
-            if (input.all { it.isDigit()} && (input.length == 11 || input.length == 10)) {
+            if (!hasFocus && input.all { it.isDigit() } && input.length == 11) {
                 val formatted = formatPhoneNumber(input)
                 if (formatted != input) {
                     binding.etInputField.setText(formatted)
                     isFormatted = true
                 }
-            }
-        } else {
-            if (isFormatted) {
+            } else if (hasFocus && isFormatted) {
                 binding.etInputField.setText(input.replace("-", ""))
                 isFormatted = false
             }
         }
-    }
 
-    private fun formatPhoneNumber(number: String): String {
-        return when (number.length) {
-            11 -> "${number.substring(0, 3)}-${number.substring(3, 7)}-${number.substring(7, 11)}"
-            10 -> "${number.substring(0, 3)}-${number.substring(3, 6)}-${number.substring(6, 10)}"
-            else -> number
-        }
-    }
+        private fun formatPhoneNumber(number: String): String =
+            if (number.length == 11) {
+                "${number.substring(0, 3)}-${number.substring(3, 7)}-${number.substring(7)}"
+            } else {
+                number
+            }
 
-    private fun setupTextWatcher() {
+        private fun setupTextWatcher() {
             binding.etInputField.addTextChangedListener(
                 object : TextWatcher {
                     override fun beforeTextChanged(
