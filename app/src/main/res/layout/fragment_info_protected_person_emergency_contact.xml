@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/inner_cl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="60dp"
+            tools:context=".RunFragment">
+
+            <TextView
+                android:id="@+id/tv_info_guardian_name"
+                style="@style/TextAppearance.Title2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:text="보호대상자 부재 시 연결할\n비상연락처를 입력해주세요."
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_side_info"
+                style="@style/TextAppearance.Body2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:minHeight="45dp"
+                android:text=""
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_info_guardian_name" />
+
+            <LinearLayout
+                android:id="@+id/ll_additional_contacts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_side_info">
+
+                <com.example.eldercare.presentation.ui.custom.CustomEditText
+                    android:id="@+id/et_additional_contact_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:customHint="ex)01012345678"
+                    app:isPhoneNumber="true" />
+
+                <com.example.eldercare.presentation.ui.custom.CustomEditText
+                    android:id="@+id/et_additional_contact_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="gone"
+                    app:customHint="ex)01012345678"
+                    app:isPhoneNumber="true" />
+
+                <com.example.eldercare.presentation.ui.custom.CustomEditText
+                    android:id="@+id/et_additional_contact_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="gone"
+                    app:customHint="ex)01012345678"
+                    app:isPhoneNumber="true"/>
+
+                <com.example.eldercare.presentation.ui.custom.CustomEditText
+                    android:id="@+id/et_additional_contact_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="gone"
+                    app:customHint="ex)01012345678"
+                    app:isPhoneNumber="true" />
+
+                <com.example.eldercare.presentation.ui.custom.CustomEditText
+                    android:id="@+id/et_additional_contact_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="gone"
+                    app:customHint="ex)01012345678"
+                    app:isPhoneNumber="true" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_add_contact"
+                style="@style/Theme.ElderCare.Button.Capsule"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/Gray50"
+                android:paddingVertical="@dimen/padding_m"
+                android:singleLine="true"
+                android:text="추가하기"
+                android:textAppearance="@style/TextAppearance.SubTitle4"
+                android:textColor="@color/black"
+                app:icon="@drawable/ic_plus_24dp"
+                app:iconGravity="textStart"
+                app:iconPadding="@dimen/spacing1"
+                app:iconTint="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ll_additional_contacts" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_bottom_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#CCFFFFFF"
+        android:paddingVertical="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_info_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_add_success_previous"
+            style="@style/Theme.ElderCare.Button.Capsule"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:backgroundTint="@color/white"
+            android:paddingVertical="@dimen/padding_m"
+            android:singleLine="true"
+            android:text="이전으로"
+            android:textAppearance="@style/TextAppearance.SubTitle5"
+            android:textColor="@color/primary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/gl_info_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="@color/primary"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_add_success_next"
+            style="@style/Theme.ElderCare.Button.L"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:backgroundTint="@color/primary"
+            android:paddingVertical="@dimen/padding_m"
+            android:singleLine="true"
+            android:text="@string/input_name_next_btn"
+            android:textAppearance="@style/TextAppearance.SubTitle5"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/gl_info_vertical" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

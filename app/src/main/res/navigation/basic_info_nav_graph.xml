@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/guardianNameFragment">
+
+
+    <!-- 1. 보호자의 이름 -->
+    <fragment
+        android:id="@+id/guardianNameFragment"
+        android:name="com.example.eldercare.presentation.ui.basicInfo.guardian.GuardianNameFragment"
+        android:label="보호자의 이름"
+        tools:layout="@layout/fragment_info_guardian_name">
+        <action
+            android:id="@+id/action_guardianName_to_guardianPhone"
+            app:destination="@id/guardianPhoneFragment"/>
+    </fragment>
+
+    <!-- 2. 보호자의 전화번호 -->
+    <fragment
+        android:id="@+id/guardianPhoneFragment"
+        android:name="com.example.eldercare.presentation.ui.basicInfo.guardian.GuardianPhoneFragment"
+        android:label="보호자의 전화번호">
+        <action
+            android:id="@+id/action_guardianPhone_to_guardianRelationship"
+            app:destination="@id/guardianRelationshipFragment"/>
+    </fragment>
+
+    <!-- 3. 보호자의 관계 -->
+    <fragment
+        android:id="@+id/guardianRelationshipFragment"
+        android:name="com.example.eldercare.presentation.ui.basicInfo.guardian.GuardianRelationshipFragment"
+        android:label="보호자의 관계">
+        <action
+            android:id="@+id/action_guardianRelationship_to_guardianPhoto"
+            app:destination="@id/guardianPhotoFragment"/>
+    </fragment>
+
+    <!-- 4. 보호자의 사진 -->
+    <fragment
+        android:id="@+id/guardianPhotoFragment"
+        android:name="com.example.eldercare.presentation.ui.basicInfo.guardian.GuardianPhotoFragment"
+        android:label="보호자의 사진">
+        <action
+            android:id="@+id/action_guardianPhoto_to_protectedName"
+            app:destination="@id/protectedNameFragment"/>
+    </fragment>
+
+    <!-- 5. 보호 대상자의 이름 -->
+    <fragment
+        android:id="@+id/protectedNameFragment"
+        android:name="com.example.eldercare.presentation.ui.basicInfo.protectedPerson.ProtectedNameFragment"
+        android:label="보호 대상자의 이름">
+        <action
+            android:id="@+id/action_protectedName_to_protectedBirth"
+            app:destination="@id/protectedBirthFragment"/>
+    </fragment>
+
+    <!-- 6. 보호 대상자의 생년월일 -->
+    <fragment
+        android:id="@+id/protectedBirthFragment"
+        android:name="com.example.eldercare.presentation.ui.basicInfo.protectedPerson.ProtectedBirthFragment"
+        android:label="보호 대상자의 생년월일">
+        <action
+            android:id="@+id/action_protectedBirth_to_protectedNickname"
+            app:destination="@id/protectedNicknameFragment"/>
+    </fragment>
+
+    <!-- 7. 보호 대상자의 닉네임 -->
+    <fragment
+        android:id="@+id/protectedNicknameFragment"
+        android:name="com.example.eldercare.presentation.ui.basicInfo.protectedPerson.ProtectedNicknameFragment"
+        android:label="보호 대상자의 닉네임">
+        <action
+            android:id="@+id/action_protectedNickname_to_protectedPhone"
+            app:destination="@id/protectedPhoneFragment"/>
+    </fragment>
+
+    <!-- 8. 보호 대상자의 전화번호 -->
+    <fragment
+        android:id="@+id/protectedPhoneFragment"
+        android:name="com.example.eldercare.presentation.ui.basicInfo.protectedPerson.ProtectedPhoneFragment"
+        android:label="보호 대상자의 전화번호">
+        <action
+            android:id="@+id/action_protectedPhone_to_protectedAddress"
+            app:destination="@id/protectedAddressFragment"/>
+    </fragment>
+
+    <!-- 9. 보호 대상자의 주소 -->
+    <fragment
+        android:id="@+id/protectedAddressFragment"
+        android:name="com.example.eldercare.presentation.ui.basicInfo.protectedPerson.ProtectedAddressFragment"
+        android:label="보호 대상자의 주소">
+        <action
+            android:id="@+id/action_protectedAddress_to_protectedEmergencyContact"
+            app:destination="@id/protectedEmergencyContactFragment"/>
+    </fragment>
+
+    <!-- 10. 보호 대상자의 비상연락처 -->
+    <fragment
+        android:id="@+id/protectedEmergencyContactFragment"
+        android:name="com.example.eldercare.presentation.ui.basicInfo.protectedPerson.ProtectedEmergencyContactFragment"
+        android:label="보호 대상자의 비상연락처" />
+</navigation>
