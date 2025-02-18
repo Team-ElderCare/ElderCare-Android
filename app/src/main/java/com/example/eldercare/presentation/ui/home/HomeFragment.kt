@@ -10,7 +10,6 @@ import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentHomeBinding
 import com.example.eldercare.presentation.ui.alarm.SetAlarmActivity
 import com.example.eldercare.presentation.ui.home.adapter.DrugAlarmRVAdapter
-import com.example.eldercare.presentation.ui.home.adapter.UserRecentActivityRVAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,7 +19,6 @@ class HomeFragment :
     ) {
     override val viewModel: HomeViewModel by viewModels()
     private val adapter by lazy { DrugAlarmRVAdapter() }
-    private val recentActivityAdapter by lazy { UserRecentActivityRVAdapter() }
 
     override fun onViewCreated(
         view: View,
@@ -28,6 +26,10 @@ class HomeFragment :
     ) {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
+            binding.viewRecentActivity.drugSensed.layout
+                .setBackgroundResource(R.drawable.rectangle_yellow_with_stroke)
+            binding.viewRecentActivity.sensed.layout
+                .setBackgroundResource(R.drawable.rectangle_white_radius_16_without_stroke)
             binding.viewDrugAlarm.drugAlarmRecyclerview.adapter = adapter
 
             viewDrugAlarm.btnAddAlarm.setOnClickListener {

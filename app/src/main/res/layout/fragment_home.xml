@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:fillViewport="true"
     android:scrollbars="none"
-    android:padding="@dimen/spacing4"
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,15 +34,18 @@
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toTopOf="parent" />
 
-    <include
-        android:id="@+id/view_recent_activity"
-        app:layout_constraintTop_toBottomOf="@id/imageView"
-        layout="@layout/view_recent_activity"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
+            <include
+                android:layout_marginTop="@dimen/spacing3"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                android:id="@+id/view_recent_activity"
+                layout="@layout/view_recent_activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
 
         <com.example.eldercare.util.component.button.ElderCareButton
             android:clickable="true"
@@ -73,15 +75,17 @@
             app:layout_constraintStart_toEndOf="@id/btn_register_probationer"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <include
-        android:id="@+id/view_drug_alarm"
-        android:layout_marginHorizontal="@dimen/spacing4"
-        android:layout_marginTop="@dimen/spacing6"
-        app:layout_constraintTop_toBottomOf="@id/btn_register_health_info"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        layout="@layout/view_drug_alarm"/>
+        <include
+            android:id="@+id/view_drug_alarm"
+            layout="@layout/view_drug_alarm"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/spacing4"
+            android:layout_marginTop="@dimen/spacing6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_register_health_info" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
