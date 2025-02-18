@@ -52,7 +52,7 @@ class HomeFragment :
                 .setBackgroundResource(R.drawable.rectangle_white_radius_16_without_stroke)
             binding.viewDrugAlarm.drugAlarmRecyclerview.adapter = adapter
 
-            viewDrugAlarm.btnAddAlarm.setOnClickListener {
+            viewDrugAlarm.addAlarm.layoutAddAlarm.setOnClickListener {
                 val intent = Intent(context, SetAlarmActivity::class.java)
                 startActivity(intent)
             }
