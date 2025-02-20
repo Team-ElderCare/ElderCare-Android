@@ -28,16 +28,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_info_guardian_name" />
 
-    <com.example.eldercare.presentation.ui.custom.CustomEditText
-        android:id="@+id/et_primary"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_primary_info"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/height_xl"
         android:layout_marginTop="24dp"
-        android:layout_marginBottom="8dp"
-        app:customHint="지번, 도로명, 건물명으로 검색"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/shape_for_edit_text"
+        android:paddingStart="@dimen/padding_l"
+        android:paddingEnd="@dimen/padding_l"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_side_info" />
+        app:layout_constraintTop_toBottomOf="@id/tv_side_info">
+
+        <TextView
+            android:id="@+id/et_input_field"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:autofillHints=""
+            android:background="@null"
+            android:imeOptions="actionDone"
+            android:scrollHorizontally="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:clickable="false"
+            android:singleLine="true"
+            android:textAppearance="@style/TextAppearance.Body2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_info_vertical"
