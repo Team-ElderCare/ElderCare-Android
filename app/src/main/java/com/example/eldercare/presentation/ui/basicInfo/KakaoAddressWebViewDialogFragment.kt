@@ -13,46 +13,45 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.fragment.app.DialogFragment
 import com.example.eldercare.R
+import com.example.eldercare.databinding.FragmentKakaoAddressWebviewBinding
 
 class KakaoAddressWebViewDialogFragment : DialogFragment() {
+    private var _binding: FragmentKakaoAddressWebviewBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NO_TITLE, R.style.FullScreenDialog)
     }
 
-    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.fragment_kakao_address_webview, container, false)
-        val webView = view.findViewById<WebView>(R.id.webView)
+        _binding = FragmentKakaoAddressWebviewBinding.inflate(inflater, container, false)
+        setupWebView()
+        return binding.root
+    }
 
-        webView.settings.apply {
+    @SuppressLint("SetJavaScriptEnabled")
+    private fun setupWebView() = with(binding.webView) {
+        settings.apply {
             javaScriptEnabled = true
             domStorageEnabled = true
             allowUniversalAccessFromFileURLs = true
         }
-
-        webView.webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+        webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(
+                view: WebView?,
+                request: WebResourceRequest?
+            ): Boolean {
                 val url = request?.url.toString()
-                return if (url.startsWith("file:///android_asset/")) {
-                    false
-                } else {
-                    true
-                }
+                return !url.startsWith("file:///android_asset/")
             }
         }
-
-
-        webView.addJavascriptInterface(WebAppInterface(), "Android")
-
-        webView.loadUrl("file:///android_asset/kakao_postcode.html")
-
-        return view
+        addJavascriptInterface(WebAppInterface(), "Android")
+        loadUrl("file:///android_asset/kakao_postcode.html")
     }
 
     override fun onStart() {
@@ -61,6 +60,11 @@ class KakaoAddressWebViewDialogFragment : DialogFragment() {
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.MATCH_PARENT
         )
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     inner class WebAppInterface {
