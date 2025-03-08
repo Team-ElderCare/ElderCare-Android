@@ -108,22 +108,26 @@ class CustomEditText
             }
         }
 
-        private fun checkPhoneFormat(hasFocus: Boolean) {
-            val input = getText()
+    private fun checkPhoneFormat(hasFocus: Boolean) {
+        val input = getText()
 
-            if (!hasFocus && input.all { it.isDigit() } && input.length == 11) {
-                val formatted = formatPhoneNumber(input)
-                if (formatted != input) {
-                    binding.etInputField.setText(formatted)
-                    isFormatted = true
-                }
-            } else if (hasFocus && isFormatted) {
-                binding.etInputField.setText(input.replace("-", ""))
-                isFormatted = false
+        if (!hasFocus && input.all { it.isDigit() } && input.length == 11) {
+            val formatted = formatPhoneNumber(input)
+            if (formatted != input) {
+                binding.etInputField.setText(formatted)
+                binding.etInputField.setSelection(formatted.length)
+                isFormatted = true
             }
+        } else if (hasFocus && isFormatted) {
+            val unformatted = input.replace("-", "")
+            binding.etInputField.setText(unformatted)
+            binding.etInputField.setSelection(unformatted.length)
+            isFormatted = false
         }
+    }
 
-        private fun formatPhoneNumber(number: String): String =
+
+    private fun formatPhoneNumber(number: String): String =
             if (number.length == 11) {
                 "${number.substring(0, 3)}-${number.substring(3, 7)}-${number.substring(7)}"
             } else {
@@ -210,6 +214,7 @@ class CustomEditText
 
         fun setText(text: String) {
             binding.etInputField.setText(text)
+            binding.etInputField.setSelection(text.length)
             clearError()
         }
 
