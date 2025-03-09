@@ -31,11 +31,6 @@ class ProtectedAddressFragment : BaseFragment<FragmentInfoProtectedPersonAddress
         getEditTextInput()
         setupOnClickListener()
         observeAddressResult()
-
-        // ConstraintLayout (클릭 가능한 영역) 클릭 시 카카오 주소 검색 다이얼로그 띄우기
-        binding.clPrimaryInfo.setOnClickListener {
-            openKakaoAddressSearch()
-        }
     }
 
     private fun getEditTextInput() {
@@ -51,7 +46,6 @@ class ProtectedAddressFragment : BaseFragment<FragmentInfoProtectedPersonAddress
         }
     }
 
-
     private fun setupOnClickListener() {
         binding.btnAddSuccessNext.setOnClickListener {
             val input = binding.tvPrimary.text.toString()
@@ -62,9 +56,10 @@ class ProtectedAddressFragment : BaseFragment<FragmentInfoProtectedPersonAddress
         binding.btnAddSuccessPrevious.setOnClickListener {
             findNavController().popBackStack()
         }
+        binding.clPrimaryInfo.setOnClickListener {
+            openKakaoAddressSearch()
+        }
     }
-
-
 
     private fun updateButtonState(isValid: Boolean) {
         binding.btnAddSuccessNext.isEnabled = isValid
