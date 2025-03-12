@@ -20,6 +20,7 @@
         android:id="@+id/tv_add_hub_guide_second_guide_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/ic_install_hub_guide_1"
         android:contentDescription="@string/add_hub_guide_image_content_description"
         android:layout_marginTop="78dp"
         android:layout_marginHorizontal="44dp"
