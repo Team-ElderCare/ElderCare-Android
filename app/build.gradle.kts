@@ -62,6 +62,9 @@ android {
 }
 
 dependencies {
+    // tool tip
+    implementation(libs.balloon)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

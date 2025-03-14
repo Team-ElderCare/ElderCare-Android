@@ -2,13 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="10dp"
     android:background="@drawable/background_activity"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/spacing3"
+    android:paddingBottom="@dimen/spacing4"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="아빠의 "
@@ -18,17 +19,18 @@
         app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <TextView
+        android:layout_marginTop="@dimen/spacing5"
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:text="최근 활동"
         android:textAppearance="@style/TextAppearance.Title4"
-        android:textSize="22sp"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/tv_user_name"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageButton
+        android:id="@+id/btn_tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -39,19 +41,153 @@
         app:layout_constraintTop_toTopOf="@+id/textView2" />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_activity"
+    <TextView
+        android:id="@+id/textView17"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing3"
-        android:layout_marginBottom="@dimen/spacing5"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:gravity="center"
+        android:text="최근 감지된 활동이 없습니다"
+        android:textAppearance="@style/TextAppearance.SubTitle3"
+        android:textColor="@color/Gray500"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:itemCount="3"
-        tools:listitem="@layout/item_danger" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/iv_no_sensed_circle"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/ic_red_circle_16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_name" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="감지X"
+        android:layout_marginTop="@dimen/spacing1"
+        android:textAppearance="@style/TextAppearance.Caption2"
+        app:layout_constraintEnd_toEndOf="@+id/iv_no_sensed_circle"
+        app:layout_constraintStart_toStartOf="@+id/iv_no_sensed_circle"
+        app:layout_constraintTop_toBottomOf="@+id/iv_no_sensed_circle" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="1dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/spacing2"
+        android:background="@color/Gray200"
+        app:layout_constraintEnd_toEndOf="@+id/textView16"
+        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+
+    <ImageView
+        android:id="@+id/drug_sensed_circle"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/ic_yellow_circle_16dp"
+        android:layout_marginTop="@dimen/spacing2"
+        app:layout_constraintEnd_toEndOf="@+id/iv_no_sensed_circle"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/textview17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="약장\n감지"
+        android:layout_marginTop="@dimen/spacing1"
+        android:textAppearance="@style/TextAppearance.Caption2"
+        app:layout_constraintEnd_toEndOf="@+id/drug_sensed_circle"
+        app:layout_constraintStart_toStartOf="@+id/drug_sensed_circle"
+        app:layout_constraintTop_toBottomOf="@+id/drug_sensed_circle" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="1dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/spacing2"
+        android:background="@color/Gray200"
+        app:layout_constraintEnd_toEndOf="@+id/textview17"
+        app:layout_constraintStart_toStartOf="@+id/textview17"
+        app:layout_constraintTop_toBottomOf="@+id/textview17" />
+
+
+    <ImageView
+        android:id="@+id/iv_sensed_circle"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="@dimen/spacing2"
+        android:src="@drawable/ic_green_circle_16dp"
+        app:layout_constraintEnd_toEndOf="@+id/drug_sensed_circle"
+        app:layout_constraintStart_toStartOf="@+id/drug_sensed_circle"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <TextView
+        android:id="@+id/textview18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="감지"
+        android:layout_marginTop="@dimen/spacing1"
+        android:textAppearance="@style/TextAppearance.Caption2"
+        app:layout_constraintEnd_toEndOf="@+id/iv_sensed_circle"
+        app:layout_constraintStart_toStartOf="@+id/iv_sensed_circle"
+        app:layout_constraintTop_toBottomOf="@+id/iv_sensed_circle" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="1dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/spacing2"
+        android:background="@color/Gray200"
+        app:layout_constraintEnd_toEndOf="@+id/textview18"
+        app:layout_constraintStart_toStartOf="@+id/textview18"
+        app:layout_constraintTop_toBottomOf="@+id/textview18" />
+
+    <include
+        android:layout_marginStart="@dimen/spacing3"
+        android:layout_marginTop="30dp"
+        android:id="@+id/no_sensed"
+        app:layout_constraintStart_toEndOf="@+id/iv_no_sensed_circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_tip"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.8"
+        android:layout_height="wrap_content"
+        layout="@layout/item_danger"/>
+
+
+    <include
+        android:layout_marginStart="@dimen/spacing3"
+        android:id="@+id/drug_sensed"
+        app:layout_constraintTop_toTopOf="@id/drug_sensed_circle"
+        app:layout_constraintStart_toEndOf="@+id/drug_sensed_circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.8"
+        android:layout_height="wrap_content"
+        layout="@layout/item_danger"/>
+
+
+    <include
+        android:layout_marginStart="@dimen/spacing3"
+        android:id="@+id/sensed"
+        app:layout_constraintTop_toTopOf="@id/iv_sensed_circle"
+        app:layout_constraintStart_toEndOf="@+id/drug_sensed_circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.8"
+        android:layout_height="wrap_content"
+        layout="@layout/item_danger"/>
+
+
 
     <TextView
         android:id="@+id/tv_no_activity"
