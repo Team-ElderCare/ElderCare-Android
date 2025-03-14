@@ -63,19 +63,20 @@ class ProtectedAddressFragment : BaseFragment<FragmentInfoProtectedPersonAddress
 
     private fun updateButtonState(isValid: Boolean) {
         binding.btnAddSuccessNext.isEnabled = isValid
-        val color = if (isValid) {
-            ContextCompat.getColor(requireContext(), R.color.primary)
-        } else {
-            ContextCompat.getColor(requireContext(), R.color.Gray200)
-        }
+        val color =
+            if (isValid) {
+                ContextCompat.getColor(requireContext(), R.color.primary)
+            } else {
+                ContextCompat.getColor(requireContext(), R.color.Gray200)
+            }
         binding.btnAddSuccessNext.backgroundTintList = ColorStateList.valueOf(color)
     }
 
     private fun openKakaoAddressSearch() {
         lifecycleScope.launch {
-                viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                    KakaoAddressWebViewDialogFragment().show(childFragmentManager, "KakaoAddressDialog")
-                }
+            viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                KakaoAddressWebViewDialogFragment().show(childFragmentManager, "KakaoAddressDialog")
+            }
         }
     }
 

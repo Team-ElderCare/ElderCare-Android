@@ -16,7 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <com.example.eldercare.presentation.ui.custom.CustomEditText
         android:id="@+id/et_primary"
         android:layout_width="match_parent"

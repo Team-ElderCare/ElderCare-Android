@@ -27,7 +27,7 @@ class KakaoAddressWebViewDialogFragment : DialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentKakaoAddressWebviewBinding.inflate(inflater, container, false)
         setupWebView()
@@ -35,30 +35,32 @@ class KakaoAddressWebViewDialogFragment : DialogFragment() {
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    private fun setupWebView() = with(binding.webView) {
-        settings.apply {
-            javaScriptEnabled = true
-            domStorageEnabled = true
-            allowUniversalAccessFromFileURLs = true
-        }
-        webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(
-                view: WebView?,
-                request: WebResourceRequest?
-            ): Boolean {
-                val url = request?.url.toString()
-                return !url.startsWith("file:///android_asset/")
+    private fun setupWebView() =
+        with(binding.webView) {
+            settings.apply {
+                javaScriptEnabled = true
+                domStorageEnabled = true
+                allowUniversalAccessFromFileURLs = true
             }
+            webViewClient =
+                object : WebViewClient() {
+                    override fun shouldOverrideUrlLoading(
+                        view: WebView?,
+                        request: WebResourceRequest?,
+                    ): Boolean {
+                        val url = request?.url.toString()
+                        return !url.startsWith("file:///android_asset/")
+                    }
+                }
+            addJavascriptInterface(WebAppInterface(), "Android")
+            loadUrl("file:///android_asset/kakao_postcode.html")
         }
-        addJavascriptInterface(WebAppInterface(), "Android")
-        loadUrl("file:///android_asset/kakao_postcode.html")
-    }
 
     override fun onStart() {
         super.onStart()
         dialog?.window?.setLayout(
             ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.MATCH_PARENT
+            ViewGroup.LayoutParams.MATCH_PARENT,
         )
     }
 
