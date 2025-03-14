@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_gravity="center"
-    android:padding="@dimen/spacing4"
+    android:padding="@dimen/spacing10"
     android:background="@drawable/rectable_gray_50"
+    android:layout_marginBottom="37dp"
     android:layout_height="wrap_content">
 
     <TextView

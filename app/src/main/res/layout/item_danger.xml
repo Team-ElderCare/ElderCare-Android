@@ -3,9 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_margin="@dimen/spacing3"
+    android:layout_marginHorizontal="@dimen/spacing3"
     android:background="@drawable/rectangle_red_with_stroke"
     android:padding="@dimen/spacing4"
+    android:id="@+id/layout"
+    android:layout_marginBottom="17dp"
     android:layout_height="wrap_content">
 
     <TextView
@@ -21,7 +23,7 @@
 
     <TextView
         android:id="@+id/btn_content"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="약장"
         android:textAppearance="@style/TextAppearance.Title6"
@@ -29,6 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_time" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
