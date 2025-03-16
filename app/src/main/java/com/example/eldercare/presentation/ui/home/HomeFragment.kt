@@ -9,6 +9,7 @@ import com.example.eldercare.R
 import com.example.eldercare.base.fragment.BaseFragment
 import com.example.eldercare.databinding.FragmentHomeBinding
 import com.example.eldercare.presentation.ui.alarm.SetAlarmActivity
+import com.example.eldercare.presentation.ui.basicInfo.BasicInfoActivity
 import com.example.eldercare.presentation.ui.home.adapter.DrugAlarmRVAdapter
 import com.skydoves.balloon.BalloonSizeSpec
 import com.skydoves.balloon.createBalloon
@@ -59,6 +60,8 @@ class HomeFragment :
 
             btnRegisterProbationer.setOnClickListener {
                 it.isPressed = !it.isPressed
+                val intent = Intent(context, BasicInfoActivity::class.java)
+                startActivity(intent)
             }
 
             btnRegisterHealthInfo.setOnClickListener {

@@ -1,11 +1,9 @@
 package com.example.eldercare.presentation.ui.basicInfo
 
-import android.graphics.Rect
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
+import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.navigation.NavController
 import com.example.eldercare.base.activity.BaseActivity
@@ -23,17 +21,9 @@ class BasicInfoActivity : BaseActivity<ActivityBasicInfoBinding, BasicInfoViewMo
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         if (ev?.action == MotionEvent.ACTION_DOWN) {
             val touchedView = getTouchedView(ev.rawX.toInt(), ev.rawY.toInt())
-            if (touchedView !is Button) {
-                currentFocus?.let { focusedView ->
-                    if (focusedView is EditText) {
-                        val outRect = Rect()
-                        focusedView.getGlobalVisibleRect(outRect)
-                        if (!outRect.contains(ev.rawX.toInt(), ev.rawY.toInt())) {
-                            focusedView.clearFocus()
-                            hideKeyboard(focusedView)
-                        }
-                    }
-                }
+            if (touchedView !is ImageView) {
+                currentFocus?.clearFocus()
+                hideKeyboard(currentFocus ?: this.window.decorView)
             }
         }
         return super.dispatchTouchEvent(ev)

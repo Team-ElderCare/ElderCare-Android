@@ -17,6 +17,15 @@
     <string name="chip_front_door">현관문</string>
     <string name="chip_enter_manually">직접 입력하기</string>
 
+    <!-- chip relationship -->
+    <string name="chip_parent">부모</string>
+    <string name="chip_child">자식</string>
+    <string name="chip_sibling">형제</string>
+    <string name="chip_cousin">사촌</string>
+    <string name="chip_friend">친구</string>
+    <string name="chip_caregiver">간병인</string>
+    <string name="chip_other">기타</string>
+
     <!-- device manage -->
     <string name="device_manage_item_image_content_description">설치 장소 |</string>
     <string name="device_manage_place_location">설치 장소 |</string>
@@ -70,7 +79,7 @@
     <string name="ward_emergency_side_info"><![CDATA[보호 대상자가 연락을 받지 않으면 연결되는 <font color="#F44336">2차 연락망</font>으로 사용해요.
     <font color="#F44336">5개</font>까지 등록할 수 있으니 꼭 등록해주세요!]]></string>
 
-    <string name="ward_address_side_info"><![CDATA[<font color="#575757">위기상황이 발생하면 등록된 주소를 통해 근처 응급실에 빠르게 신고를 할 수 있어요</font>]]></string>
+    <string name="ward_address_side_info">위기상황이 발생하면 등록된 주소를 통해 근처 응급실에 빠르게 신고를 할 수 있어요</string>
 
     <!-- component -->
     <string name="no_button_dialog_image_desc">버튼 없는 다이얼로그 아이콘</string>
@@ -118,5 +127,19 @@
     <string name="add_hub_guide_last_title">위험한 일이 생겼다면?</string>
     <string name="add_hub_guide_last_desc">보호대상자에게 비상 버튼을 누르라고 꼭 알려주세요!</string>
     <string name="find_connectable_wifi">연결할 수 있는 와이파이를 찾고 있는 중입니다.</string>
+
+    <!-- basic info -->
+    <string name="info_guardian_name_title">이름을 입력해주세요.</string>
+    <string name="info_guardian_phone_title">전화번호를 입력해주세요.</string>
+    <string name="info_guardian_photo_title">보호자님의 사진을\n등록해주세요.</string>
+    <string name="info_guardian_photo_image_apply_btn_info">사진 등록</string>
+    <string name="info_guardian_photo_user_profile_description">사용자의 프로필 이미지입니다.</string>
+    <string name="info_guardian_relationship_title">보호 대상자와의 관계를\n선택해주세요.</string>
+    <string name="protected_person_address_title">보호대상자의\n주소를 입력해주세요.</string>
+    <string name="info_protected_person_name_title">보호대상자의 이름을\n입력해주세요.</string>
+    <string name="info_protected_person_nickname_title">보호대상자의\n닉네임을 입력해주세요.</string>
+    <string name="info_protected_person_phone_title">보호대상자의\n전화번호를 입력해주세요.</string>
+    <string name="info_protected_person_birth_title">보호대상자의\n생년월일을 입력해주세요.</string>
+    <string name="info_protected_person_address_search_btn_description">검색 버튼 이미지입니다.</string>
 </resources>
 

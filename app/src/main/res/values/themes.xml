@@ -287,4 +287,12 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>
+
+    <!-- KaKao Address WebView Dialog -->
+    <style name="FullScreenDialog" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
 </resources>

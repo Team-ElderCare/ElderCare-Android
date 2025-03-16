@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="16dp">
+    android:paddingHorizontal="@dimen/padding_m">
 
     <TextView
         android:id="@+id/tv_info_guardian_relationship"
@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="보호 대상자와의 관계를\n선택해주세요."
+        android:text="@string/info_guardian_relationship_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,56 +25,56 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_info_guardian_relationship"
-        app:singleSelection="true" >
+        app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_parent"
             style="@style/Theme.ElderCare.Chip.S.RelationShip.Fill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="부모" />
+            android:text="@string/chip_parent" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_child"
             style="@style/Theme.ElderCare.Chip.S.RelationShip.Fill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="자식" />
+            android:text="@string/chip_child" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_sibling"
             style="@style/Theme.ElderCare.Chip.S.RelationShip.Fill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="형제" />
+            android:text="@string/chip_sibling" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_cousin"
             style="@style/Theme.ElderCare.Chip.S.RelationShip.Fill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="사촌" />
+            android:text="@string/chip_cousin" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_friend"
             style="@style/Theme.ElderCare.Chip.S.RelationShip.Fill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="친구" />
+            android:text="@string/chip_friend" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_caregiver"
             style="@style/Theme.ElderCare.Chip.S.RelationShip.Fill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="간병인" />
+            android:text="@string/chip_caregiver" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_other"
             style="@style/Theme.ElderCare.Chip.S.RelationShip.Fill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="기타" />
+            android:text="@string/chip_other" />
 
     </com.google.android.material.chip.ChipGroup>
 
@@ -91,13 +91,13 @@
         style="@style/Theme.ElderCare.Button.Capsule"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing4"
+        android:layout_marginStart="@dimen/margin_m"
         android:layout_marginEnd="6dp"
-        android:layout_marginBottom="@dimen/spacing4"
+        android:layout_marginBottom="@dimen/margin_m"
         android:backgroundTint="@color/white"
         android:paddingVertical="@dimen/padding_m"
         android:singleLine="true"
-        android:text="@string/input_name_previous_btn"
+        android:text="@string/button_text_previous"
         android:textAppearance="@style/TextAppearance.SubTitle5"
         android:textColor="@color/primary"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -112,12 +112,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:layout_marginEnd="@dimen/spacing4"
-        android:layout_marginBottom="@dimen/spacing4"
+        android:layout_marginEnd="@dimen/margin_m"
+        android:layout_marginBottom="@dimen/margin_m"
         android:backgroundTint="@color/primary"
         android:paddingVertical="@dimen/padding_m"
         android:singleLine="true"
-        android:text="@string/input_name_next_btn"
+        android:text="@string/button_text_next"
         android:textAppearance="@style/TextAppearance.SubTitle5"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

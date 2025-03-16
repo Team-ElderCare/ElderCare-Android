@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="16dp">
+    android:paddingHorizontal="@dimen/padding_m">
 
     <TextView
         android:id="@+id/tv_info_guardian_name"
@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="보호대상자의\n주소를 입력해주세요."
+        android:text="@string/protected_person_address_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,16 +28,51 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_info_guardian_name" />
 
-    <com.example.eldercare.presentation.ui.custom.CustomEditText
-        android:id="@+id/et_primary"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_primary_info"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="8dp"
-        app:customHint="지번, 도로명, 건물명으로 검색"
+        android:layout_height="@dimen/height_xl"
+        android:layout_marginTop="@dimen/margin_l"
+        android:background="@drawable/shape_for_edit_text"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingStart="@dimen/padding_l"
+        android:paddingEnd="@dimen/padding_l"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_side_info" />
+        app:layout_constraintTop_toBottomOf="@id/tv_side_info">
+
+        <TextView
+            android:id="@+id/tv_primary"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autofillHints=""
+            android:background="@null"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="center_vertical"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textAppearance="@style/TextAppearance.Body2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_search"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="28dp"
+            android:layout_height="@dimen/height_s"
+            android:contentDescription="@string/info_protected_person_address_search_btn_description"
+            android:padding="4dp"
+            android:src="@drawable/ic_search_24x25dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_info_vertical"
@@ -51,15 +86,15 @@
         style="@style/Theme.ElderCare.Button.Capsule"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_m"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="@dimen/margin_m"
         android:backgroundTint="@color/white"
-        android:text="@string/input_name_previous_btn"
+        android:paddingVertical="@dimen/padding_m"
+        android:singleLine="true"
+        android:text="@string/button_text_previous"
         android:textAppearance="@style/TextAppearance.SubTitle5"
         android:textColor="@color/primary"
-        android:singleLine="true"
-        android:paddingVertical="@dimen/padding_m"
-        android:layout_marginStart="@dimen/spacing4"
-        android:layout_marginEnd="6dp"
-        android:layout_marginBottom="@dimen/spacing4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/gl_info_vertical"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,15 +106,15 @@
         style="@style/Theme.ElderCare.Button.L"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="@dimen/margin_m"
+        android:layout_marginBottom="@dimen/margin_m"
         android:backgroundTint="@color/primary"
-        android:text="@string/input_name_next_btn"
+        android:paddingVertical="@dimen/padding_m"
+        android:singleLine="true"
+        android:text="@string/button_text_next"
         android:textAppearance="@style/TextAppearance.SubTitle5"
         android:textColor="@color/white"
-        android:singleLine="true"
-        android:paddingVertical="@dimen/padding_m"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="@dimen/spacing4"
-        android:layout_marginBottom="@dimen/spacing4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/gl_info_vertical" />

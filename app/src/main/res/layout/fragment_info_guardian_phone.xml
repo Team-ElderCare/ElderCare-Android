@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="16dp">
+    android:paddingHorizontal="@dimen/padding_m">
 
     <TextView
         android:id="@+id/tv_info_guardian_phone"
@@ -11,20 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="전화번호를 입력해주세요."
+        android:text="@string/info_guardian_phone_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <com.example.eldercare.presentation.ui.custom.CustomEditText
         android:id="@+id/et_primary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="8dp"
-        app:isPhoneNumber="true"
+        android:layout_marginTop="@dimen/margin_l"
+        android:layout_marginBottom="@dimen/margin_s"
         app:customHint="ex)01012345678"
+        app:isPhoneNumber="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_info_guardian_phone" />
@@ -41,13 +40,13 @@
         style="@style/Theme.ElderCare.Button.Capsule"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing4"
+        android:layout_marginStart="@dimen/margin_m"
         android:layout_marginEnd="6dp"
-        android:layout_marginBottom="@dimen/spacing4"
+        android:layout_marginBottom="@dimen/margin_m"
         android:backgroundTint="@color/white"
         android:paddingVertical="@dimen/padding_m"
         android:singleLine="true"
-        android:text="@string/input_name_previous_btn"
+        android:text="@string/button_text_previous"
         android:textAppearance="@style/TextAppearance.SubTitle5"
         android:textColor="@color/primary"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -62,12 +61,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:layout_marginEnd="@dimen/spacing4"
-        android:layout_marginBottom="@dimen/spacing4"
+        android:layout_marginEnd="@dimen/margin_m"
+        android:layout_marginBottom="@dimen/margin_m"
         android:backgroundTint="@color/primary"
         android:paddingVertical="@dimen/padding_m"
         android:singleLine="true"
-        android:text="@string/input_name_next_btn"
+        android:text="@string/button_text_next"
         android:textAppearance="@style/TextAppearance.SubTitle5"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
