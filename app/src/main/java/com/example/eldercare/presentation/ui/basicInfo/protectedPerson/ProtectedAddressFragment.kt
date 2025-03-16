@@ -74,7 +74,7 @@ class ProtectedAddressFragment : BaseFragment<FragmentInfoProtectedPersonAddress
 
     private fun openKakaoAddressSearch() {
         lifecycleScope.launch {
-            viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 KakaoAddressWebViewDialogFragment().show(childFragmentManager, "KakaoAddressDialog")
             }
         }
