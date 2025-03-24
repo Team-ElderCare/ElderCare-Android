@@ -20,8 +20,10 @@ class AddHubConnectBluetoothFragment : BaseFragment<FragmentAddHubBluetoothConne
 
     private fun addListener() {
         with(binding) {
-            // 임시
-            tvAddHubBluetoothConnectTitle.setOnClickListener {
+            btnAddHubBluetoothConnectPrevious.setOnClickListener {
+                findNavController().popBackStack()
+            }
+            btnAddHubBluetoothConnectNext.setOnClickListener {
                 navigateToAddHubConnectWifiFragment()
             }
         }
